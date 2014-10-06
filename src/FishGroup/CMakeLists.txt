@@ -1,1 +1,1 @@
-add_library(libFishGroup Fish.cpp)
+add_library(FishGroup Fish)

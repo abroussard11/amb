@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Fish.h"
 
 namespace FishGroup {
@@ -14,7 +15,7 @@ Fish::~Fish()
 
 void Fish::swim()
 {
-
+   std::cout << "Fish swims!" << std::endl;
 }
 
 } // End namespace Fish

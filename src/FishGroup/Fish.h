@@ -6,9 +6,11 @@ namespace FishGroup {
 class Fish {
 public:
    Fish();
-   virual ~Fish();
+   virtual ~Fish();
 
    void swim();
 };
 
 } // End namespace FishGroup
+
+#endif
