@@ -1,0 +1,2 @@
+add_subdirectory(FishGroup)
+add_subdirectory(Main)
