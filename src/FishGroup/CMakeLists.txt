@@ -1,0 +1,1 @@
+add_library(libFishGroup Fish.cpp)
