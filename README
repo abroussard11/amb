@@ -3,3 +3,37 @@ amb
 Update this eventually.
 
 You should update this... BynneB
+
+//TODO Make this a LaTeX document with pictures :)
+
+Get a working copy of your repository:
+   git clone https://github.com/abroussard11/amb.git
+
+Get a read-only copy of other repositories to use for merging into your own:
+   git remote add robyn https://github.com/BynneB/amb.git
+   git remote add katy https://github.com/shourPower/amb.git
+   git remote add auron https://github.com/AuSmith163/amb.git
+   git remote add anne https://github.com/agoldsmith11/amb.git
+   
+Get any updates from the remote branch:
+   git fetch robyn
+   git fetch katy
+   git fetch auron
+   git fetch anne
+   
+Merge in their updates into my current branch [HEAD]
+   git merge robyn/master
+   git merge katy/master
+   git merge auron/master
+   git merge anne/mater
+   (Or all 4 at once:
+      git merge robyn/master katy/master auron/master anne/master)
+
+Stage all changes in your branch to be included in the next commit
+   git add .
+
+Commit the changes
+   git commit -m "Added [new files] with [new capability]"
+
+Update your github repo with all your commits
+   git push origin master

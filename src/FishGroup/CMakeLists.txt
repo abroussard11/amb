@@ -1,1 +1,1 @@
-add_library(FishGroup Fish)
+add_library(FishGroup SHARED Fish)

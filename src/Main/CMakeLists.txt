@@ -1,3 +1,3 @@
-add_executable(project Main)
+add_executable(TheProject Main)
 
-target_link_libraries(project libFishGroup)
+target_link_libraries(TheProject FishGroup)
