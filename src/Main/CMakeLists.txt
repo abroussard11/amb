@@ -1,3 +1,7 @@
-add_executable(TheProject Main)
+#####################
+## Main CMake file  #
+#####################
 
-target_link_libraries(TheProject FishGroup)
+add_executable( TheProject Main.cpp )
+
+target_link_libraries( TheProject FishGroup )

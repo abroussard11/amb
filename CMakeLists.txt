@@ -1,7 +1,12 @@
-project(TheProject)
-cmake_minimum_required(VERSION 2.8.11.2)
+############################
+# Top level amb CMake file #
+############################
 
-include_directories("include")
+cmake_minimum_required( VERSION 2.8 )
+project( amb )
+
+include(CMakeVars.txt)
+
 include_directories("src")
 
-add_subdirectory(src)
+add_subdirectory( src )

@@ -2,7 +2,7 @@ This is where we build the project.
 
 Directions to build the project:
    cd bin/
-   cmake ../
+   cmake ..
    make
    
 Note: You should only have to run cmake ../ the first time. You only have to run "make" each time you
