@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+# Since we build every subdirectory into its own "shared library (the .so files),
+# that means that we don't have to compile those libraries into our executable. Rather
+# we can just let the executable refer to those libraries at runtime. Thus, the
+# libraries are not part of the executables compiled image, making it a smaller file.
+#
+# BUT,
+# that means that we have to link to those shared libraries at runtime. Since we didn't
+# build these libraries in the system default location (like /usr/lib/), then we have to
+# tell the linker WHERE to look for our libraries. We do that with this variable here.
+# The linker checks to see if this variable is defined in the shell environment.
+
+export LD_LIBRARY_PATH=$PWD/build/lib
+

@@ -37,3 +37,12 @@ Commit the changes
 
 Update your github repo with all your commits
    git push origin master
+
+#################################
+## Things Aaron wants to remember
+#################################
+	ldd ./build/AmbGames
+	file ./build/AmbGames
+	size ./build/AmbGames
+	nm -n ./build/lib/libMinigames-MadLib.so
+	objdump --disassemble -S ./build/lib/libMinigames-MadLib.so
