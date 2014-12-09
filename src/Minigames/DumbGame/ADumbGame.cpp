@@ -25,10 +25,9 @@ ADumbGame::~ADumbGame()
 void ADumbGame::play()
 {
    std::cout << "Not a very fun game" << std::endl;
-   std::cout << "Here's a better one:" << std::endl;
 
+   // This is just here to practice successfully linking one shared library in another
    MadLib::MadLibMinigame _game;
-   _game.play();
 }
 
 } /* namespace DumbGame */

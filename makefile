@@ -16,7 +16,6 @@ VPATH = $(AMB_BUILD_DIR):$(AMB_SRC_DIR)
 
 INCLUDE_DIRS = $(AMB_SRC_DIR)
 LINK_LIB_DIRS += $(AMB_LIB_DIR)
-#AMB_LINKER_FLAGS = -L$(LINK_LIB_DIRS) $(addprefix -l, $(LINK_LIBS)) $(addprefix -Wl, -rpath, $(PWD)/, $(LINK_LIB_DIRS))
 AMB_LINKER_FLAGS = $(addprefix -L, $(LINK_LIB_DIRS)) $(addprefix -l, $(LINK_LIBS)) 
 
 # CXXFLAGS is used is used whenever COMPILE.cpp is expanded. For our purposes,
