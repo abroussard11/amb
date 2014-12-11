@@ -8,10 +8,13 @@
 #ifndef SRC_MINIGAMES_DUMBGAME_ADUMBGAME_H_
 #define SRC_MINIGAMES_DUMBGAME_ADUMBGAME_H_
 
+#include <Minigames/Minigame.h>
+
 namespace Minigames {
 namespace DumbGame {
 
-class ADumbGame {
+class ADumbGame : public Minigame
+{
 public:
    ADumbGame();
    virtual ~ADumbGame();

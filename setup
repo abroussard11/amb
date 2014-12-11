@@ -12,4 +12,3 @@
 # The linker checks to see if this variable is defined in the shell environment.
 
 export LD_LIBRARY_PATH=$PWD/build/lib
-

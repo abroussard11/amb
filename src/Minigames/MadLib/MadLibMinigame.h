@@ -2,21 +2,24 @@
  * MadLibMinigame.h
  *
  *  Created on: Dec 6, 2014
- *      Author: aaron
+ *      Author: Aaron
  */
 
 #ifndef SRC_MINIGAMES_MADLIB_MADLIBMINIGAME_H_
 #define SRC_MINIGAMES_MADLIB_MADLIBMINIGAME_H_
 
+#include <Minigames/Minigame.h>
+
 namespace Minigames {
 namespace MadLib {
 
-class MadLibMinigame {
+class MadLibMinigame : public Minigame
+{
 public:
-	MadLibMinigame();
-	virtual ~MadLibMinigame();
+   MadLibMinigame();
+   virtual ~MadLibMinigame();
 
-	virtual void play();
+   virtual void play();
 };
 
 } /* namespace MadLib */

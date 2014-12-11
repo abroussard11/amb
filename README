@@ -1,6 +1,15 @@
 amb
 ===
-Update this eventually.
+
+BUILD INSTRUCTIONS:
+  In your shell use "make" to build the executable
+  
+  	make all
+  
+  To Run the program, type:
+  
+  	./build/AmbGames
+
 
 You should update this... BynneB
 
