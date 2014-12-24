@@ -22,12 +22,27 @@ ADumbGame::~ADumbGame()
    // Empty
 }
 
-void ADumbGame::play()
-{
-   std::cout << "Not a very fun game" << std::endl;
+//void ADumbGame::play()
+//{
+//   std::cout << "Not a very fun game" << std::endl;
+//
+//   // This is just here to practice successfully linking one shared library in another
+//   MadLib::MadLibMinigame _game;
+//}
 
-   // This is just here to practice successfully linking one shared library in another
-   MadLib::MadLibMinigame _game;
+void ADumbGame::processEvent(const sf::Event& event)
+{
+
+}
+
+void ADumbGame::update()
+{
+
+}
+
+sf::Drawable& ADumbGame::getDrawable()
+{
+   return _canvas.get();
 }
 
 } /* namespace DumbGame */

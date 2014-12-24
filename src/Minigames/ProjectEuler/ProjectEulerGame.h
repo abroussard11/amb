@@ -8,22 +8,27 @@
 #ifndef SRC_MINIGAMES_PROJECTEULER_PROJECTEULERGAME_H_
 #define SRC_MINIGAMES_PROJECTEULER_PROJECTEULERGAME_H_
 
-#include <Minigames/Minigame.h>
+#include <Infra/Minigame.h>
 #include <Minigames/ProjectEuler/ProblemLoader.h>
 
 namespace Minigames {
 namespace ProjectEuler {
 
-class ProjectEulerGame : public Minigame
+class ProjectEulerGame : public Infra::Minigame
 {
 public:
    ProjectEulerGame();
    virtual ~ProjectEulerGame();
 
    virtual void play();
+   virtual void processEvent(const sf::Event& event);
+   virtual void update();
+//   virtual const sf::Drawable& getDrawable() const;
 
 private:
+   std::shared_ptr<sf::Drawable> _canvas;
    ProblemLoader _problemLoader;
+
 };
 
 } /* namespace ProjectEuler */

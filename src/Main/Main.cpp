@@ -1,23 +1,25 @@
 /**
  * The Main program. This is what actually runs when you call ./build/AmbGames
  */
+
 #include <iostream>
 #include <map>
 #include <string>
+
+#include <SFML/Graphics.hpp>
+
 #include <Minigames/MadLib/MadLibMinigame.h>
-#include <Minigames/DumbGame/ADumbGame.h>
 #include <Minigames/ProjectEuler/ProjectEulerGame.h>
+#include <Minigames/X2048/X2048Minigame.h>
 
 using namespace Minigames;
 
 int main()
 {
-   std::cout << "Hello World!" << std::endl;
-
-   std::map<std::string, Minigame::Ptr> games;
-   games["Mad Libs"] = Minigame::Ptr(new MadLib::MadLibMinigame);
-   games["Dumb Game"] = Minigame::Ptr(new DumbGame::ADumbGame);
-   games["Project Euler"] = Minigame::Ptr(new ProjectEuler::ProjectEulerGame);
+   std::map<std::string, Infra::Minigame::Ptr> games;
+   games["2048"] = Infra::Minigame::Ptr(new X2048::X2048Minigame);
+   games["Mad Libs"] = Infra::Minigame::Ptr(new MadLib::MadLibMinigame);
+   games["Project Euler"] = Infra::Minigame::Ptr(new ProjectEuler::ProjectEulerGame);
 
    while (true)
    {
@@ -40,4 +42,5 @@ int main()
       }
       std::cout << std::endl;
    }
-}
+
+} // End of main routine

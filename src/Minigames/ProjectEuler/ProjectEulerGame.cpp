@@ -53,5 +53,20 @@ void ProjectEulerGame::play()
    }
 }
 
+void ProjectEulerGame::processEvent(const sf::Event& event)
+{
+
+}
+
+void ProjectEulerGame::update()
+{
+
+}
+
+//const sf::Drawable& ProjectEulerGame::getDrawable() const
+//{
+//   return _canvas.get();
+//}
+
 } /* namespace ProjectEuler */
 } /* namespace Minigames */

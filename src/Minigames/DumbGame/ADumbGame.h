@@ -8,18 +8,23 @@
 #ifndef SRC_MINIGAMES_DUMBGAME_ADUMBGAME_H_
 #define SRC_MINIGAMES_DUMBGAME_ADUMBGAME_H_
 
-#include <Minigames/Minigame.h>
+#include <Infra/Minigame.h>
 
 namespace Minigames {
 namespace DumbGame {
 
-class ADumbGame : public Minigame
+class ADumbGame : public Infra::Minigame
 {
 public:
    ADumbGame();
    virtual ~ADumbGame();
 
-   virtual void play();
+   virtual void processEvent(const sf::Event& event);
+   virtual void update();
+   virtual sf::Drawable& getDrawable();
+
+private:
+   std::shared_ptr<sf::Drawable> _canvas;
 };
 
 } /* namespace DumbGame */

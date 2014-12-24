@@ -2,6 +2,7 @@
 
 # This disables built-in rules for all file extensions
 .SUFFIXES:
+.SUFFIXES: .o .so .d
 
 # Phony targets are always considered out of date
 .PHONY: all clean mkdir_build_subdirs
@@ -14,7 +15,16 @@ AMB_DEP_DIR := $(AMB_BUILD_DIR)/dep
 AMB_BUILD_SUBDIRS =
 VPATH = $(AMB_BUILD_DIR):$(AMB_SRC_DIR)
 
+# Graphics toolkit library names
+SFML_LIBS := sfml-graphics \
+             sfml-window \
+             sfml-system
+#            sfml-audio
+#            sfml-network
+
+
 INCLUDE_DIRS = $(AMB_SRC_DIR)
+LINK_LIBS = $(SFML_LIBS)
 LINK_LIB_DIRS += $(AMB_LIB_DIR)
 AMB_LINKER_FLAGS = $(addprefix -L, $(LINK_LIB_DIRS)) $(addprefix -l, $(LINK_LIBS)) 
 
@@ -50,10 +60,9 @@ include $(AMB_SRC_DIR)/makefile
 
 # Dependancy files
 $(AMB_DEP_DIR)/%.d: $(AMB_SRC_DIR)/%.cpp
-	set -e; rm -f $@ ;\
-	mkdir -p $(@D); \
-	g++ -MM $(CXXFLAGS) $< > $@.$$$$ ; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+	mkdir -p $(@D)
+	echo -n $@" " > $@
+	g++ -MM $(CXXFLAGS) $(patsubst $(AMB_DEP_DIR)%.d,$(AMB_SRC_DIR)%.cpp,$@) >> $@
+	
 
 makefile:;
