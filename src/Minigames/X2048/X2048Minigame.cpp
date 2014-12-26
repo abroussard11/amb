@@ -47,62 +47,19 @@ void X2048Minigame::play()
       sf::Event event;
       while (_window.pollEvent(event))
       {
-//         processEvent(event); // TODO
          if (event.type == sf::Event::Closed)
          {
             _window.close();
          }
-         else if (event.type == sf::Event::KeyPressed)
+         else
          {
-            if (event.key.code == sf::Keyboard::Left)
-            {
-               std::cout << "LEFT pressed" << std::endl;
-               if (_tile.getPosition().x > 67.0F)
-                  _tile.move(c_left);
-            }
-            if (event.key.code == sf::Keyboard::Right)
-            {
-               std::cout << "RIGHT pressed" << std::endl;
-               if (_tile.getPosition().x < 133.0F)
-                  _tile.move(c_right);
-            }
-            if (event.key.code == sf::Keyboard::Up)
-            {
-               std::cout << "UP pressed" << std::endl;
-               if (_tile.getPosition().y > 67.0F)
-                  _tile.move(c_up);
-            }
-            if (event.key.code == sf::Keyboard::Down)
-            {
-               std::cout << "DOWN pressed" << std::endl;
-               if (_tile.getPosition().y < 133.0F)
-                  _tile.move(c_down);
-            }
-         }
-         else if (event.type == sf::Event::KeyReleased)
-         {
-            if (event.key.code == sf::Keyboard::Left)
-            {
-               std::cout << "LEFT released" << std::endl;
-            }
-            if (event.key.code == sf::Keyboard::Right)
-            {
-               std::cout << "RIGHT released" << std::endl;
-            }
-            if (event.key.code == sf::Keyboard::Up)
-            {
-               std::cout << "UP released" << std::endl;
-            }
-            if (event.key.code == sf::Keyboard::Down)
-            {
-               std::cout << "DOWN released" << std::endl;
-            }
+            processEvent(event);
          }
       }
 
       update();
       _window.clear();
-      _window.draw(getDrawable());
+      _window.draw(_canvas);
       _window.draw(_tile);
       _window.display();
    }
@@ -110,7 +67,52 @@ void X2048Minigame::play()
 
 void X2048Minigame::processEvent(const sf::Event& event)
 {
-
+   if (event.type == sf::Event::KeyPressed)
+            {
+               if (event.key.code == sf::Keyboard::Left)
+               {
+                  std::cout << "LEFT pressed" << std::endl;
+                  if (_tile.getPosition().x > 67.0F)
+                     _tile.move(c_left);
+               }
+               if (event.key.code == sf::Keyboard::Right)
+               {
+                  std::cout << "RIGHT pressed" << std::endl;
+                  if (_tile.getPosition().x < 133.0F)
+                     _tile.move(c_right);
+               }
+               if (event.key.code == sf::Keyboard::Up)
+               {
+                  std::cout << "UP pressed" << std::endl;
+                  if (_tile.getPosition().y > 67.0F)
+                     _tile.move(c_up);
+               }
+               if (event.key.code == sf::Keyboard::Down)
+               {
+                  std::cout << "DOWN pressed" << std::endl;
+                  if (_tile.getPosition().y < 133.0F)
+                     _tile.move(c_down);
+               }
+            }
+            else if (event.type == sf::Event::KeyReleased)
+            {
+               if (event.key.code == sf::Keyboard::Left)
+               {
+                  std::cout << "LEFT released" << std::endl;
+               }
+               if (event.key.code == sf::Keyboard::Right)
+               {
+                  std::cout << "RIGHT released" << std::endl;
+               }
+               if (event.key.code == sf::Keyboard::Up)
+               {
+                  std::cout << "UP released" << std::endl;
+               }
+               if (event.key.code == sf::Keyboard::Down)
+               {
+                  std::cout << "DOWN released" << std::endl;
+               }
+            }
 }
 
 void X2048Minigame::update()

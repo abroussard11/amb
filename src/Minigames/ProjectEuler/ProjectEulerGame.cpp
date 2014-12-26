@@ -27,6 +27,7 @@ ProjectEulerGame::~ProjectEulerGame()
 void ProjectEulerGame::play()
 {
    // Infinite loop. Hit Ctrl-C to get out
+   std::cout << std::endl << "PRESS CTRL-C TO QUIT AT ANY TIME" << std::endl;
    while (true)
    {
       std::cout << "Pick the problem you would like to see the solution for:" << std::endl;
@@ -39,11 +40,12 @@ void ProjectEulerGame::play()
       if (0 < choice && choice < 100)
       {
          Problem::Ptr problem = _problemLoader.load(choice);
-//         std::cout << problem->getProblemText() << std::endl;
-//         std::cout << "Press any key to view the solution" << std::endl;
-//         int x;
-//         std::cin >> x;
+         std::cout << problem->getText() << std::endl;
+         std::cout << std::endl << "Enter any key to view the solution" << std::endl << std::endl;
+         std::string x;
+         std::cin >> x;
          std::cout << problem->getSolution() << std::endl;
+         std::cout << "Check the answer here:   https://projecteuler.net/problem=" << choice << std::endl;
       }
       else
       {
@@ -62,11 +64,6 @@ void ProjectEulerGame::update()
 {
 
 }
-
-//const sf::Drawable& ProjectEulerGame::getDrawable() const
-//{
-//   return _canvas.get();
-//}
 
 } /* namespace ProjectEuler */
 } /* namespace Minigames */

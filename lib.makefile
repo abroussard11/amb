@@ -6,6 +6,7 @@ $(DIRECTORY)_DEPS := $(addprefix $(AMB_DEP_DIR)/$(DIRECTORY)/, $(addsuffix .d, $
 $(DIRECTORY)_LIB_SO := $(addprefix $(AMB_LIB_DIR)/lib, $(addsuffix .so, $(subst /,-,$(DIRECTORY))))
 
 $($(DIRECTORY)_LIB_SO): $($(DIRECTORY)_OBJS)
+	mkdir -p $(@D)
 	g++ -std=c++11 -Og -g -Wall -I$(INCLUDE_DIRS) -shared $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 # Include dependancy files

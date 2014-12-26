@@ -1,6 +1,4 @@
-# prog directory makefile
-
-AMB_BUILD_SUBDIRS += Main
+# Main directory makefile
 
 DIRECTORY = Main
 SUBDIRS = 

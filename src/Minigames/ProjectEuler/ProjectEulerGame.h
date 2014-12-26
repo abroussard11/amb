@@ -23,7 +23,6 @@ public:
    virtual void play();
    virtual void processEvent(const sf::Event& event);
    virtual void update();
-//   virtual const sf::Drawable& getDrawable() const;
 
 private:
    std::shared_ptr<sf::Drawable> _canvas;

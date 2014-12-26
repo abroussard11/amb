@@ -1,7 +1,5 @@
 # ProjectEuler problems directory makefile
 
-AMB_BUILD_SUBDIRS += Minigames/ProjectEuler/problems
-
 DIRECTORY = Minigames/ProjectEuler/problems
 SUBDIRS =
 SRCS = Problem01 \

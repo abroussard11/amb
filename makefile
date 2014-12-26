@@ -12,15 +12,14 @@ AMB_BUILD_DIR := build
 AMB_LIB_DIR := $(AMB_BUILD_DIR)/lib
 AMB_OBJ_DIR := $(AMB_BUILD_DIR)/obj
 AMB_DEP_DIR := $(AMB_BUILD_DIR)/dep
-AMB_BUILD_SUBDIRS =
 VPATH = $(AMB_BUILD_DIR):$(AMB_SRC_DIR)
 
 # Graphics toolkit library names
 SFML_LIBS := sfml-graphics \
              sfml-window \
-             sfml-system
-#            sfml-audio
-#            sfml-network
+             sfml-system \
+             sfml-audio \
+             sfml-network
 
 
 INCLUDE_DIRS = $(AMB_SRC_DIR)
@@ -40,13 +39,12 @@ EXECUTABLES = AmbGames
 #################
 
 # Default target is all
-all: mkdir_build_subdirs $(EXECUTABLES)
+all: $(EXECUTABLES)
 
 # Create the build output directories
-mkdir_build_subdirs:
-	mkdir -p $(AMB_BUILD_DIR); \
-	mkdir -p $(AMB_LIB_DIR) $(AMB_OBJ_DIR) $(AMB_DEP_DIR) ; \
-	mkdir -p $(addprefix $(AMB_OBJ_DIR)/, $(AMB_BUILD_SUBDIRS))
+#mkdir_build_subdirs:
+#	mkdir -p $(AMB_BUILD_DIR); \
+#	mkdir -p $(AMB_LIB_DIR) $(AMB_OBJ_DIR) $(AMB_DEP_DIR)
 
 # clean-up build output files (defined in lib.makefile and module.makefile)
 clean:
@@ -54,6 +52,7 @@ clean:
 
 # Object files
 $(AMB_OBJ_DIR)/%.o: $(AMB_SRC_DIR)/%.cpp
+	mkdir -p $(@D)
 	$(COMPILE.cpp) $^ -o $@
 
 include $(AMB_SRC_DIR)/makefile

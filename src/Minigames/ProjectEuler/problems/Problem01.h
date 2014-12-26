@@ -17,6 +17,7 @@ public:
    Problem01();
    virtual ~Problem01();
 
+   virtual std::string getText();
    virtual std::string getSolution();
 };
 

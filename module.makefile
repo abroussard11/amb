@@ -7,5 +7,6 @@ $(DIRECTORY)_LIB_DEPS := $(addprefix $(AMB_LIB_DIR)/lib, $(addsuffix .so, $(LIB_
 
 # The executable
 $(EXE): $($(DIRECTORY)_OBJS) $($(DIRECTORY)_LIB_DEPS)
+	mkdir -p $(@D)
 	g++ -I$(AMB_SRC_DIR) $(AMB_LINKER_FLAGS) $^ -o $(AMB_BUILD_DIR)/$(EXE)
 

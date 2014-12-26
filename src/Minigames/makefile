@@ -1,6 +1,5 @@
 # Minigame directory makefile
 
-
 SUBDIRS = MadLib \
           ProjectEuler \
           X2048

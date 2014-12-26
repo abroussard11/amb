@@ -1,10 +1,11 @@
 # ProjectEuler directory makefile
 
-AMB_BUILD_SUBDIRS += Minigames/X2048
-
 DIRECTORY = Minigames/X2048
 SUBDIRS = 
-SRCS = X2048Minigame GameBoard
+SRCS = \
+   X2048Minigame \
+   GameBoard \
+   Tile
 
 include lib.makefile
 
