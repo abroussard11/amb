@@ -29,7 +29,7 @@ AMB_LINKER_FLAGS = $(addprefix -L, $(LINK_LIB_DIRS)) $(addprefix -l, $(LINK_LIBS
 
 # CXXFLAGS is used is used whenever COMPILE.cpp is expanded. For our purposes,
 # this happens whenever a builtin recipe is called for updating a .o file from a .cpp file 
-CXXFLAGS = -std=c++11 -Og -g -Wall -fPIC -I$(INCLUDE_DIRS)
+CXXFLAGS = -std=c++11 -Og -ggdb -Wall -fPIC -I$(INCLUDE_DIRS)
 
 # Program executables to be built
 EXECUTABLES = AmbGames

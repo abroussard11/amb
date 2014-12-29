@@ -21,7 +21,7 @@ public:
    ProblemLoader();
    virtual ~ProblemLoader();
 
-   virtual Problem::Ptr load(int problemNumber);
+   virtual Problem::Ptr load(unsigned int problemNumber);
 
 private:
    std::vector<Problem::Ptr> _problems;

@@ -8,6 +8,7 @@
 #ifndef SRC_MINIGAMES_PROJECTEULER_PROBLEMS_ALLPROBLEMS_H_
 #define SRC_MINIGAMES_PROJECTEULER_PROBLEMS_ALLPROBLEMS_H_
 
+#include <Minigames/ProjectEuler/problems/UnsolvedProblem.h>
 #include <Minigames/ProjectEuler/problems/Problem01.h>
 #include <Minigames/ProjectEuler/problems/Problem02.h>
 #include <Minigames/ProjectEuler/problems/Problem03.h>

@@ -34,7 +34,6 @@ void X2048Minigame::play()
 {
    sf::RenderWindow _window(sf::VideoMode(200, 200), "SFML works!");
 
-//   sf::ConvexShape _tile(4);
    _tile.setFillColor(sf::Color::Green);
    _tile.setPoint(0, sf::Vector2f(-10.F,  10.0F));
    _tile.setPoint(1, sf::Vector2f( 10.F,  10.0F));

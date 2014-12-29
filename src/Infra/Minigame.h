@@ -15,7 +15,7 @@
 namespace Infra {
 
 /**
- * This is an Interface Class - every method is pure-virtual meaning
+ * This is an Abstract Interface Class - every method is pure-virtual meaning
  * there is no implementation defined here, and any class that derives
  * from this interface MUST supply an implementation for each method
  */
@@ -25,10 +25,7 @@ public:
    typedef std::shared_ptr<Minigame> Ptr;
 
    virtual ~Minigame() {}
-   virtual void play() {}
-//   virtual void processEvent(const sf::Event& event) = 0;
-//   virtual void update() = 0;
-//   virtual const sf::Drawable& getDrawable() const = 0;
+   virtual void play() {} // TODO: make this pure virtual when testing phase is complete
 };
 
 } /* namespace Infra */
