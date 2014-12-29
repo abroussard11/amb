@@ -25,6 +25,7 @@ public:
 
    virtual void click();
    virtual void setAction(Infra::Minigame::Ptr game);
+   virtual Infra::Minigame::Ptr getAction() const;
 
 private:
    MainMenuTextButton();

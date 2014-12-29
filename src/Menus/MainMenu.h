@@ -20,14 +20,14 @@ public:
    MainMenu();
    virtual ~MainMenu();
 
-   virtual bool isGameRunning() const;
-   virtual void startGame();
+   virtual bool isGameSelected() const;
+   virtual Infra::Minigame::Ptr getSelectedGame();
    virtual void processEvent(sf::Event event);
 
 private:
    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-   bool _isGameRunning;
+   bool _isGameSelected;
    Menus::MainMenuTextButton::Ptr _selectedButton;
    int _mouseX;
    int _mouseY;

@@ -43,6 +43,11 @@ void MainMenuTextButton::setAction(Infra::Minigame::Ptr game)
    _game = game;
 }
 
+Infra::Minigame::Ptr MainMenuTextButton::getAction() const
+{
+   return _game;
+}
+
 /**
  * Private member functions
  */

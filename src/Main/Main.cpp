@@ -38,11 +38,11 @@ int main()
             _mainMenu.processEvent(event);
          }
 
-         if (_mainMenu.isGameRunning())
+         if (_mainMenu.isGameSelected())
          {
-            window.clear();
-            window.display();
-            _mainMenu.startGame();
+            window.close();
+            _mainMenu.getSelectedGame()->play();
+            window.create(sf::VideoMode(700, 988), "AmbGames!");
          }
          else
          {

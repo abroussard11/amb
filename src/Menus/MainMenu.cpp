@@ -6,7 +6,6 @@
  */
 
 #include <iostream>
-#include <thread>
 #include <Menus/MainMenu.h>
 
 #include <Minigames/MadLib/MadLibMinigame.h>
@@ -15,7 +14,7 @@
 namespace Menus {
 
 MainMenu::MainMenu() :
-      _isGameRunning(false), //
+      _isGameSelected(false), //
       _mouseX(0), //
       _mouseY(0), //
       _luxirb(), //
@@ -71,9 +70,9 @@ MainMenu::~MainMenu()
    // Empty
 }
 
-bool MainMenu::isGameRunning() const
+bool MainMenu::isGameSelected() const
 {
-   return _isGameRunning;
+   return _isGameSelected;
 }
 
 void MainMenu::processEvent(sf::Event event)
@@ -95,7 +94,7 @@ void MainMenu::processEvent(sf::Event event)
          if (rect.contains(_mouseX, _mouseY))
          {
             std::cout << "BUTTON CLICKED" << std::endl;
-            _isGameRunning = true;
+            _isGameSelected = true;
             _selectedButton = Menus::MainMenuTextButton::Ptr(new Menus::MainMenuTextButton(button));
          }
          else
@@ -106,10 +105,10 @@ void MainMenu::processEvent(sf::Event event)
    }
 }
 
-void MainMenu::startGame()
+Infra::Minigame::Ptr MainMenu::getSelectedGame()
 {
-   _isGameRunning = false;
-   _selectedButton->click();
+   _isGameSelected = false;
+   return _selectedButton->getAction();
 }
 
 void MainMenu::draw(sf::RenderTarget& target, sf::RenderStates states) const
