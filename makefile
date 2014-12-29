@@ -38,24 +38,14 @@ EXECUTABLES = AmbGames
 ## TARGET LIST ##
 #################
 
-# Default target is all
 all: $(EXECUTABLES)
 
-# Create the build output directories
-#mkdir_build_subdirs:
-#	mkdir -p $(AMB_BUILD_DIR); \
-#	mkdir -p $(AMB_LIB_DIR) $(AMB_OBJ_DIR) $(AMB_DEP_DIR)
-
-# clean-up build output files (defined in lib.makefile and module.makefile)
 clean:
 	rm -rf build
 
-# Object files
 $(AMB_OBJ_DIR)/%.o: $(AMB_SRC_DIR)/%.cpp
 	mkdir -p $(@D)
 	$(COMPILE.cpp) $^ -o $@
-
-include $(AMB_SRC_DIR)/makefile
 
 # Dependancy files
 $(AMB_DEP_DIR)/%.d: $(AMB_SRC_DIR)/%.cpp
@@ -63,5 +53,6 @@ $(AMB_DEP_DIR)/%.d: $(AMB_SRC_DIR)/%.cpp
 	echo -n $@" " > $@
 	g++ -MM $(CXXFLAGS) $(patsubst $(AMB_DEP_DIR)%.d,$(AMB_SRC_DIR)%.cpp,$@) >> $@
 	
+include $(AMB_SRC_DIR)/makefile
 
 makefile:;

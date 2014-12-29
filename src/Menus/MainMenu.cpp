@@ -50,12 +50,11 @@ MainMenu::MainMenu() :
    _titleText.setPosition(350 - (logoRect.width / 2), 0);
 
    // Load Intro
-   sf::Text introtext;
-   introtext.setFont(_luxirb);
-   introtext.setCharacterSize(60); // in pixels, not points
-   introtext.setString("Select Minigame:");
-   introtext.setColor(myOrange);
-   introtext.setPosition(30, 100);
+   _introText.setFont(_luxirb);
+   _introText.setCharacterSize(50); // in pixels, not points
+   _introText.setString("Select Minigame:");
+   _introText.setColor(myOrange);
+   _introText.setPosition(20, 435);
 
    // Load Buttons
    MainMenuTextButton mlButton("2048", _luxirb);
