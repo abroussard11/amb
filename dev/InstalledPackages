@@ -1,0 +1,184 @@
+aaron ~ $ zypper search -i *
+Loading repository data...
+Reading installed packages...
+
+S | Name                                       | Summary                                                              | Type   
+--+--------------------------------------------+----------------------------------------------------------------------+--------
+i | appmenu-qt                                 | Application Menu for Qt                                              | package
+i | bin86                                      | An 8086 Assembler and Linker                                         | package
+i | bind-libs                                  | Shared libraries of BIND                                             | package
+i | bind-utils                                 | Utilities to query and test DNS                                      | package
+i | binutils                                   | GNU Binutils                                                         | package
+i | binutils-devel                             | GNU binutils (BFD development files)                                 | package
+i | desktop-data-openSUSE                      | Shared Desktop Files for openSUSE                                    | package
+i | desktop-file-utils                         | Utilities for Manipulating Desktop Files                             | package
+i | desktop-translations                       | Desktop Files Translations                                           | package
+i | git                                        | Fast, scalable, distributed revision control system                  | package
+i | git-core                                   | Core git tools                                                       | package
+i | git-cvs                                    | Git tools for importing CVS repositories                             | package
+i | git-email                                  | Git tools for sending email                                          | package
+i | git-gui                                    | Grapical tool for common git operations                              | package
+i | git-svn                                    | Git tools for importing Subversion repositories                      | package
+i | git-web                                    | Git Web Interface                                                    | package
+i | gitk                                       | Git revision tree visualiser                                         | package
+i | gsettings-desktop-schemas                  | Shared GSettings Schemas for the Desktop                             | package
+i | gstreamer-0_10-plugins-qt                  | C++/Qt bindings for GStreamer                                        | package
+i | kdebase4-workspace                         | The KDE Workspace Components                                         | package
+i | kdebase4-workspace-branding-openSUSE       | openSUSE KDE Extension                                               | package
+i | kdebase4-workspace-ksysguardd              | KDE base package: ksysguard daemon                                   | package
+i | kdebase4-workspace-liboxygenstyle          | The Libraries of the oxygen-style                                    | package
+i | kdebase4-workspace-plasma-calendar         | The calendar Plasma engine and applet                                | package
+i | kernel-desktop                             | Kernel optimized for the desktop                                     | package
+i | libQtGLib-2_0-0                            | C++/Qt bindings for GLib                                             | package
+i | libQtGStreamer-0_10-0                      | C++/Qt bindings for GStreamer                                        | package
+i | libQtWebKit4                               | Open source Web Browser engine based on Qt4                          | package
+i | libdbusmenu-qt2                            | Development package for dbusmenu-qt                                  | package
+i | libdcerpc-binding0                         | Some samba library                                                   | package
+i | libdcerpc-binding0-32bit                   | Some samba library                                                   | package
+i | libglfw-devel                              | Portable framework for OpenGL application development                | package
+i | libglfw-devel-static                       | Portable framework for OpenGL application development                | package
+i | libglfw2                                   | Portable framework for OpenGL application development                | package
+i | libmusicbrainz3-6                          | Library That Provides Access to the MusicBrainz Server               | package
+i | libmusicbrainz5-0                          | Library That Provides Access to the MusicBrainz Server               | package
+i | libmygpo-qt1                               | Qt Library that wraps the gpodder.net Web API                        | package
+i | libpackagekit-qt2-6                        | Simple software installation management software                     | package
+i | libpolkit-qt-1-1                           | PolicyKit Library Qt Bindings                                        | package
+i | libpoppler-qt4-4                           | PDF Rendering Library - Qt4 Wrapper                                  | package
+i | libqt4                                     | C++ Program Library, Core Components                                 | package
+i | libqt4-qt3support                          | C++ Program Library, Core Components                                 | package
+i | libqt4-sql                                 | Qt 4 SQL related libraries                                           | package
+i | libqt4-sql-mysql                           | Qt 4 MySQL support                                                   | package
+i | libqt4-sql-sqlite                          | Qt 4 sqlite plugin                                                   | package
+i | libqt4-x11                                 | Qt 4 GUI related libraries                                           | package
+i | libreoffice-templates-en                   | English Templates for LibreOffice                                    | package
+i | libreoffice-templates-labels-a4            | A4 Size Label Templates for LibreOffice                              | package
+i | libreoffice-templates-labels-letter        | Letter Size Label Templates for LibreOffice                          | package
+i | libreoffice-templates-presentation-layouts | Presentation Layout Templates for LibreOffice                        | package
+i | libyui-qt-graph5                           | Libyui - Qt Graph Widget                                             | package
+i | libyui-qt-pkg5                             | Libyui - Qt Package Selector                                         | package
+i | libyui-qt5                                 | Libyui - Qt User Interface                                           | package
+i | pinentry-qt4                               | Collection of Simple PIN or Passphrase Entry Dialogs                 | package
+i | python-qt4                                 | PyQt - python bindings for Qt 4                                      | package
+i | qt3                                        | A library for developing applications with graphical user interfaces | package
+i | qt4-qtscript                               | Qt bindings generator for Qt Script                                  | package
+i | rpcbind                                    | Transport independent RPC portmapper                                 | package
+i | shared-desktop-ontologies                  | Shared Desktop Ontologies                                            | package
+i | sound-theme-freedesktop                    | freedesktop.org sound theme                                          | package
+i | texlive-a2ping-bin                         | Binary files of a2ping                                               | package
+i | texlive-accfonts-bin                       | Binary files of accfonts                                             | package
+i | texlive-adhocfilelist-bin                  | Binary files of adhocfilelist                                        | package
+i | texlive-afm2pl-bin                         | Binary files of afm2pl                                               | package
+i | texlive-amstex-bin                         | Binary files of amstex                                               | package
+i | texlive-arara-bin                          | Binary files of arara                                                | package
+i | texlive-asymptote-bin                      | Binary files of asymptote                                            | package
+i | texlive-bibtex-bin                         | Binary files of bibtex                                               | package
+i | texlive-bibtex8-bin                        | Binary files of bibtex8                                              | package
+i | texlive-bibtexu-bin                        | Binary files of bibtexu                                              | package
+i | texlive-binomexp                           | Calculate Pascal's triangle                                          | package
+i | texlive-binomexp-doc                       | Documentation for texlive-binomexp                                   | package
+i | texlive-bundledoc-bin                      | Binary files of bundledoc                                            | package
+i | texlive-checkcites-bin                     | Binary files of checkcites                                           | package
+i | texlive-chktex-bin                         | Binary files of chktex                                               | package
+i | texlive-collection-binextra                | TeX auxiliary programs                                               | package
+i | texlive-collection-langitalian             | Italian                                                              | package
+i | texlive-context-bin                        | Binary files of context                                              | package
+i | texlive-cslatex-bin                        | Binary files of cslatex                                              | package
+i | texlive-csplain-bin                        | Binary files of csplain                                              | package
+i | texlive-ctanify-bin                        | Binary files of ctanify                                              | package
+i | texlive-ctanupload-bin                     | Binary files of ctanupload                                           | package
+i | texlive-ctie-bin                           | Binary files of ctie                                                 | package
+i | texlive-cweb-bin                           | Binary files of cweb                                                 | package
+i | texlive-de-macro-bin                       | Binary files of de-macro                                             | package
+i | texlive-detex-bin                          | Binary files of detex                                                | package
+i | texlive-dosepsbin                          | Deal with DOS binary EPS files                                       | package
+i | texlive-dosepsbin-bin                      | Binary files of dosepsbin                                            | package
+i | texlive-dosepsbin-doc                      | Documentation for texlive-dosepsbin                                  | package
+i | texlive-dtl-bin                            | Binary files of dtl                                                  | package
+i | texlive-dtxgen-bin                         | Binary files of dtxgen                                               | package
+i | texlive-dviasm-bin                         | Binary files of dviasm                                               | package
+i | texlive-dvicopy-bin                        | Binary files of dvicopy                                              | package
+i | texlive-dvidvi-bin                         | Binary files of dvidvi                                               | package
+i | texlive-dviljk-bin                         | Binary files of dviljk                                               | package
+i | texlive-dvipdfmx-bin                       | Binary files of dvipdfmx                                             | package
+i | texlive-dvipng-bin                         | Binary files of dvipng                                               | package
+i | texlive-dvipos-bin                         | Binary files of dvipos                                               | package
+i | texlive-dvips-bin                          | Binary files of dvips                                                | package
+i | texlive-dvisvgm-bin                        | Binary files of dvisvgm                                              | package
+i | texlive-epstopdf-bin                       | Binary files of epstopdf                                             | package
+i | texlive-findhyph-bin                       | Binary files of findhyph                                             | package
+i | texlive-fontinst-bin                       | Binary files of fontinst                                             | package
+i | texlive-fontools-bin                       | Binary files of fontools                                             | package
+i | texlive-fontware-bin                       | Binary files of fontware                                             | package
+i | texlive-fragmaster-bin                     | Binary files of fragmaster                                           | package
+i | texlive-gsftopk-bin                        | Binary files of gsftopk                                              | package
+i | texlive-kpathsea-bin                       | Binary files of kpathsea                                             | package
+i | texlive-lacheck-bin                        | Binary files of lacheck                                              | package
+i | texlive-latex-bin                          | LaTeX executables and man pages                                      | package
+i | texlive-latex-bin-bin                      | Binary files of latex-bin                                            | package
+i | texlive-latex2man-bin                      | Binary files of latex2man                                            | package
+i | texlive-latexdiff-bin                      | Binary files of latexdiff                                            | package
+i | texlive-latexfileversion-bin               | Binary files of latexfileversion                                     | package
+i | texlive-latexmk-bin                        | Binary files of latexmk                                              | package
+i | texlive-latexpand-bin                      | Binary files of latexpand                                            | package
+i | texlive-lcdftypetools-bin                  | Binary files of lcdftypetools                                        | package
+i | texlive-listings-ext-bin                   | Binary files of listings-ext                                         | package
+i | texlive-ltxfileinfo-bin                    | Binary files of ltxfileinfo                                          | package
+i | texlive-lua2dox-bin                        | Binary files of lua2dox                                              | package
+i | texlive-luaotfload-bin                     | Binary files of luaotfload                                           | package
+i | texlive-luatex-bin                         | Binary files of luatex                                               | package
+i | texlive-makeindex-bin                      | Binary files of makeindex                                            | package
+i | texlive-match_parens-bin                   | Binary files of match_parens                                         | package
+i | texlive-metafont-bin                       | Binary files of metafont                                             | package
+i | texlive-metapost-bin                       | Binary files of metapost                                             | package
+i | texlive-mex-bin                            | Binary files of mex                                                  | package
+i | texlive-mf2pt1-bin                         | Binary files of mf2pt1                                               | package
+i | texlive-mfware-bin                         | Binary files of mfware                                               | package
+i | texlive-mkjobtexmf-bin                     | Binary files of mkjobtexmf                                           | package
+i | texlive-mptopdf-bin                        | Binary files of mptopdf                                              | package
+i | texlive-patgen-bin                         | Binary files of patgen                                               | package
+i | texlive-pdfcrop-bin                        | Binary files of pdfcrop                                              | package
+i | texlive-pdfjam-bin                         | Binary files of pdfjam                                               | package
+i | texlive-pdftex-bin                         | Binary files of pdftex                                               | package
+i | texlive-pdftools-bin                       | Binary files of pdftools                                             | package
+i | texlive-pfarrei-bin                        | Binary files of pfarrei                                              | package
+i | texlive-pkfix-bin                          | Binary files of pkfix                                                | package
+i | texlive-pkfix-helper-bin                   | Binary files of pkfix-helper                                         | package
+i | texlive-ps2pkm-bin                         | Binary files of ps2pkm                                               | package
+i | texlive-pstools-bin                        | Binary files of pstools                                              | package
+i | texlive-purifyeps-bin                      | Binary files of purifyeps                                            | package
+i | texlive-qpxqtx                             | Package qpxqtx                                                       | package
+i | texlive-qpxqtx-doc                         | Documentation for texlive-qpxqtx                                     | package
+i | texlive-seetexk-bin                        | Binary files of seetexk                                              | package
+i | texlive-sty2dtx-bin                        | Binary files of sty2dtx                                              | package
+i | texlive-synctex-bin                        | Binary files of synctex                                              | package
+i | texlive-templates-fenn                     | Templates for TeX usage                                              | package
+i | texlive-templates-sommer                   | Templates for TeX usage                                              | package
+i | texlive-tetex-bin                          | Binary files of tetex                                                | package
+i | texlive-tex-bin                            | Binary files of tex                                                  | package
+i | texlive-texconfig-bin                      | Binary files of texconfig                                            | package
+i | texlive-texcount-bin                       | Binary files of texcount                                             | package
+i | texlive-texdef-bin                         | Binary files of texdef                                               | package
+i | texlive-texdiff-bin                        | Binary files of texdiff                                              | package
+i | texlive-texdirflatten-bin                  | Binary files of texdirflatten                                        | package
+i | texlive-texdoc-bin                         | Binary files of texdoc                                               | package
+i | texlive-texliveonfly-bin                   | Binary files of texliveonfly                                         | package
+i | texlive-texloganalyser-bin                 | Binary files of texloganalyser                                       | package
+i | texlive-texware-bin                        | Binary files of texware                                              | package
+i | texlive-thumbpdf-bin                       | Binary files of thumbpdf                                             | package
+i | texlive-tie-bin                            | Binary files of tie                                                  | package
+i | texlive-tpic2pdftex-bin                    | Binary files of tpic2pdftex                                          | package
+i | texlive-translation-tabbing-fr             | French translation of the documentation of Tabbing                   | package
+i | texlive-ttfutils-bin                       | Binary files of ttfutils                                             | package
+i | texlive-typeoutfileinfo-bin                | Binary files of typeoutfileinfo                                      | package
+i | texlive-vlna-bin                           | Binary files of vlna                                                 | package
+i | texlive-web-bin                            | Binary files of web                                                  | package
+i | texlive-xdvi-bin                           | Binary files of xdvi                                                 | package
+i | texlive-xetex-bin                          | Binary files of xetex                                                | package
+i | update-desktop-files                       | A Build Tool to Update Desktop Files                                 | package
+i | yast2-control-center-qt                    | YaST2 - Control Center (Qt Version)                                  | package
+i | yast2-perl-bindings                        | YaST2 - Perl Bindings                                                | package
+i | yast2-pkg-bindings                         | YaST2 - Package Manager Access                                       | package
+i | yast2-qt-branding-openSUSE                 | openSUSE branding for yast2-qt                                       | package
+i | yast2-ruby-bindings                        | Ruby bindings for the YaST platform                                  | package
+i | yast2-ycp-ui-bindings                      | YaST2 - YCP Bindings for the YaST2 User Interface Engine             | package
+i | ypbind                                     | NIS client daemon                                                    | package
