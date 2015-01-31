@@ -1,12 +1,13 @@
 ############################
-# Menus directory makefile #
+## Menus directory makefile
 ############################
 
-DIRECTORY = Menus
-SUBDIRS = 
-SRCS = \
+DIR := Menus
+SUBDIRS :=
+LINK_LIBS := sfml-graphics
+LIB_DEPS :=
+SRCS := \
    MainMenu \
 	MainMenuTextButton
 
 include lib.makefile
-

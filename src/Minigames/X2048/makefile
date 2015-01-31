@@ -1,11 +1,14 @@
-# ProjectEuler directory makefile
+###################################
+## ProjectEuler directory makefile
+###################################
 
-DIRECTORY = Minigames/X2048
-SUBDIRS = 
-SRCS = \
+DIR := Minigames/X2048
+SUBDIRS :=
+LIB_DEPS := Infra
+SRCS := \
    X2048Minigame \
    GameBoard \
-   Tile
+   Tile \
+   TileFactory
 
 include lib.makefile
-

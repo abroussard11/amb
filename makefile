@@ -1,18 +1,21 @@
-# The amb directory makefile
+##############################
+## The amb directory makefile
+##############################
 
-# This disables built-in rules for all file extensions
+# This disables built-in rules for (almost) all file extensions
 .SUFFIXES:
 .SUFFIXES: .o .so .d
 
 # Phony targets are always considered out of date
-.PHONY: all clean mkdir_build_subdirs
+.PHONY: all clean cleandeps mkdir_build_subdirs
 
-AMB_SRC_DIR := src
-AMB_BUILD_DIR := build
-AMB_LIB_DIR := $(AMB_BUILD_DIR)/lib
-AMB_OBJ_DIR := $(AMB_BUILD_DIR)/obj
-AMB_DEP_DIR := $(AMB_BUILD_DIR)/dep
-VPATH = $(AMB_BUILD_DIR):$(AMB_SRC_DIR)
+# Project locations definitions
+SRC_DIR := src
+BUILD_DIR := build
+LIB_DIR := $(BUILD_DIR)/lib
+OBJ_DIR := $(BUILD_DIR)/obj
+DEP_DIR := $(BUILD_DIR)/dep
+VPATH = $(BUILD_DIR):$(SRC_DIR)
 
 # Graphics toolkit library names
 SFML_LIBS := sfml-graphics \
@@ -21,38 +24,26 @@ SFML_LIBS := sfml-graphics \
              sfml-audio \
              sfml-network
 
-
-INCLUDE_DIRS = $(AMB_SRC_DIR)
-LINK_LIBS = $(SFML_LIBS)
-LINK_LIB_DIRS += $(AMB_LIB_DIR)
-AMB_LINKER_FLAGS = $(addprefix -L, $(LINK_LIB_DIRS)) $(addprefix -l, $(LINK_LIBS)) 
+INCLUDE_DIRS := -I$(SRC_DIR)
+LINK_LIBS := $(SFML_LIBS)
+LINK_LIB_DIRS := $(LIB_DIR)
+LINKER_FLAGS := $(addprefix -L, $(LINK_LIB_DIRS)) $(addprefix -l, $(LINK_LIBS))
 
 # CXXFLAGS is used is used whenever COMPILE.cpp is expanded. For our purposes,
 # this happens whenever a builtin recipe is called for updating a .o file from a .cpp file 
-CXXFLAGS = -std=c++11 -Og -ggdb -Wall -fPIC -I$(INCLUDE_DIRS)
+CXXFLAGS := -std=c++11 -ggdb -Wall -fPIC $(INCLUDE_DIRS)
 
-# Program executables to be built
-EXECUTABLES = AmbGames
+# These targets are defined in Cmds.makefile
+# They are listed here so that you can use tab completion in tcsh
+all::
+clean::
+cleandeps::
+clobber::
 
-#################
-## TARGET LIST ##
-#################
-
-all: $(EXECUTABLES)
-
-clean:
-	rm -rf build
-
-$(AMB_OBJ_DIR)/%.o: $(AMB_SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	mkdir -p $(@D)
 	$(COMPILE.cpp) $^ -o $@
 
-# Dependancy files
-$(AMB_DEP_DIR)/%.d: $(AMB_SRC_DIR)/%.cpp
-	mkdir -p $(@D)
-	echo -n $@" " > $@
-	g++ -MM $(CXXFLAGS) $(patsubst $(AMB_DEP_DIR)%.d,$(AMB_SRC_DIR)%.cpp,$@) >> $@
-	
-include $(AMB_SRC_DIR)/makefile
-
 makefile:;
+
+include $(SRC_DIR)/makefile

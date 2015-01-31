@@ -1,4 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash -ef
+
+# This directory is defined as the PROJECT_PATH. All paths internal to the project are relative to this
+export PROJECT_PATH=$PWD
+
 
 # Since we build every subdirectory into its own "shared library (the .so files),
 # that means that we don't have to compile those libraries into our executable. Rather
@@ -11,4 +15,16 @@
 # tell the linker WHERE to look for our libraries. We do that with this variable here.
 # The linker checks to see if this variable is defined in the shell environment.
 
-export LD_LIBRARY_PATH=$PWD/build/lib
+export LD_LIBRARY_PATH=$PROJECT_PATH/build/lib
+
+pushd . > /dev/null
+cd $PROJECT_PATH/scripts
+files=`ls *.sh`
+popd > /dev/null
+
+for f in $files; do
+   if [ -z "${f##*.sh}" ]; then
+      alias ${f%.sh}=$PROJECT_PATH/scripts/$f
+   fi
+done
+

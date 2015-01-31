@@ -1,8 +1,14 @@
-# MadLib directory makefile
+#############################
+## MadLib directory makefile
+#############################
 
-DIRECTORY = Minigames/MadLib
-SUBDIRS = 
-SRCS = Library Helper MadLibMinigame
+DIR = Minigames/MadLib
+SUBDIRS =
+LIB_DEPS =
+SRCS = \
+   Library \
+   Helper \
+   MadLibMinigame
 
 include lib.makefile
 

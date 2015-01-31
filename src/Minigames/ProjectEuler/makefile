@@ -1,8 +1,12 @@
-# ProjectEuler directory makefile
+###################################
+## ProjectEuler directory makefile
+###################################
 
-DIRECTORY = Minigames/ProjectEuler
-SUBDIRS = problems
-SRCS = ProjectEulerGame ProblemLoader
+DIR := Minigames/ProjectEuler
+SUBDIRS := problems
+LIB_DEPS := Minigames-ProjectEuler-problems
+SRCS := \
+   ProjectEulerGame \
+   ProblemLoader
 
 include lib.makefile
-

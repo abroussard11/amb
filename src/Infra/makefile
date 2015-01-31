@@ -1,11 +1,12 @@
 ############################
-# Infra directory makefile #
+## Infra directory makefile
 ############################
 
-DIRECTORY = Infra
-SUBDIRS = 
-SRCS = \
+DIR := Infra
+SUBDIRS :=
+LINK_LIBS := sfml-graphics
+LIB_DEPS :=
+SRCS := \
    TextButton
 
 include lib.makefile
-

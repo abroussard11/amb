@@ -1,8 +1,9 @@
-# Minigame directory makefile
+################################
+## Minigames directory makefile
+################################
 
-SUBDIRS = MadLib \
+SUBDIRS := MadLib \
           ProjectEuler \
           X2048
 
-
-include $(addprefix $(AMB_SRC_DIR)/Minigames/, $(addsuffix /makefile, $(SUBDIRS)))
+include $(addprefix $(SRC_DIR)/Minigames/, $(addsuffix /makefile, $(SUBDIRS)))

@@ -2,11 +2,11 @@
 # The src directory makefile #
 ##############################
 
-SUBDIRS = \
+SUBDIRS := \
    Infra \
    Main \
    Menus \
    Minigames
 
-include $(addprefix $(AMB_SRC_DIR)/, $(addsuffix /makefile, $(SUBDIRS)))
+include $(addprefix $(SRC_DIR)/, $(addsuffix /makefile, $(SUBDIRS)))
 
