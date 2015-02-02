@@ -1,0 +1,2181 @@
+# GNU Make 3.82
+# Built for x86_64-unknown-linux-gnu
+# Copyright (C) 2010  Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+mkdir -p build/obj/Main
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Main/Main.cpp -o build/obj/Main/Main.o
+mkdir -p build/obj/Infra
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Infra/TextButton.cpp -o build/obj/Infra/TextButton.o
+mkdir -p build/lib
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc -Lbuild/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network  -shared build/obj/Infra/TextButton.o -Wl,--whole-archive  -Wl,--no-whole-archive -o build/lib/libInfra.so
+mkdir -p build/obj/Menus
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Menus/MainMenu.cpp -o build/obj/Menus/MainMenu.o
+mkdir -p build/obj/Menus
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Menus/MainMenuTextButton.cpp -o build/obj/Menus/MainMenuTextButton.o
+mkdir -p build/lib
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc -Lbuild/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network  -shared build/obj/Menus/MainMenu.o build/obj/Menus/MainMenuTextButton.o -Wl,--whole-archive  -Wl,--no-whole-archive -o build/lib/libMenus.so
+mkdir -p build/obj/Minigames/X2048
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Minigames/X2048/X2048Minigame.cpp -o build/obj/Minigames/X2048/X2048Minigame.o
+mkdir -p build/obj/Minigames/X2048
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Minigames/X2048/GameBoard.cpp -o build/obj/Minigames/X2048/GameBoard.o
+mkdir -p build/obj/Minigames/X2048
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Minigames/X2048/Tile.cpp -o build/obj/Minigames/X2048/Tile.o
+mkdir -p build/obj/Minigames/X2048
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc   -c src/Minigames/X2048/TileFactory.cpp -o build/obj/Minigames/X2048/TileFactory.o
+mkdir -p build/lib
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc -Lbuild/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network  -shared build/obj/Minigames/X2048/X2048Minigame.o build/obj/Minigames/X2048/GameBoard.o build/obj/Minigames/X2048/Tile.o build/obj/Minigames/X2048/TileFactory.o -Wl,--whole-archive -lInfra -Wl,--no-whole-archive -o build/lib/libMinigames-X2048.so
+mkdir -p build
+g++ -std=c++11 -ggdb -Wall -fPIC -Isrc -Lbuild/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network  -Wl,--start-group -lInfra -lMenus -lMinigames-X2048 -Wl,--end-group build/obj/Main/Main.o -o build/AmbGames
+
+# Make data base, printed on Sat Jan 31 13:53:13 2015
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = default
+# environment
+KONSOLE_DBUS_WINDOW = /Windows/1
+# default
+.SHELLFLAGS := -c
+# makefile (from `Vars.makefile', line 7)
+Main_DEPS := build/dep/Main/Main.d
+# makefile (from `makefile', line 17)
+DEP_DIR := build/dep
+# default
+CWEAVE = cweave
+# environment
+PYTHONUNBUFFERED = 1
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+GTK_RC_FILES = /etc/gtk/gtkrc:/home/aaron/.gtkrc:/home/aaron/.kde4/share/config/gtkrc
+# environment
+JAVA_ROOT = /usr/lib64/jvm/jre
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# makefile (from `src/Main/makefile', line 8)
+EXE := AmbGames
+# automatic
+@F = $(notdir $@)
+# environment
+XMODIFIERS = @im=local
+# default
+PC = pc
+# makefile
+CURDIR := /home/aaron/Workspace/C++/AmbProject/amb
+# makefile
+SHELL = /bin/sh
+# environment
+JRE_HOME = /usr/lib64/jvm/jre
+# default
+CO = co
+# makefile (from `Vars.makefile', line 6)
+Minigames/X2048_OBJS := build/obj/Minigames/X2048/X2048Minigame.o build/obj/Minigames/X2048/GameBoard.o build/obj/Minigames/X2048/Tile.o build/obj/Minigames/X2048/TileFactory.o
+# makefile (from `Vars.makefile', line 9)
+Main_LIB_DEPS_FLAGS := -lInfra -lMenus -lMinigames-X2048
+# environment
+_ = /usr/bin/make
+# default
+PREPROCESS.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -F
+# environment
+XFILESEARCHPATH = /usr/dt/app-defaults/%L/Dt
+# default
+LINK.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+XDG_CONFIG_DIRS = /etc/xdg
+# default
+OUTPUT_OPTION = -o $@
+# environment
+LESSOPEN = lessopen.sh %s
+# default
+COMPILE.cpp = $(COMPILE.cc)
+# makefile (from `Cmds.makefile', line 1)
+MAKEFILE_LIST :=  makefile src/makefile src/Infra/makefile lib.makefile Vars.makefile build/dep/Infra/TextButton.d Cmds.makefile src/Main/makefile module.makefile Vars.makefile build/dep/Main/Main.d Cmds.makefile src/Menus/makefile lib.makefile Vars.makefile build/dep/Menus/MainMenu.d build/dep/Menus/MainMenuTextButton.d Cmds.makefile src/Minigames/makefile src/Minigames/X2048/makefile lib.makefile Vars.makefile build/dep/Minigames/X2048/X2048Minigame.d build/dep/Minigames/X2048/GameBoard.d build/dep/Minigames/X2048/Tile.d build/dep/Minigames/X2048/TileFactory.d Cmds.makefile
+# environment
+NLSPATH = /usr/dt/lib/nls/msg/%L/%N.cat
+# makefile (from `makefile', line 15)
+LIB_DIR := build/lib
+# environment
+CONFIG_SITE = /usr/share/site/x86_64-unknown-linux-gnu
+# makefile (from `Vars.makefile', line 7)
+Menus_DEPS := build/dep/Menus/MainMenu.d build/dep/Menus/MainMenuTextButton.d
+# makefile (from `Vars.makefile', line 10)
+Infra_LINK_LIBS_FLAGS := -lsfml-graphics
+# environment
+MINICOM = -c on
+# default
+LINK.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from `makefile', line 16)
+OBJ_DIR := build/obj
+# makefile (from `makefile', line 34)
+CXXFLAGS := -std=c++11 -ggdb -Wall -fPIC -Isrc
+# environment
+XDG_DATA_DIRS = /usr/share:/usr/share
+# makefile (from `Vars.makefile', line 8)
+Infra_LIB_DEPS := 
+# environment
+XDM_MANAGED = method=classic
+# environment
+XSESSION_IS_UP = yes
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:abstract=/tmp/dbus-Cs8DZuzENE,guid=741cd77063269e255d59ae6554cb9947
+# default
+CC = cc
+# environment
+XCURSOR_SIZE = 0
+# environment
+PYDEV_CONSOLE_ENCODING = UTF-8
+# environment
+MACHTYPE = x86_64-suse-linux
+# makefile (from `Vars.makefile', line 9)
+Menus_LIB_DEPS_FLAGS := 
+# environment
+QT_PLUGIN_PATH = /home/aaron/.kde4/lib64/kde4/plugins/:/usr/lib64/kde4/plugins/
+# default
+CHECKOUT,v = +$(if $(wildcard $@),,$(CO) $(COFLAGS) $< $@)
+# environment
+USER = aaron
+# default
+CPP = $(CC) -E
+# makefile (from `makefile', line 27)
+INCLUDE_DIRS := -Isrc
+# makefile (from `Vars.makefile', line 5)
+Minigames/X2048_SRCS := src/Minigames/X2048/X2048Minigame.cpp src/Minigames/X2048/GameBoard.cpp src/Minigames/X2048/Tile.cpp src/Minigames/X2048/TileFactory.cpp
+# default
+LINK.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+LIBOVERLAY_SCROLLBAR = 0
+# environment
+PATH = /home/aaron/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/sbin/:/sbin/
+# default
+LD = ld
+# default
+TEXI2DVI = texi2dvi
+# environment
+XCURSOR_THEME = DMZ
+# environment
+SESSION_MANAGER = local/choco:@/tmp/.ICE-unix/4310,unix/choco:/tmp/.ICE-unix/4310
+# default
+COMPILE.mod = $(M2C) $(M2FLAGS) $(MODFLAGS) $(TARGET_ARCH)
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# default
+ARFLAGS = rv
+# default
+LINK.r = $(FC) $(FFLAGS) $(RFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from `Vars.makefile', line 7)
+Minigames/X2048_DEPS := build/dep/Minigames/X2048/X2048Minigame.d build/dep/Minigames/X2048/GameBoard.d build/dep/Minigames/X2048/Tile.d build/dep/Minigames/X2048/TileFactory.d
+# makefile (from `Vars.makefile', line 10)
+Main_LINK_LIBS_FLAGS := 
+# environment
+WINDOWID = 98566170
+# default
+COMPILE.f = $(FC) $(FFLAGS) $(TARGET_ARCH) -c
+# default
+LINT.c = $(LINT) $(LINTFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
+# default
+YACC.m = $(YACC) $(YFLAGS)
+# default
+LINT = lint
+# makefile (from `Vars.makefile', line 8)
+Main_LIB_DEPS := build/lib/libInfra.so build/lib/libMenus.so build/lib/libMinigames-X2048.so
+# default
+YACC.y = $(YACC) $(YFLAGS)
+# makefile (from `makefile', line 18)
+VPATH = $(BUILD_DIR):$(SRC_DIR)
+# environment
+KONSOLE_PROFILE_NAME = Shell
+# environment
+JAVA_BINDIR = /usr/lib64/jvm/jre/bin
+# default
+AR = ar
+# environment
+GTK2_RC_FILES = /etc/gtk-2.0/gtkrc:/home/aaron/.gtkrc-2.0:/home/aaron/.kde4/share/config/gtkrc-2.0
+# makefile (from `Vars.makefile', line 9)
+Minigames/X2048_LIB_DEPS_FLAGS := -lInfra
+# environment
+PROFILEHOME = 
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver check-symlink
+# environment
+G_BROKEN_FILENAMES = 1
+# environment
+SWT_GTK3 = 0
+# default
+TANGLE = tangle
+# environment
+DM_CONTROL = /var/run/xdmctl
+# makefile (from `src/Minigames/X2048/makefile', line 5)
+DIR := Minigames/X2048
+# environment
+LS_COLORS = no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.xz=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:
+# environment
+SSH_AUTH_SOCK = /tmp/ssh-zI7AsCJOwmKB/agent.4091
+# default
+GET = get
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# default
+COMPILE.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+CTANGLE = ctangle
+# makefile (from `Vars.makefile', line 10)
+Menus_LINK_LIBS_FLAGS := -lsfml-graphics
+# environment
+USE_FAM = 
+# environment
+GTK_IM_MODULE = cedilla
+# default
+.LIBPATTERNS = lib%.so lib%.a
+# makefile (from `Vars.makefile', line 8)
+Menus_LIB_DEPS := 
+# default
+LINK.C = $(LINK.cc)
+# environment
+PWD = /home/aaron/Workspace/C++/AmbProject/amb
+# environment
+KDE_SESSION_VERSION = 4
+# environment
+INPUTRC = /home/aaron/.inputrc
+# default
+LINK.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# environment
+QEMU_AUDIO_DRV = pa
+# environment
+XDG_SEAT = seat0
+# default
+PREPROCESS.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -F
+# environment
+SSH_AGENT_PID = 4180
+# environment
+define BASH_FUNC_which%%
+() {  ( alias;
+ declare -f ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+endef
+# default
+LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+AUDIODRIVER = pulseaudio
+# makefile (from `makefile', line 30)
+LINKER_FLAGS := -Lbuild/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network
+# environment
+GTK_MODULES = canberra-gtk-module
+# environment
+MANPATH = /usr/local/man:/usr/share/man
+# default
+LINK.s = $(CC) $(ASFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# environment
+HOME = /home/aaron
+# makefile (from `lib.makefile', line 6)
+Minigames/X2048_LIB_SO := build/lib/libMinigames-X2048.so
+# environment
+LD_LIBRARY_PATH = /home/aaron/Workspace/C++/AmbProject/amb/build/lib
+# environment
+LESSCLOSE = lessclose.sh %s %s
+# environment
+LESSKEY = /etc/lesskey.bin
+# default
+LEX.l = $(LEX) $(LFLAGS) -t
+# environment
+LOGNAME = aaron
+# environment
+G_FILENAME_ENCODING = @locale,UTF-8,ISO-8859-15,CP1252
+# environment
+KDE_FULL_SESSION = true
+# environment
+PYTHONIOENCODING = UTF-8
+# environment
+QT_IM_SWITCHER = imsw-multi
+# default
+MAKE_VERSION := 3.82
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = choco
+# environment
+XDG_VTNR = 7
+# environment
+PROJECT_PATH = /home/aaron/Workspace/C++/AmbProject/amb
+# environment
+MAKELEVEL := 0
+# default
+COMPILE.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+SSH_ASKPASS = /usr/lib/ssh/ssh-askpass
+# environment
+COLORTERM = 1
+# environment
+KONSOLE_DBUS_SESSION = /Sessions/1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+QT_IM_MODULE = xim
+# environment
+OSTYPE = linux
+# makefile (from `src/Minigames/X2048/makefile', line 8)
+SRCS := X2048Minigame GameBoard Tile TileFactory
+# environment
+XKEYSYMDB = /usr/X11R6/lib/X11/XKeysymDB
+# environment
+SHLVL = 3
+# makefile (from `Vars.makefile', line 8)
+Minigames/X2048_LIB_DEPS := build/lib/libInfra.so
+# makefile (from `Vars.makefile', line 10)
+Minigames/X2048_LINK_LIBS_FLAGS := -lsfml-graphics
+# default
+AS = as
+# environment
+WINDOWMANAGER = /usr/bin/startkde
+# default
+PREPROCESS.S = $(CC) -E $(CPPFLAGS)
+# environment
+LESS_ADVANCED_PREPROCESSOR = no
+# environment
+JAVA_HOME = /usr/lib64/jvm/jre
+# makefile (from `makefile', line 14)
+BUILD_DIR := build
+# makefile (from `lib.makefile', line 6)
+Infra_LIB_SO := build/lib/libInfra.so
+# default
+COMPILE.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+XDG_SESSION_ID = 1
+# environment
+KDE_MULTIHEAD = false
+# environment
+LS_OPTIONS = -N --color=tty -T 0
+# default
+FC = f77
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from `Vars.makefile', line 6)
+Main_OBJS := build/obj/Main/Main.o
+# environment
+XDG_CURRENT_DESKTOP = KDE
+# environment
+LESS = -M -I -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+CPU = x86_64
+# makefile (from `makefile', line 21)
+SFML_LIBS := sfml-graphics sfml-window sfml-system sfml-audio sfml-network
+# makefile (from `src/Minigames/X2048/makefile', line 7)
+LIB_DEPS := Infra
+# default
+WEAVE = weave
+# default
+MAKE_COMMAND := make
+# environment
+PROFILEREAD = true
+# default
+LINK.cpp = $(LINK.cc)
+# default
+F77 = $(FC)
+# default
+COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# makefile (from `module.makefile', line 6)
+Main_EXE := build/AmbGames
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /tmp
+# environment
+CVS_RSH = ssh
+# automatic
+*F = $(notdir $*)
+# environment
+LANGUAGE = 
+# default
+COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
+# environment
+PYTHONPATH = /usr/bin/eclipse/eclipse/plugins/org.python.pydev_3.9.1.201501081637/pysrc/pydev_sitecustomize:/usr/lib64/python2.7:/usr/lib64/python2.7/plat-linux2:/usr/lib64/python2.7/lib-tk:/usr/lib64/python2.7/lib-dynload:/usr/lib64/python2.7/site-packages:/usr/lib64/python2.7/site-packages/gtk-2.0:/usr/lib/python2.7/site-packages
+# default
+LEX = lex
+# default
+RM = rm -f
+# makefile
+MAKEFLAGS = p
+# environment
+MFLAGS = -p
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MAIL = /var/spool/mail/aaron
+# makefile (from `Vars.makefile', line 6)
+Menus_OBJS := build/obj/Menus/MainMenu.o build/obj/Menus/MainMenuTextButton.o
+# environment
+SHELL_SESSION_ID = e6857d5c8d284000b980509395724fbc
+# default
+LEX.m = $(LEX) $(LFLAGS) -t
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# default
+COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
+# makefile (from `Vars.makefile', line 6)
+Infra_OBJS := build/obj/Infra/TextButton.o
+# automatic
++F = $(notdir $+)
+# default
+M2C = m2c
+# environment
+KDE_SESSION_UID = 1000
+# makefile (from `makefile', line 29)
+LINK_LIB_DIRS := build/lib
+# environment
+COLORFGBG = 15;0
+# environment
+PYTHONSTARTUP = /etc/pythonstart
+# environment
+PYDEV_COMPLETER_PYTHONPATH = /usr/bin/eclipse/eclipse/plugins/org.python.pydev_3.9.1.201501081637/pysrc
+# default
+MAKEFILES := 
+# makefile (from `Vars.makefile', line 5)
+Infra_SRCS := src/Infra/TextButton.cpp
+# default
+YACC = yacc
+# makefile (from `makefile', line 13)
+SRC_DIR := src
+# automatic
+<F = $(notdir $<)
+# environment
+XAUTHLOCALHOSTNAME = choco
+# environment
+CSHEDIT = emacs
+# makefile (from `Vars.makefile', line 5)
+Menus_SRCS := src/Menus/MainMenu.cpp src/Menus/MainMenuTextButton.cpp
+# environment
+ALSA_CONFIG_PATH = /etc/alsa-pulse.conf
+# default
+CXX = g++
+# default
+LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
+# default
+COFLAGS = 
+# environment
+PAGER = less
+# makefile (from `lib.makefile', line 6)
+Menus_LIB_SO := build/lib/libMenus.so
+# default
+COMPILE.C = $(COMPILE.cc)
+# makefile (from `Vars.makefile', line 7)
+Infra_DEPS := build/dep/Infra/TextButton.d
+# environment
+HOSTTYPE = x86_64
+# makefile (from `src/Menus/makefile', line 7)
+LINK_LIBS := sfml-graphics
+# automatic
+^F = $(notdir $^)
+# default
+COMPILE.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
+# default
+LINK.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+FROM_HEADER = 
+# default
+SUFFIXES := .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+# environment
+HISTSIZE = 1000
+# environment
+GS_LIB = /home/aaron/.fonts
+# default
+COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+XNLSPATH = /usr/share/X11/nls
+# environment
+WINDOWPATH = 7
+# default
+COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
+# environment
+KONSOLE_DBUS_SERVICE = :1.184
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile (from `Vars.makefile', line 9)
+Infra_LIB_DEPS_FLAGS := 
+# environment
+MORE = -sl
+# environment
+SDL_AUDIODRIVER = pulse
+# default
+.RECIPEPREFIX := 
+# default
+MAKEINFO = makeinfo
+# environment
+NNTPSERVER = news
+# default
+OBJC = cc
+# environment
+GPG_TTY = /dev/pts/1
+# default
+LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# default
+TEX = tex
+# makefile (from `Vars.makefile', line 5)
+Main_SRCS := src/Main/Main.cpp
+# makefile (from `src/Minigames/X2048/makefile', line 6)
+SUBDIRS := 
+# environment
+LANG = en_US.UTF-8
+# environment
+TERM = xterm
+# default
+F77FLAGS = $(FFLAGS)
+# environment
+QT_SYSTEM_DIR = /usr/share/desktop-data
+# environment
+HOST = choco
+# variable set hash-table stats:
+# Load=248/1024=24%, Rehash=0, Collisions=74/752=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# build/src/Main/SCCS: could not be stat'd.
+# src/build/obj/Infra: could not be stat'd.
+# src/build/obj/Minigames/X2048: could not be stat'd.
+# src/Minigames/SCCS: could not be stat'd.
+# build/src/Minigames/X2048/SCCS: could not be stat'd.
+# src/src/Minigames/X2048: could not be stat'd.
+# src/RCS: could not be stat'd.
+# SCCS: could not be stat'd.
+# src/build/lib: could not be stat'd.
+# build/build: could not be stat'd.
+# src/Minigames/MadLib (device 2053, inode 27394340): 9 files, 1 impossibilities.
+# build/src/Main/RCS: could not be stat'd.
+# src/src/Minigames/MadLib/SCCS: could not be stat'd.
+# src/src/Minigames: could not be stat'd.
+# src/Minigames/RCS: could not be stat'd.
+# src/Main (device 2053, inode 27394349): 4 files, 2 impossibilities.
+# . (device 2053, inode 27394311): 21 files, 4 impossibilities.
+# build/src/Infra: could not be stat'd.
+# build/src/Minigames/X2048/RCS: could not be stat'd.
+# build/src: could not be stat'd.
+# src/src/Main: could not be stat'd.
+# src/Minigames/X2048 (device 2053, inode 27525849): 11 files, 9 impossibilities.
+# src/src/Minigames/MadLib/RCS: could not be stat'd.
+# build/src/Menus: could not be stat'd.
+# src/Minigames/MadLib/SCCS: could not be stat'd.
+# src/Menus/RCS: could not be stat'd.
+# build/build/obj/Minigames/X2048: could not be stat'd.
+# build/src/Minigames: could not be stat'd.
+# build/src/Infra/SCCS: could not be stat'd.
+# build (device 2053, inode 27394858): 5 files, no impossibilities.
+# build/src/SCCS: could not be stat'd.
+# src/src/Minigames/X2048/SCCS: could not be stat'd.
+# build/src/Menus/SCCS: could not be stat'd.
+# src/Minigames/MadLib/RCS: could not be stat'd.
+# src/build: could not be stat'd.
+# build/src/Minigames/SCCS: could not be stat'd.
+# src/src/Menus/RCS: could not be stat'd.
+# build/build/obj/Main: could not be stat'd.
+# src/src/Main/RCS: could not be stat'd.
+# build/src/Infra/RCS: could not be stat'd.
+# src/Main/SCCS: could not be stat'd.
+# build/src/RCS: could not be stat'd.
+# src/src/Infra: could not be stat'd.
+# src/src/Minigames/X2048/RCS: could not be stat'd.
+# build/SCCS: could not be stat'd.
+# src/Minigames/X2048/SCCS: could not be stat'd.
+# build/src/Minigames/MadLib: could not be stat'd.
+# src/src/Infra/SCCS: could not be stat'd.
+# src/build/obj/Main: could not be stat'd.
+# build/src/Minigames/RCS: could not be stat'd.
+# src/build/obj/Menus: could not be stat'd.
+# src/src: could not be stat'd.
+# src/src/Menus: could not be stat'd.
+# src/Main/RCS: could not be stat'd.
+# build/src/Minigames/X2048: could not be stat'd.
+# build/RCS: could not be stat'd.
+# src/Infra (device 2053, inode 27525853): 10 files, 5 impossibilities.
+# src/Minigames/X2048/RCS: could not be stat'd.
+# src/Infra/RCS: could not be stat'd.
+# src (device 2053, inode 27394337): 8 files, 1 impossibilities.
+# build/src/Menus/RCS: could not be stat'd.
+# build/build/lib: could not be stat'd.
+# src/src/SCCS: could not be stat'd.
+# build/src/Minigames/MadLib/RCS: could not be stat'd.
+# src/src/Menus/SCCS: could not be stat'd.
+# build/build/obj/Infra: could not be stat'd.
+# src/Menus (device 2053, inode 27525408): 7 files, 5 impossibilities.
+# src/src/Minigames/SCCS: could not be stat'd.
+# src/src/Main/SCCS: could not be stat'd.
+# build/src/Main: could not be stat'd.
+# src/src/Infra/RCS: could not be stat'd.
+# build/src/Minigames/MadLib/SCCS: could not be stat'd.
+# src/Minigames (device 2053, inode 27394338): 7 files, 1 impossibilities.
+# src/src/RCS: could not be stat'd.
+# src/Infra/SCCS: could not be stat'd.
+# src/SCCS: could not be stat'd.
+# build/build/obj/Menus: could not be stat'd.
+# src/src/Minigames/MadLib: could not be stat'd.
+# src/Menus/SCCS: could not be stat'd.
+# RCS: could not be stat'd.
+# src/src/Minigames/RCS: could not be stat'd.
+
+# 82 files, 28 impossibilities in 81 directories.
+
+# Implicit Rules
+
+build/obj/%.o: src/%.cpp
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+build/dep/%.d: src/%.cpp
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+%.o:
+
+%: %.o
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.so:
+
+%.d:
+
+(%): %
+#  recipe to execute (built-in):
+	$(AR) $(ARFLAGS) $@ $<
+
+%.out: %
+#  recipe to execute (built-in):
+	@rm -f $@ 
+	 cp $< $@
+
+%.c: %.w %.ch
+#  recipe to execute (built-in):
+	$(CTANGLE) $^ $@
+
+%.tex: %.w %.ch
+#  recipe to execute (built-in):
+	$(CWEAVE) $^ $@
+
+%:: %,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+%:: SCCS/s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+# 15 implicit rules, 5 (33.3%) terminal.
+
+# Files
+
+# Not a target:
+src/Menus/MainMenuTextButton.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 21:30:02.573465118
+#  File has been updated.
+#  Successfully updated.
+
+Menus_cleandeps:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 27)
+# DIR := Menus
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 29):
+	rm -f $($(DIR)_DEPS)
+
+build/obj/Minigames/X2048/TileFactory.o: src/Minigames/X2048/TileFactory.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/TileFactory'
+#  Last modified 2015-01-31 13:53:13.535603859
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Minigames/X2048/TileFactory.o
+# automatic
+# % := 
+# automatic
+# * := Minigames/X2048/TileFactory
+# automatic
+# + := src/Minigames/X2048/TileFactory.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Minigames/X2048/TileFactory.cpp
+# automatic
+# ^ := src/Minigames/X2048/TileFactory.cpp
+# automatic
+# ? := src/Minigames/X2048/TileFactory.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+build/dep/Menus/MainMenuTextButton.d: src/Menus/MainMenuTextButton.cpp src/Menus/MainMenuTextButton.cpp src/Menus/MainMenuTextButton.h src/Infra/Clickable.h src/Infra/Minigame.h src/Infra/TextButton.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Menus/MainMenuTextButton'
+#  Last modified 2015-01-31 13:52:35.588605056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+.web.p:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TANGLE) $<
+
+build/lib/libInfra.so: build/obj/Infra/TextButton.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `build/lib/libInfra'
+#  Last modified 2015-01-31 13:53:10.97060394
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/lib/libInfra.so
+# automatic
+# % := 
+# automatic
+# * := build/lib/libInfra
+# automatic
+# + := build/obj/Infra/TextButton.o
+# makefile (from `lib.makefile', line 9)
+# DIR := Infra
+# automatic
+# | := 
+# automatic
+# < := build/obj/Infra/TextButton.o
+# automatic
+# ^ := build/obj/Infra/TextButton.o
+# automatic
+# ? := build/obj/Infra/TextButton.o
+# variable set hash-table stats:
+# Load=9/32=28%, Rehash=0, Collisions=3/40=8%
+#  recipe to execute (from `lib.makefile', line 12):
+	mkdir -p $(@D)
+	g++ $(CXXFLAGS) $(LINKER_FLAGS) $($(DIR)_LINK_LIBS) -shared $($(DIR)_OBJS) -Wl,--whole-archive $($(DIR)_LIB_DEPS_FLAGS) -Wl,--no-whole-archive -o $@
+
+# Not a target:
+src/Minigames/X2048/Tile.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-30 20:02:33.570215421
+#  File has been updated.
+#  Successfully updated.
+
+build/obj/Menus/MainMenu.o: src/Menus/MainMenu.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Menus/MainMenu'
+#  Last modified 2015-01-31 13:53:11.465603924
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Menus/MainMenu.o
+# automatic
+# % := 
+# automatic
+# * := Menus/MainMenu
+# automatic
+# + := src/Menus/MainMenu.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Menus/MainMenu.cpp
+# automatic
+# ^ := src/Menus/MainMenu.cpp
+# automatic
+# ? := src/Menus/MainMenu.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+# Not a target:
+src/Minigames/X2048/GameBoard.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-13 12:10:38.350654557
+#  File has been updated.
+#  Successfully updated.
+
+build/dep/Minigames/X2048/Tile.d: src/Minigames/X2048/Tile.cpp src/Minigames/X2048/Tile.cpp src/Minigames/X2048/Tile.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/Tile'
+#  Last modified 2015-01-31 13:52:35.48260506
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+.l.r:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+# Not a target:
+src/Minigames/X2048/X2048Minigame.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-30 21:18:27.298570722
+#  File has been updated.
+#  Successfully updated.
+
+Minigames/X2048_cleandeps:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 27)
+# DIR := Minigames/X2048
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 29):
+	rm -f $($(DIR)_DEPS)
+
+build/dep/Minigames/X2048/X2048Minigame.d: src/Minigames/X2048/X2048Minigame.cpp src/Minigames/X2048/X2048Minigame.cpp src/Minigames/X2048/X2048Minigame.h src/Infra/Minigame.h src/Minigames/X2048/GameBoard.h src/Minigames/X2048/Tile.h src/Minigames/X2048/TileFactory.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/X2048Minigame'
+#  Last modified 2015-01-31 13:52:35.555605057
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+.dvi:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Main_clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 22)
+# DIR := Main
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 24):
+	rm -f $($(DIR)_OBJS) $($(DIR)_LIB_SO) $($(DIR)_EXE)
+
+# Not a target:
+.ym:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/Infra/TextButton.o: src/Infra/TextButton.cpp src/Infra/TextButton.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Infra/Clickable.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-29 14:30:23.904751408
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.f.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+build/obj/Main/Main.o: src/Main/Main.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Main/Main'
+#  Last modified 2015-01-31 13:53:10.483603955
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Main/Main.o
+# automatic
+# % := 
+# automatic
+# * := Main/Main
+# automatic
+# + := src/Main/Main.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Main/Main.cpp
+# automatic
+# ^ := src/Main/Main.cpp
+# automatic
+# ? := src/Main/Main.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+# Not a target:
+.l:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.m:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.ln:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.y:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Minigames/X2048/GameBoard.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-13 12:15:03.404670741
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.def.sym:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.def) -o $@ $<
+
+build/dep/Minigames/X2048/GameBoard.d: src/Minigames/X2048/GameBoard.cpp src/Minigames/X2048/GameBoard.cpp src/Minigames/X2048/GameBoard.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/GameBoard'
+#  Last modified 2015-01-31 13:52:35.516605058
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+.PHONY: all clean cleandeps mkdir_build_subdirs
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Minigames/X2048/TileFactory.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-30 21:08:20.820523402
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.p.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.p:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.txinfo.dvi:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+src/Infra/Minigame.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-29 15:14:28.914002652
+#  File has been updated.
+#  Successfully updated.
+
+Menus_clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 22)
+# DIR := Menus
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 24):
+	rm -f $($(DIR)_OBJS) $($(DIR)_LIB_SO) $($(DIR)_EXE)
+
+# Not a target:
+.a:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.yl:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Menus/MainMenu.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-29 15:38:40.808140564
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.l.ln:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+# Not a target:
+.F.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.texi.info:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# Not a target:
+.w.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CTANGLE) $< - $@
+
+# Not a target:
+.texi.dvi:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+.ch:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.m.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+# Not a target:
+src/Minigames/X2048/TileFactory.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-30 21:11:46.903539482
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.cc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+build/dep/Minigames/X2048/TileFactory.d: src/Minigames/X2048/TileFactory.cpp src/Minigames/X2048/TileFactory.cpp src/Minigames/X2048/TileFactory.h src/Minigames/X2048/Tile.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/TileFactory'
+#  Last modified 2015-01-31 13:52:35.447605061
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+.cc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+mkdir_build_subdirs:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.def:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.SUFFIXES: .o .so .d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Menus/MainMenu.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-29 15:50:09.005205934
+#  File has been updated.
+#  Successfully updated.
+
+build/dep/Menus/MainMenu.d: src/Menus/MainMenu.cpp src/Menus/MainMenu.cpp src/Menus/MainMenu.h src/Menus/MainMenuTextButton.h src/Infra/Clickable.h src/Infra/Minigame.h src/Infra/TextButton.h src/Minigames/MadLib/MadLibMinigame.h src/Minigames/X2048/X2048Minigame.h src/Minigames/X2048/GameBoard.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Menus/MainMenu'
+#  Last modified 2015-01-31 13:52:35.622605055
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.r.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.r:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+build/lib/libMenus.so: build/obj/Menus/MainMenu.o build/obj/Menus/MainMenuTextButton.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `build/lib/libMenus'
+#  Last modified 2015-01-31 13:53:11.894603911
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/lib/libMenus.so
+# automatic
+# % := 
+# automatic
+# * := build/lib/libMenus
+# automatic
+# + := build/obj/Menus/MainMenu.o build/obj/Menus/MainMenuTextButton.o
+# makefile (from `lib.makefile', line 9)
+# DIR := Menus
+# automatic
+# | := 
+# automatic
+# < := build/obj/Menus/MainMenu.o
+# automatic
+# ^ := build/obj/Menus/MainMenu.o build/obj/Menus/MainMenuTextButton.o
+# automatic
+# ? := build/obj/Menus/MainMenu.o build/obj/Menus/MainMenuTextButton.o
+# variable set hash-table stats:
+# Load=9/32=28%, Rehash=0, Collisions=5/53=9%
+#  recipe to execute (from `lib.makefile', line 12):
+	mkdir -p $(@D)
+	g++ $(CXXFLAGS) $(LINKER_FLAGS) $($(DIR)_LINK_LIBS) -shared $($(DIR)_OBJS) -Wl,--whole-archive $($(DIR)_LIB_DEPS_FLAGS) -Wl,--no-whole-archive -o $@
+
+build/obj/Minigames/X2048/X2048Minigame.o: src/Minigames/X2048/X2048Minigame.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/X2048Minigame'
+#  Last modified 2015-01-31 13:53:12.341603897
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Minigames/X2048/X2048Minigame.o
+# automatic
+# % := 
+# automatic
+# * := Minigames/X2048/X2048Minigame
+# automatic
+# + := src/Minigames/X2048/X2048Minigame.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Minigames/X2048/X2048Minigame.cpp
+# automatic
+# ^ := src/Minigames/X2048/X2048Minigame.cpp
+# automatic
+# ? := src/Minigames/X2048/X2048Minigame.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+# Not a target:
+.so:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Main/Main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-31 11:12:37.201907901
+#  File has been updated.
+#  Successfully updated.
+
+build/dep/Main/Main.d: src/Main/Main.cpp src/Main/Main.cpp src/Menus/MainMenu.h src/Menus/MainMenuTextButton.h src/Infra/Clickable.h src/Infra/Minigame.h src/Infra/TextButton.h src/Minigames/X2048/X2048Minigame.h src/Minigames/X2048/GameBoard.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Main/Main'
+#  Last modified 2015-01-31 13:52:35.658605054
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+src/Main/makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-31 11:13:06.029906991
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.ym.m:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+Minigames/X2048_clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 22)
+# DIR := Minigames/X2048
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 24):
+	rm -f $($(DIR)_OBJS) $($(DIR)_LIB_SO) $($(DIR)_EXE)
+
+# Not a target:
+.y.ln:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+makefile:
+#  Implicit rule search has not been done.
+#  Last modified 2015-01-31 13:52:23.399605441
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 52):
+	
+
+# Not a target:
+src/Minigames/MadLib/MadLibMinigame.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-24 01:47:15.971291227
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.elc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+clobber::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clobber:: Infra_clean Infra_cleandeps
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clobber:: Main_clean Main_cleandeps
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clobber:: Menus_clean Menus_cleandeps
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clobber:: Minigames/X2048_clean Minigames/X2048_cleandeps
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+depend:: build/dep/Infra/TextButton.d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+depend:: build/dep/Main/Main.d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+depend:: build/dep/Menus/MainMenu.d build/dep/Menus/MainMenuTextButton.d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+depend:: build/dep/Minigames/X2048/X2048Minigame.d build/dep/Minigames/X2048/GameBoard.d build/dep/Minigames/X2048/Tile.d build/dep/Minigames/X2048/TileFactory.d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.out:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/152=0%
+
+all::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+all:: build/AmbGames
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/152=0%
+
+all::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+all::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.C:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+build/obj/Infra/TextButton.o: src/Infra/TextButton.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Infra/TextButton'
+#  Last modified 2015-01-31 13:53:10.868603943
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Infra/TextButton.o
+# automatic
+# % := 
+# automatic
+# * := Infra/TextButton
+# automatic
+# + := src/Infra/TextButton.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Infra/TextButton.cpp
+# automatic
+# ^ := src/Infra/TextButton.cpp
+# automatic
+# ? := src/Infra/TextButton.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+# Not a target:
+.r.f:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.S:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.texinfo.info:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# Not a target:
+.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.w.tex:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CWEAVE) $< - $@
+
+build/AmbGames: build/obj/Main/Main.o build/lib/libInfra.so build/lib/libMenus.so build/lib/libMinigames-X2048.so
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  Last modified 2015-01-31 13:53:13.620603856
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/AmbGames
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := build/obj/Main/Main.o build/lib/libInfra.so build/lib/libMenus.so build/lib/libMinigames-X2048.so
+# makefile (from `module.makefile', line 9)
+# DIR := Main
+# automatic
+# | := 
+# automatic
+# < := build/obj/Main/Main.o
+# automatic
+# ^ := build/obj/Main/Main.o build/lib/libInfra.so build/lib/libMenus.so build/lib/libMinigames-X2048.so
+# automatic
+# ? := build/obj/Main/Main.o build/lib/libInfra.so build/lib/libMenus.so build/lib/libMinigames-X2048.so
+# variable set hash-table stats:
+# Load=9/32=28%, Rehash=0, Collisions=21/167=13%
+#  recipe to execute (from `module.makefile', line 12):
+	mkdir -p $(@D)
+	g++ $(CXXFLAGS) $(LINKER_FLAGS) $($(DIR)_LINK_LIBS_FLAGS) -Wl,--start-group $($(DIR)_LIB_DEPS_FLAGS) -Wl,--end-group $($(DIR)_OBJS) -o $@
+
+# Not a target:
+.c.ln:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+# Not a target:
+.s.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.s) -o $@ $<
+
+# Not a target:
+.s:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+src/Menus/makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 23:21:41.323253762
+#  File has been updated.
+#  Successfully updated.
+
+src/Minigames/X2048/X2048Minigame.o: src/Minigames/X2048/X2048Minigame.cpp src/Minigames/X2048/X2048Minigame.h src/Infra/Minigame.h src/Minigames/X2048/GameBoard.h src/Minigames/X2048/Tile.h src/Minigames/X2048/TileFactory.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+cleandeps::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+cleandeps:: Infra_cleandeps
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+cleandeps:: Main_cleandeps
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+cleandeps:: Menus_cleandeps
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+cleandeps:: Minigames/X2048_cleandeps
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.texinfo.dvi:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+.el:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/Minigames/X2048/GameBoard.o: src/Minigames/X2048/GameBoard.cpp src/Minigames/X2048/GameBoard.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.lm.m:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.m) $< > $@
+
+# Not a target:
+.y.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+# Not a target:
+.web.tex:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(WEAVE) $<
+
+# Not a target:
+.texinfo:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Infra/TextButton.h:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 20:08:47.485618935
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Minigames/X2048/makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 18:07:51.529847872
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Infra/TextButton.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-28 21:36:50.134044148
+#  File has been updated.
+#  Successfully updated.
+
+src/Minigames/X2048/TileFactory.o: src/Minigames/X2048/TileFactory.cpp src/Minigames/X2048/TileFactory.h src/Minigames/X2048/Tile.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/dep/Infra/TextButton.d: src/Infra/TextButton.cpp src/Infra/TextButton.cpp src/Infra/TextButton.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Infra/TextButton'
+#  Last modified 2015-01-31 13:52:35.691605053
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `makefile', line 48):
+	mkdir -p $(@D)
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
+
+# Not a target:
+.tex.dvi:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEX) $<
+
+# Not a target:
+.cpp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+src/Infra/makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 23:19:49.237257298
+#  File has been updated.
+#  Successfully updated.
+
+clean::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:: Infra_clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:: Main_clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:: Menus_clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:: Minigames/X2048_clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 19:21:01.064709375
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.C.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.texi:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/Menus/MainMenu.o: src/Menus/MainMenu.cpp src/Menus/MainMenu.h src/Menus/MainMenuTextButton.h src/Infra/Clickable.h src/Infra/Minigame.h src/Infra/TextButton.h src/Minigames/MadLib/MadLibMinigame.h src/Minigames/X2048/X2048Minigame.h src/Minigames/X2048/GameBoard.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.txinfo:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Minigames/makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-31 11:12:08.080908819
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.tex:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.txinfo.info:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+Infra_cleandeps:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 27)
+# DIR := Infra
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 29):
+	rm -f $($(DIR)_DEPS)
+
+src/Main/Main.o: src/Main/Main.cpp src/Menus/MainMenu.h src/Menus/MainMenuTextButton.h src/Infra/Clickable.h src/Infra/Minigame.h src/Infra/TextButton.h src/Minigames/X2048/X2048Minigame.h src/Minigames/X2048/GameBoard.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+lib.makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 23:19:58.564257004
+#  File has been updated.
+#  Successfully updated.
+
+build/obj/Menus/MainMenuTextButton.o: src/Menus/MainMenuTextButton.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Menus/MainMenuTextButton'
+#  Last modified 2015-01-31 13:53:11.861603912
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Menus/MainMenuTextButton.o
+# automatic
+# % := 
+# automatic
+# * := Menus/MainMenuTextButton
+# automatic
+# + := src/Menus/MainMenuTextButton.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Menus/MainMenuTextButton.cpp
+# automatic
+# ^ := src/Menus/MainMenuTextButton.cpp
+# automatic
+# ? := src/Menus/MainMenuTextButton.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+# Not a target:
+Vars.makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 23:21:15.692254571
+#  File has been updated.
+#  Successfully updated.
+
+src/Menus/MainMenuTextButton.o: src/Menus/MainMenuTextButton.cpp src/Menus/MainMenuTextButton.h src/Infra/Clickable.h src/Infra/Minigame.h src/Infra/TextButton.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.sh:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	cat $< >$@ 
+	 chmod a+x $@
+
+build/obj/Minigames/X2048/Tile.o: src/Minigames/X2048/Tile.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/Tile'
+#  Last modified 2015-01-31 13:53:13.126603872
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Minigames/X2048/Tile.o
+# automatic
+# % := 
+# automatic
+# * := Minigames/X2048/Tile
+# automatic
+# + := src/Minigames/X2048/Tile.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Minigames/X2048/Tile.cpp
+# automatic
+# ^ := src/Minigames/X2048/Tile.cpp
+# automatic
+# ? := src/Minigames/X2048/Tile.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+# Not a target:
+.d:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Cmds.makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-31 10:44:47.720960575
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.S.s:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.S) $< > $@
+
+# Not a target:
+.mod:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+src/Minigames/X2048/Tile.o: src/Minigames/X2048/Tile.cpp src/Minigames/X2048/Tile.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.mod.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ $<
+
+# Not a target:
+.F.f:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.w:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.S.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.S) -o $@ $<
+
+Main_cleandeps:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 27)
+# DIR := Main
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 29):
+	rm -f $($(DIR)_DEPS)
+
+build/obj/Minigames/X2048/GameBoard.o: src/Minigames/X2048/GameBoard.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `Minigames/X2048/GameBoard'
+#  Last modified 2015-01-31 13:53:12.754603884
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/obj/Minigames/X2048/GameBoard.o
+# automatic
+# % := 
+# automatic
+# * := Minigames/X2048/GameBoard
+# automatic
+# + := src/Minigames/X2048/GameBoard.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Minigames/X2048/GameBoard.cpp
+# automatic
+# ^ := src/Minigames/X2048/GameBoard.cpp
+# automatic
+# ? := src/Minigames/X2048/GameBoard.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/24=8%
+#  recipe to execute (from `makefile', line 44):
+	mkdir -p $(@D)
+	$(COMPILE.cpp) $^ -o $@
+
+Infra_clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `Cmds.makefile', line 22)
+# DIR := Infra
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+#  recipe to execute (from `Cmds.makefile', line 24):
+	rm -f $($(DIR)_OBJS) $($(DIR)_LIB_SO) $($(DIR)_EXE)
+
+# Not a target:
+src/Menus/MainMenuTextButton.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-29 15:29:55.530090669
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.F:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+build/lib/libMinigames-X2048.so: build/obj/Minigames/X2048/X2048Minigame.o build/obj/Minigames/X2048/GameBoard.o build/obj/Minigames/X2048/Tile.o build/obj/Minigames/X2048/TileFactory.o build/lib/libInfra.so
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `build/lib/libMinigames-X2048'
+#  Last modified 2015-01-31 13:53:13.573603858
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := build/lib/libMinigames-X2048.so
+# automatic
+# % := 
+# automatic
+# * := build/lib/libMinigames-X2048
+# automatic
+# + := build/obj/Minigames/X2048/X2048Minigame.o build/obj/Minigames/X2048/GameBoard.o build/obj/Minigames/X2048/Tile.o build/obj/Minigames/X2048/TileFactory.o build/lib/libInfra.so
+# makefile (from `lib.makefile', line 9)
+# DIR := Minigames/X2048
+# automatic
+# | := 
+# automatic
+# < := build/obj/Minigames/X2048/X2048Minigame.o
+# automatic
+# ^ := build/obj/Minigames/X2048/X2048Minigame.o build/obj/Minigames/X2048/GameBoard.o build/obj/Minigames/X2048/Tile.o build/obj/Minigames/X2048/TileFactory.o build/lib/libInfra.so
+# automatic
+# ? := build/obj/Minigames/X2048/X2048Minigame.o build/obj/Minigames/X2048/GameBoard.o build/obj/Minigames/X2048/Tile.o build/obj/Minigames/X2048/TileFactory.o build/lib/libInfra.so
+# variable set hash-table stats:
+# Load=9/32=28%, Rehash=0, Collisions=9/79=11%
+#  recipe to execute (from `lib.makefile', line 12):
+	mkdir -p $(@D)
+	g++ $(CXXFLAGS) $(LINKER_FLAGS) $($(DIR)_LINK_LIBS) -shared $($(DIR)_OBJS) -Wl,--whole-archive $($(DIR)_LIB_DEPS_FLAGS) -Wl,--no-whole-archive -o $@
+
+# Not a target:
+module.makefile:
+#  Implicit rule search has been done.
+#  Last modified 2015-01-30 23:20:10.084256641
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.web:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Minigames/X2048/Tile.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-30 21:07:53.23252125
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.sym:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.f:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+src/Minigames/X2048/X2048Minigame.h:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-30 20:59:18.6514811
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.info:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=146/1024=14%, Rehash=0, Collisions=309/1828=17%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# General (`VPATH' variable) search path:
+# build:src
+
+# # of strings in strcache: 394 / lookups = 962 / hits = 568
+# # of strcache buffers: 2 (* 8176 B/buffer = 16352 B)
+# strcache used: total = 8171 (5864) / max = 8171 / min = 8171 / avg = 8171
+# strcache free: total = 5 (2312) / max = 5 / min = 5 / avg = 5
+
+# strcache hash-table stats:
+# Load=632/8192=8%, Rehash=0, Collisions=76/962=8%
+# Finished Make data base on Sat Jan 31 13:53:13 2015
+

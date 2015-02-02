@@ -10,9 +10,9 @@ LINK_LIBS :=
 LIB_DEPS := \
            Infra \
            Menus \
-           Minigames-MadLib \
-           Minigames-X2048 \
-           Minigames-ProjectEuler \
-           Minigames-ProjectEuler-problems
+           Minigames-X2048
+#           Minigames-MadLib \
+#           Minigames-ProjectEuler \
+#           Minigames-ProjectEuler-problems
 
 include module.makefile

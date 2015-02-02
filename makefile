@@ -15,7 +15,6 @@ BUILD_DIR := build
 LIB_DIR := $(BUILD_DIR)/lib
 OBJ_DIR := $(BUILD_DIR)/obj
 DEP_DIR := $(BUILD_DIR)/dep
-VPATH = $(BUILD_DIR):$(SRC_DIR)
 
 # Graphics toolkit library names
 SFML_LIBS := sfml-graphics \
@@ -33,16 +32,27 @@ LINKER_FLAGS := $(addprefix -L, $(LINK_LIB_DIRS)) $(addprefix -l, $(LINK_LIBS))
 # this happens whenever a builtin recipe is called for updating a .o file from a .cpp file 
 CXXFLAGS := -std=c++11 -ggdb -Wall -fPIC $(INCLUDE_DIRS)
 
+# Shell commands
+MKDIR := mkdir -p
+RM := /bin/rm -f
+
 # These targets are defined in Cmds.makefile
 # They are listed here so that you can use tab completion in tcsh
 all::
 clean::
 cleandeps::
 clobber::
+AmbGames::
+# 
+$(LIB_DIR):
+	$(MKDIR) $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	mkdir -p $(@D)
 	$(COMPILE.cpp) $^ -o $@
+
+$(DEP_DIR)/%.d: $(SRC_DIR)/%.cpp
+	echo -n $@" "$(<D)/ > $@
+	$(COMPILE.cpp) -MM $^ >> $@
 
 makefile:;
 

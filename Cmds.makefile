@@ -8,29 +8,29 @@
 #   cleandeps
 #   clobber
 
-all:: $($(DIR)_EXE)
+all:: $($(DIR)_EXE) $($(DIR)_LIB_SO)
+
+depend:: $(DIR)_depend
+$(DIR)_depend: $($(DIR)_DEPS)
+
+clean:: $(DIR)_clean
+$(DIR)_clean: DIR:=$(DIR)
+$(DIR)_clean:
+	$(RM) $($(DIR)_OBJS) $($(DIR)_LIB_SO) $($(DIR)_EXE)
+
+cleandeps:: $(DIR)_cleandeps
+$(DIR)_cleandeps: DIR:=$(DIR)
+$(DIR)_cleandeps:
+	$(RM) $($(DIR)_DEPS)
+
+clobber:: $(DIR)_clean $(DIR)_cleandeps
+
+# This could be a clever way of making just a particular module, if necessary.
+# But that practice could have some negative consequences. Need to evaluate
+#$(DIR):: $($(DIR)_EXE) $($(DIR)_LIB_SO)
 
 # TODO: Find a way to build all targets without generating dependency files
 #depend:: $(DIR)_depend
 #$(DIR)_depend: DIR:=$(DIR)
 #$(DIR)_depend:
-#	mkdir -p $(DEP_DIR)/$(DIR)
 #	echo -n $($(DIR)_DEPS)
-
-depend:: $($(DIR)_DEPS)
-$($(DIR)_DEPS): $($(DIR)_SRCS)
-	mkdir -p $(@D)
-	echo -n $@" " > $@
-	g++ -MM $(CXXFLAGS) $< >> $@
-
-clean:: $(DIR)_clean
-$(DIR)_clean: DIR:=$(DIR)
-$(DIR)_clean:
-	rm -f $($(DIR)_OBJS) $($(DIR)_LIB_SO) $($(DIR)_EXE)
-
-cleandeps:: $(DIR)_cleandeps
-$(DIR)_cleandeps: DIR:=$(DIR)
-$(DIR)_cleandeps:
-	rm -f $($(DIR)_DEPS)
-
-clobber:: $(DIR)_clean $(DIR)_cleandeps

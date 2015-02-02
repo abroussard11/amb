@@ -24,6 +24,7 @@ public:
    static std::map<unsigned int, Tile::Ptr>* getMap();
 
 private:
+   static sf::Font _font;
    static std::map<unsigned int, Tile::Ptr>* s_tileMap;
 };
 

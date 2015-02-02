@@ -22,14 +22,9 @@ namespace X2048 {
 const float X2048Minigame::s_moveDistance(66.0F);
 X2048Minigame::X2048Minigame() :
       _canvas(), //
-      _gameState(4, std::vector<unsigned int>(4, 0))
+      _gameState{{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}
 {
-   // Reserve space in the vectors
-   _gameState.reserve(4);
-   for (auto& vec : _gameState)
-   {
-      vec.reserve(4);
-   }
+   // Empty
 }
 
 X2048Minigame::~X2048Minigame()
@@ -59,9 +54,9 @@ void X2048Minigame::play()
       }
 
       _window.clear();
-      _window.draw(_canvas);
+//      _window.draw(_canvas);
 
-      std::cout << "Tile Positions:" << std::endl;
+//      std::cout << "Tile Positions:" << std::endl;
       int row = 0;
       for (auto& vec : _gameState)
       {
@@ -71,14 +66,14 @@ void X2048Minigame::play()
             // construct tile
             Tile::Ptr tile = TileFactory::getTile(val);
             // apply tile transform
-            tile->move(row * s_moveDistance, col * s_moveDistance);
-            std::cout << tile->getPosition().x << ", " << tile->getPosition().y << std::endl;
+            tile->setPosition(row * s_moveDistance, col * s_moveDistance);
+//            std::cout << tile->getPosition().x << ", " << tile->getPosition().y << std::endl;
             _window.draw(*tile);
             col++;
          }
          row++;
       }
-      std::cout << std::endl;
+//      std::cout << std::endl;
 
       _window.display();
    }
@@ -126,28 +121,30 @@ void X2048Minigame::slideBoard(const sf::Event& event)
 
 void X2048Minigame::spawnNewTile()
 {
-   int x = rand() % 16;
+   int x = (rand() % 16) + 1;
    std::cout << " Random number = " << x << std::endl;
    int count = 0;
 
-   for (auto& vec : _gameState)
+   while (count < x)
    {
-      for (auto& val : vec)
+      for (auto& vec : _gameState)
       {
-         if (count == x)
+         for (auto& val : vec)
          {
-            count++;
-            std::cout << "New tile spawned!" << std::endl;
-            val = 2;
+            if (val == 0)
+            {
+               count++;
+            }
+            if (count >= x)
+            {
+               std::cout << "New tile spawned!" << std::endl;
+               val = 2;
+               break;
+            }
+         }
+         if (count >= x)
             break;
-         }
-         else if (val == 0)
-         {
-            count++;
-         }
       }
-      if (count >= x)
-         break;
    }
 
    std::cout << "Game State Matrix:" << std::endl;

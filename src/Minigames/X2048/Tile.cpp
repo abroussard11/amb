@@ -22,14 +22,12 @@ Tile::Tile(unsigned int val, sf::Color color, sf::Font& font) :
       _text(), //
       _background()
 {
-   _background.setFillColor(color);
+   _background.setFillColor(sf::Color::Green);
    _background.setPosition(10.0F, 10.0F);
 
-   std::stringstream ss;
-   ss << val;
-   _text.setString(ss.str());
+   _text.setString(sf::String(val));
    _text.setCharacterSize(20);
-   _text.setColor(sf::Color::Black);
+   _text.setColor(sf::Color::Yellow);
    _text.setFont(font);
    _text.setPosition(10.F, 10.F);
 }

@@ -9,8 +9,8 @@
 #include <SFML/Graphics.hpp>
 
 #include <Menus/MainMenu.h>
-#include <Minigames/MadLib/MadLibMinigame.h>
-#include <Minigames/ProjectEuler/ProjectEulerGame.h>
+//#include <Minigames/MadLib/MadLibMinigame.h>
+//#include <Minigames/ProjectEuler/ProjectEulerGame.h>
 #include <Minigames/X2048/X2048Minigame.h>
 
 using namespace Minigames;
