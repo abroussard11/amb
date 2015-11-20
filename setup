@@ -1,0 +1,38 @@
+#!/bin/csh -ef
+
+####
+## The top-level setup file
+###
+
+setenv COLORFUL_MAKE true
+
+## Build target
+setenv COMP_TYPE _`uname --kernel-name`_`uname --machine`
+setenv MAKE_TYPE `uname --kernel-name`
+setenv MAKE_JOBS `nproc`
+
+setenv PROJECT_PATH "$PWD"
+setenv LD_LIBRARY_PATH "$PROJECT_PATH/$COMP_TYPE/lib"
+
+set amb_languages = ( cxx \
+                      dot \
+                      python )
+
+foreach lang ($amb_languages)
+   source $lang/setup
+end
+
+set addpaths = ( \
+   $PROJECT_PATH/$COMP_TYPE/bin \
+   $PROJECT_PATH/scripts \
+   )
+
+foreach p ($addpaths)
+   if ("$path" =~ {*$p*}) then
+      #do nothing
+      echo "Already there:" $p
+   else
+      echo "Adding:" $p
+      set path=($path $p)
+   endif
+end

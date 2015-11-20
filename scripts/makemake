@@ -1,0 +1,98 @@
+#!/bin/tcsh -ef
+
+if ($#argv) then
+   if ($argv[1] == "--exe") then
+      set makeType = "exe"
+   else if ($argv[1] == "--lib") then
+      set makeType = "lib"
+   else if ($argv[1] == "--sharedLib") then
+      set makeType = "sharedLib"
+   else if ($argv[1] == "--subdir") then
+      set makeType = "subdirs"
+   else
+      echo "Invalid argument:"
+      echo "You should specify makefile type [--exe, --lib, --sharedLib]"
+      exit
+   endif
+else
+   echo "You should specify makefile type [--exe, --lib, --sharedLib]"
+   exit
+endif
+
+set amb_languages = (cxx dot python)
+set amb_lang = ""
+set dirs = ($PWD:as#/# #)
+set i = 0
+foreach x (`seq 1 $#dirs`)
+   foreach lang ($amb_languages)
+      if ($dirs[$x] == $lang) then
+         @ i = $x + 1
+         set amb_lang = $lang
+         break
+      endif
+   end
+end
+   #if ($dirs[$x] == "src") then
+   #   @ i = $x + 1
+   #endif
+#end
+
+if ($i == 0) then
+   echo "Where are you??"
+   exit
+endif
+
+set directory = ""
+foreach x (`seq $i $#dirs`)
+   set directory = $directory/$dirs[$x]
+end
+
+# trim the leading '/'
+set directory = $directory:s#/##
+
+set items = `ls`
+set fileList = ""
+set subdirList = ""
+foreach i ($items)
+   if ($i =~ {*.cpp}) then
+      set fileList = "$i:r\n$fileList"
+   else if (-d $i) then
+      set subdirList = "$i\n$subdirList"
+   endif
+end
+
+set files = `echo $fileList | sort`
+set subdirs = `echo $subdirList | sort`
+
+echo "####################################################################"
+echo "## Makefile for $directory"
+echo "####################################################################"
+echo ""
+echo "include $amb_lang/initVars.makefile"
+echo ""
+echo "DIR := $directory"
+
+if ($makeType == "exe") then
+   echo "EXE := $directory:t"
+endif
+
+if ($#subdirs) then
+   echo ""
+   echo -n "SUBDIRS :="
+   foreach d ($subdirs)
+      echo -n " \\\n   $d"
+   end
+   echo ""
+endif
+
+if ($#files) then
+   echo ""
+   echo -n "FILES :="
+   foreach f ($files)
+      echo -n " \\\n   $f"
+   end
+   echo ""
+endif
+
+echo ""
+echo "include $amb_lang/$makeType.makefile"
