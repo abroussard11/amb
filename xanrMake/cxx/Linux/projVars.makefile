@@ -22,6 +22,7 @@ DEBUG_FLAGS :=-g
 WARN_FLAGS :=-Wall
 MAKE_DEPS_FLAGS :=-MMD
 PCH_FLAGS :=#
+SAN_FLAGS :=#
 ifeq "$(RUN_SANITIZERS)" "true"
    SAN_FLAGS ?=-fsanitize=address
 endif

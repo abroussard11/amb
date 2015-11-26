@@ -1,0 +1,94 @@
+Digraph G {
+   //size = "10,10"
+   //dpi=600
+   label = "Distributed Network Build"
+   overlap=scale
+   //clusterrank = local
+
+   subgraph clusterDevNode {
+      color = orange
+      label = "Dev Node"
+
+      "make"
+      "BuildShell-1"
+      "BuildShell-2"
+      "BuildShell-3"
+   }
+
+   subgraph clusterMasterNode {
+      color = green
+      label = "Master Node"
+      size = "2,2"
+
+      "Master Node Manager"
+   }
+
+   subgraph clusterBuildNode1 {
+      color = blue
+      label = "Build Node 1"
+
+      "Build Node Manager:1"
+      "Compilation Executor-1:1"
+      "Compilation Executor-2:1"
+      "Compilation Executor-3:1"
+   }
+
+   subgraph clusterBuildNode2 {
+      color = blue
+      label = "Build Node 2"
+
+      "Build Node Manager:2"
+      "Compilation Executor-1:2"
+      "Compilation Executor-2:2"
+      "Compilation Executor-3:2"
+   }
+
+/*
+   subgraph clusterBuildNode3 {
+      color = blue
+      label = "Build Node 3"
+
+      "Build Node Manager:3"
+      "Compilation Executor-1:3"
+      "Compilation Executor-2:3"
+      "Compilation Executor-3:3"
+   }
+*/
+
+   "make" -> "BuildShell-1" [label=1]
+   "make" -> "BuildShell-2" [label=1]
+   "make" -> "BuildShell-3" [label=1]
+   "BuildShell-1" -> "Master Node Manager" [label=2]
+   "BuildShell-2" -> "Master Node Manager" [label=2]
+   "BuildShell-3" -> "Master Node Manager" [label=2]
+   "Master Node Manager" -> "Build Node Manager:1" [label=3]
+   "Master Node Manager" -> "Build Node Manager:2" [label=3]
+   //"Master Node Manager" -> "Build Node Manager:3" [label=3]
+   "Build Node Manager:1" -> "Compilation Executor-1:1" [label=4]
+   "Build Node Manager:1" -> "Compilation Executor-2:1" [label=4]
+   "Build Node Manager:1" -> "Compilation Executor-3:1" [label=4]
+   "Build Node Manager:2" -> "Compilation Executor-1:2" [label=4]
+   "Build Node Manager:2" -> "Compilation Executor-2:2" [label=4]
+   "Build Node Manager:2" -> "Compilation Executor-3:2" [label=4]
+   //"Build Node Manager:3" -> "Compilation Executor-1:3" [label=4]
+   //"Build Node Manager:3" -> "Compilation Executor-2:3" [label=4]
+   //"Build Node Manager:3" -> "Compilation Executor-3:3" [label=4]
+   "Compilation Executor-1:1" -> "Build Node Manager:1" [label=5]
+   "Compilation Executor-2:1" -> "Build Node Manager:1" [label=5]
+   "Compilation Executor-3:1" -> "Build Node Manager:1" [label=5]
+   "Compilation Executor-1:2" -> "Build Node Manager:2" [label=5]
+   "Compilation Executor-2:2" -> "Build Node Manager:2" [label=5]
+   "Compilation Executor-3:2" -> "Build Node Manager:2" [label=5]
+   //"Compilation Executor-1:3" -> "Build Node Manager:3" [label=5]
+   //"Compilation Executor-2:3" -> "Build Node Manager:3" [label=5]
+   //"Compilation Executor-3:3" -> "Build Node Manager:3" [label=5]
+   "Build Node Manager:1" -> "Master Node Manager" [label=6]
+   "Build Node Manager:2" -> "Master Node Manager" [label=6]
+   //"Build Node Manager:3" -> "Master Node Manager" [label=6]
+   "Master Node Manager" -> "BuildShell-1" [label=7]
+   "Master Node Manager" -> "BuildShell-2" [label=7]
+   "Master Node Manager" -> "BuildShell-3" [label=7]
+   "BuildShell-1" -> "make" [label=8]
+   "BuildShell-2" -> "make" [label=8]
+   "BuildShell-3" -> "make" [label=8]
+}
