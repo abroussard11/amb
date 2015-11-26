@@ -1,0 +1,458 @@
+<!-- bath.xml -->
+
+<dsbRoot>
+
+<!-- - - - - - - - - - - - -->
+<!-- MISCELLANEOUS JOB PREPARATION section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>MISCELLANEOUS JOB PREPARATION</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+<!-- - - - - - - - - - - - -->
+<!-- PLUMBING section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>PLUMBING</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+<!-- - - - - - - - - - - - -->
+<!-- ELECTRICAL & HVAC section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>ELECTRICAL & HVAC</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+<!-- - - - - - - - - - - - -->
+<!-- SHEETROCK section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>SHEETROCK</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+<!-- - - - - - - - - - - - -->
+<!-- CABINETS & TRIMS & MIRRORS section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>CABINETS & TRIMS & MIRRORS</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+<!-- - - - - - - - - - - - -->
+<!-- COUNTERTOPS section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>COUNTERTOPS</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+<!-- - - - - - - - - - - - -->
+<!-- CERAMIC TILE FLOORS section -->
+<!-- - - - - - - - - - - - -->
+<group>
+   <info></info>
+   <base></base>
+   <name>CERAMIC TILE FLOORS</name>
+   <activity>
+      <name></name>
+      <desc></desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+</group>
+
+</dsbRoot>

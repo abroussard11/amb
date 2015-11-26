@@ -1,7 +1,5 @@
 $(info Reading amb/cxx/makefile)
 
-MFILE := makefile
-
 all::
 	@echo cxx all
 
@@ -17,12 +15,14 @@ WC_FILE := $(BUILD_DIR)/wc_file
 
 include cxx/projVars.makefile
 
-$(info Inside of cxx/makefile)
-$(info MAKEFLAGS = $(MAKEFLAGS))
-$(info .INCLUDE_DIRS = $(.INCLUDE_DIRS))
-$(info )
-
 SUBDIRS := \
-   BuildShell
+   amb \
+   BuildShell \
+   dsb \
+   include \
+   infra \
+   paint \
+   tests \
+   Util \
 
 include $(patsubst %, $(SRC_DIR)/%/$(MFILE), $(SUBDIRS))

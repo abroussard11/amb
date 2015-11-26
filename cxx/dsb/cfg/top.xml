@@ -1,0 +1,945 @@
+<!-- top.xml -->
+
+<dsbRoot>
+
+<!-- - - - - - - - - - - - -->
+<!-- MISCELLANEOUS section -->
+<!-- - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>MISCELLANEOUS</name>
+   <activity>
+      <name>TREE</name>
+      <desc>Remove: Tree/Step/Deck/Other</desc>
+      <LU>300</LU>
+      <UC>e300a</UC>
+   </activity>
+   <activity>
+      <name>CONCRE</name>
+      <desc>Tear out concrete & haul off ($200 min)</desc>
+      <LU>2</LU>
+      <UC>s2ff</UC>
+   </activity>
+   <activity>
+      <name>LGRADE</name>
+      <desc>Rough grade around addition for drainage (approx. 4")</desc>
+      <LU>1</LU>
+      <UC>s2ft</UC>
+   </activity>
+   <activity>
+      <name>DIRT</name>
+      <desc>Haul off dirt ($200 min)</desc>
+      <LU>30</LU>
+      <UC>y30d</UC>
+   </activity>
+   <activity>
+      <name>BRICWA</name>
+      <desc>Strip brick off wall at addition tie in</desc>
+      <LU>1</LU>
+      <UC>s2fw</UC>
+   </activity>
+   <activity>
+      <name>PROTFL</name>
+      <desc>Protect floor or area</desc>
+      <LU>200</LU>
+      <UC>e300a</UC>
+   </activity>
+   <activity>
+      <name>PLUMVE</name>
+      <desc>Extend plumb. vents through new roof ($125- Furnaces)</desc>
+      <LU>-</LU>
+      <UC>e50a</UC>
+   </activity>
+   <activity>
+      <name>HOSEBI</name>
+      <desc>Move or Install New Hose Bib</desc>
+      <LU>-</LU>
+      <UC>e150a</UC>
+   </activity>
+   <activity>
+      <name>DRYEVE</name>
+      <desc>Move or Install Dryer Vent</desc>
+      <LU>20</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>CONCSE</name>
+      <desc>Replace concrete sewer with PVC under new addition</desc>
+      <LU>-</LU>
+      <UC>l20ft</UC>
+   </activity>
+   <activity>
+      <name>GASMET</name>
+      <desc>Move Gas Meter and Gas Line (20' max)</desc>
+      <LU>-</LU>
+      <UC>e600a</UC>
+   </activity>
+   <activity>
+      <name>GASTES</name>
+      <desc>Supply Gas Test w/ insp. And Repair One Leak</desc>
+      <LU>-</LU>
+      <UC>e450a</UC>
+   </activity>
+   <activity>
+      <name>WATEHG</name>
+      <desc>Move W/H or Washing Machine Plumbing</desc>
+      <LU>-</LU>
+      <UC>e400a</UC>
+   </activity>
+   <activity>
+      <name>GASLIN</name>
+      <desc>Install Under Ground Gas Line</desc>
+      <LU>10</LU>
+      <UC>l15ft</UC>
+   </activity>
+   <activity>
+      <name>GASAC</name>
+      <desc>Instl. Gas line to Attic Central Heat</desc>
+      <LU>-</LU>
+      <UC>e250a</UC>
+   </activity>
+   <activity>
+      <name>HVACRE</name>
+      <desc>Relocate Air/Heat unit in Attic</desc>
+      <LU>-</LU>
+      <UC>e800a</UC>
+   </activity>
+   <activity>
+      <name>HVACCO</name>
+      <desc>Relocate Outside A/C Condenser</desc>
+      <LU>-</LU>
+      <UC>e500a</UC>
+   </activity>
+   <activity>
+      <name>SERVEL</name>
+      <desc>Relocate Electrical Service (no new box)</desc>
+      <LU>-</LU>
+      <UC>e500a</UC>
+   </activity>
+   <activity>
+      <name>PHONLI</name>
+      <desc>Move Phone or CATV Service Line</desc>
+      <LU>-</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>SERV20</name>
+      <desc>Update electrical service to 200AMP</desc>
+      <LU>-</LU>
+      <UC>e1500a</UC>
+   </activity>
+   <activity>
+      <name>UNGREL</name>
+      <desc>Install Under Ground Electric Feed</desc>
+      <LU>-</LU>
+      <UC>l20ft</UC>
+   </activity>
+   <activity>
+      <name>SERV10</name>
+      <desc>Install Sub Panels</desc>
+      <LU></LU>
+      <UC>e600a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- FOUNDATIONS/FLOOR SYSTEMS/CONCRETE section  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>FOUNDATIONS/FLOOR SYSTEMS/CONCRETE</name>
+   <activity>
+      <name>SLAB1S</name>
+      <desc>Instl. 1 Story Slab doweled to exist. if needed (1800 min)</desc>
+      <LU>4</LU>
+      <UC>s11ff</UC>
+   </activity>
+   <activity>
+      <name>SLAB2S</name>
+      <desc>Instl. 2 Story Slab, doweled to existing if needed</desc>
+      <LU>5</LU>
+      <UC>s13fl</UC>
+   </activity>
+   <activity>
+      <name>COBEAM</name>
+      <desc>Install Bond Beams/Grade Beams for Slabs over 20'</desc>
+      <LU>15</LU>
+      <UC>l25ft</UC>
+   </activity>
+   <activity>
+      <name>BRICLE</name>
+      <desc>Install Brick Ledge on Existing House ($250 min)</desc>
+      <LU>10</LU>
+      <UC>l15ft</UC>
+   </activity>
+   <activity>
+      <name>FLOPAT</name>
+      <desc>Install Floor Patch at Foundation Tie In</desc>
+      <LU>100</LU>
+      <UC>e150a</UC>
+   </activity>
+   <activity>
+      <name>FLOO2S</name>
+      <desc>Instl. Floor Sys. for 2nd Story Addn./Attic Conv.</desc>
+      <LU></LU>
+      <UC>s9ff</UC>
+   </activity>
+   <activity>
+      <name>BLOPAD</name>
+      <desc>Instl. Block & Pad Foundation & Floor Sys.</desc>
+      <LU>2</LU>
+      <UC>s7.5ff</UC>
+   </activity>
+   <activity>
+      <name>PIBEAM</name>
+      <desc>Instl. Pier & Beam Foundation- Block & Pad plus lft of Grade Beams</desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name>SILLS</name>
+      <desc>Replace Rotten Sills at Addition Tie in</desc>
+      <LU>10</LU>
+      <UC>l20ft</UC>
+   </activity>
+   <activity>
+      <name>DRPIER</name>
+      <desc>Instl. 12" Drilled Piers w/36" Bells or Driven Piers</desc>
+      <LU>135</LU>
+      <UC>e250a</UC>
+   </activity>
+   <activity>
+      <name>SUPPOS</name>
+      <desc>Instl. 6 x 6 Trt'd Posts- Patio Cover/2nd Story Addn.</desc>
+      <LU>150</LU>
+      <UC>e250a</UC>
+   </activity>
+   <activity>
+      <name>CONCGF</name>
+      <desc>Cap Concrete Floor with Concrete (2" min)</desc>
+      <LU>1.5</LU>
+      <UC>s5.5ff</UC>
+   </activity>
+   <activity>
+      <name>CONCFL</name>
+      <desc>Flatwork, 4" thick (700 min.) s4ff for over 1000sft</desc>
+      <LU>1.50</LU>
+      <UC>s5ff</UC>
+   </activity>
+   <activity>
+      <name>CONCSS</name>
+      <desc>Install Stamped or Stained Flatwork, approx 4" thick</desc>
+      <LU>3</LU>
+      <UC>s7ff</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - -->
+<!-- FRAMING section -->
+<!-- - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>FRAMING</name>
+   <activity>
+      <name>ADDI1S</name>
+      <desc>Frame 1 Story Addn. w/ Cornice- no siding</desc>
+      <LU>5</LU>
+      <UC>s12ff</UC>
+   </activity>
+   <activity>
+      <name>ADDI2S</name>
+      <desc>Frame 2 Story Addn. w/ Cornice- no siding</desc>
+      <LU>6</LU>
+      <UC>s15ff</UC>
+   </activity>
+   <activity>
+      <name>2NDSTO</name>
+      <desc>Frame 2nd Story Addn. w/ Cornice- no siding</desc>
+      <LU>6</LU>
+      <UC>s15ff</UC>
+   </activity>
+   <activity>
+      <name>CARPOR</name>
+      <desc>Frame Carport/Patio Cover. w/ Cornice- no ceiling</desc>
+      <LU>4</LU>
+      <UC>s13ff</UC>
+   </activity>
+   <activity>
+      <name>GARAFR</name>
+      <desc>Frame Garage w/ Cornice</desc>
+      <LU>5</LU>
+      <UC>s12ff</UC>
+   </activity>
+   <activity>
+      <name>WALLPO</name>
+      <desc>Instl. Pony Wall on 2" x 12" for Attic Conv. Walls</desc>
+      <LU>30</LU>
+      <UC>l40ft</UC>
+   </activity>
+   <activity>
+      <name>ATTICC</name>
+      <desc>Instl. Joists 2" x 6" for Attic Conv. Ceiling</desc>
+      <LU>10</LU>
+      <UC>e25a</UC>
+   </activity>
+   <activity>
+      <name>STEERO</name>
+      <desc>Add for 8/12 or Steeper Roofs</desc>
+      <LU>1</LU>
+      <UC>s2ff</UC>
+   </activity>
+   <activity>
+      <name>ROOFLA</name>
+      <desc>Install Larger than Standard Roof on addition</desc>
+      <LU>2</LU>
+      <UC>s4ff</UC>
+   </activity>
+   <activity>
+      <name>TALWAL</name>
+      <desc>Add for Walls 9' or 10' with Fire Blocks</desc>
+      <LU>0.5</LU>
+      <UC>l2ft</UC>
+   </activity>
+   <activity>
+      <name>RAISCE</name>
+      <desc>Instl. Raised Ceiling in Addition</desc>
+      <LU>1</LU>
+      <UC>s2ff</UC>
+   </activity>
+   <activity>
+      <name>STAIFR</name>
+      <desc>Instl Int. Rough Frame Stairs for 2nd Story Addn</desc>
+      <LU>600</LU>
+      <UC>e1000a</UC>
+   </activity>
+   <activity>
+      <name>STEPSC</name>
+      <desc>Install Conc./Treated Wood Porch Steps (up to 3)</desc>
+      <LU>200</LU>
+      <UC>e300a</UC>
+   </activity>
+   <activity>
+      <name>WALLFR</name>
+      <desc>Instl. Frame Wall 16" o.c.</desc>
+      <LU>5</LU>
+      <UC>l12ft</UC>
+   </activity>
+   <activity>
+      <name>WALLFB</name>
+      <desc>Repl. Bearing Wall w/ Drop Beam (over 20'- dbl $)</desc>
+      <LU>20</LU>
+      <UC>l40ft</UC>
+   </activity>
+   <activity>
+      <name>CLOSOP</name>
+      <desc>Instl. Or Close Off 3' Wide Opening in Old Wall</desc>
+      <LU>50</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>ARCHOP</name>
+      <desc>Add for Arch Top Opening</desc>
+      <LU>50</LU>
+      <UC>e70a</UC>
+   </activity>
+   <activity>
+      <name>DORMER</name>
+      <desc>Frame Roof Dormers- 6' wide w/ sgl window</desc>
+      <LU>1500</LU>
+      <UC>e2500a</UC>
+   </activity>
+   <activity>
+      <name>CARPMA</name>
+      <desc>Supply misc. Carpentry Material</desc>
+      <LU>100</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>CARPLA</name>
+      <desc>Supply misc. Carpentry Labor</desc>
+      <LU>100</LU>
+      <UC>e100a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - -->
+<!-- WINDOWS section -->
+<!-- - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>WINDOWS</name>
+   <activity>
+      <name>WINDAL</name>
+      <desc>Install Alum. Window (white/sgl hung/insulated)</desc>
+      <LU>0</LU>
+      <UC>e200a</UC>
+   </activity>
+   <activity>
+      <name>WINDVI</name>
+      <desc>Install Vinyl (insulated/dbl hung D/L)</desc>
+      <LU>0</LU>
+      <UC>e260a</UC>
+   </activity>
+   <activity>
+      <name>WINDWO</name>
+      <desc>Install Wood Window (insulated/dbl hung/D/L)</desc>
+      <LU></LU>
+      <UC>e450a</UC>
+   </activity>
+   <activity>
+      <name>GLASBL</name>
+      <desc>Install Standard Glass Blocks (4' x 4')</desc>
+      <LU>350</LU>
+      <UC>e750a</UC>
+   </activity>
+   <activity>
+      <name>SOLATU</name>
+      <desc>Install Solar Tube Skylight</desc>
+      <LU>200</LU>
+      <UC>e400a</UC>
+   </activity>
+   <activity>
+      <name>SKYLIG</name>
+      <desc>Install 2' x 4' Velux Skylight- Curb Mount</desc>
+      <LU>500</LU>
+      <UC>e1500a</UC>
+   </activity>
+   <activity>
+      <name>WINDRE</name>
+      <desc>For Replacing Existing Windows Add</desc>
+      <LU>80</LU>
+      <UC>e80a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - -->
+<!-- EXTERIOR DOORS section  -->
+<!-- - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>EXTERIOR DOORS</name>
+   <activity>
+      <name>DOORSC</name>
+      <desc>Instl. Steel Clad or S/C exterior Door</desc>
+      <LU>100</LU>
+      <UC>e300a</UC>
+   </activity>
+   <activity>
+      <name>DOORFR</name>
+      <desc>Install 6' French Door or Atruim Door</desc>
+      <LU>0</LU>
+      <UC>e1200a</UC>
+   </activity>
+   <activity>
+      <name>DOORSG</name>
+      <desc>Install 6' Sliding Glass Vinyl Door</desc>
+      <LU>0</LU>
+      <UC>e1200a</UC>
+   </activity>
+   <activity>
+      <name>DOORWE</name>
+      <desc>Instl. Hoelscher Weatherstrip & Threshold</desc>
+      <LU>100</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>DOOROD</name>
+      <desc>Install O/H Garage Door w/ glass- 8'</desc>
+      <LU></LU>
+      <UC>e500a</UC>
+   </activity>
+   <activity>
+      <name>DOOROD</name>
+      <desc>Install O/H Garage Door w/ glass- 16'</desc>
+      <LU></LU>
+      <UC>e780a</UC>
+   </activity>
+   <activity>
+      <name>DOORRP</name>
+      <desc>Add for Replacing Existing Door</desc>
+      <LU>300</LU>
+      <UC>e300a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - -->
+<!-- SIDING & BRICK section  -->
+<!-- - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>SIDING & BRICK</name>
+   <activity>
+      <name>SIDING</name>
+      <desc>Remove Old Siding</desc>
+      <LU>0.5</LU>
+      <UC>s0.5fw</UC>
+   </activity>
+   <activity>
+      <name>FASCIA</name>
+      <desc>Remove Old Fascia & Soffit</desc>
+      <LU>3</LU>
+      <UC>l3ft</UC>
+   </activity>
+   <activity>
+      <name>WOODRO</name>
+      <desc>Replace Rotten Wood</desc>
+      <LU>50</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>SHEATH</name>
+      <desc>Install 1/2" OSB Wall Sheathing</desc>
+      <LU>0.6</LU>
+      <UC>s1fw</UC>
+   </activity>
+   <activity>
+      <name>DECKSH</name>
+      <desc>Install Radiant Barrier OSB on Walls or Roofs</desc>
+      <LU>0.6</LU>
+      <UC>s1.5fw</UC>
+   </activity>
+   <activity>
+      <name>SIDIPI</name>
+      <desc>Install Pine or Vinyl Siding</desc>
+      <LU>1</LU>
+      <UC>s3.5fw</UC>
+   </activity>
+   <activity>
+      <name>SIDIAS</name>
+      <desc>Install Asbestos Style or Cedar Siding</desc>
+      <LU>1.5</LU>
+      <UC>s5fw</UC>
+   </activity>
+   <activity>
+      <name>SIDIHA</name>
+      <desc>Install Hardie Siding</desc>
+      <LU>1</LU>
+      <UC>s4fw</UC>
+   </activity>
+   <activity>
+      <name>FASCH3</name>
+      <desc>Install Fascia or Frieze in 3/4 Hardie, #1 Pine or Cedar</desc>
+      <LU>1</LU>
+      <UC>l3ft</UC>
+   </activity>
+   <activity>
+      <name>SOFFHA</name>
+      <desc>Install Hardie, T-111 or A/C fir Soffit Patio Ceiling</desc>
+      <LU>1</LU>
+      <UC>s5ft</UC>
+   </activity>
+   <activity>
+      <name>SOFFWO</name>
+      <desc>Instal Stained V-Grove Wood Patio Ceiling</desc>
+      <LU>3.6</LU>
+      <UC>l5ft</UC>
+   </activity>
+   <activity>
+      <name>DOORTH</name>
+      <desc>Install Hardie Trim on Windows or Doors</desc>
+      <LU>20</LU>
+      <UC>e60a</UC>
+   </activity>
+   <activity>
+      <name>STUCCO</name>
+      <desc>Install Real Stucco Siding (min $400)</desc>
+      <LU>-</LU>
+      <UC>s6fw</UC>
+   </activity>
+   <activity>
+      <name>BRICKS</name>
+      <desc>Install Brick Veneer (match exist a.c.a.possible)</desc>
+      <LU>4</LU>
+      <UC>s8fw</UC>
+   </activity>
+   <activity>
+      <name>BRICPO</name>
+      <desc>Install Brick Carport Posts 8' to 9'</desc>
+      <LU>300</LU>
+      <UC>e600a</UC>
+   </activity>
+   <activity>
+      <name>STONVE</name>
+      <desc>Install Stone Veneer on Wall</desc>
+      <LU>10</LU>
+      <UC>s15fw</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - -->
+<!-- ROOFING section -->
+<!-- - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>ROOFING</name>
+   <activity>
+      <name>ROOFWS</name>
+      <desc>Install Ice & Water Shield for Low Slope Roofs</desc>
+      <LU>100</LU>
+      <UC>s150q</UC>
+   </activity>
+   <activity>
+      <name>ROOFCO</name>
+      <desc>Install Composition Dimensional Shingles</desc>
+      <LU>0</LU>
+      <UC>s220q</UC>
+   </activity>
+   <activity>
+      <name>ROOFRE</name>
+      <desc>Tear off and reroof</desc>
+      <LU>0</LU>
+      <UC>s240q</UC>
+   </activity>
+   <activity>
+      <name>ROOFDE</name>
+      <desc>Replace Rotten Decking (per 4' x 8' sheet)</desc>
+      <LU>30</LU>
+      <UC>e50a</UC>
+   </activity>
+   <activity>
+      <name>RAFTTA</name>
+      <desc>Replace Rafter Tail</desc>
+      <LU>15</LU>
+      <UC>e25a</UC>
+   </activity>
+   <activity>
+      <name>ROOFJA</name>
+      <desc>Install Roof Jack</desc>
+      <LU>5</LU>
+      <UC>e30a</UC>
+   </activity>
+   <activity>
+      <name>ROOFRV</name>
+      <desc>Install Ridge Vent</desc>
+      <LU>1</LU>
+      <UC>l10ft</UC>
+   </activity>
+   <activity>
+      <name>ROOFPF</name>
+      <desc>Frame Pitched Roof over Flat Roof (no shingles)</desc>
+      <LU></LU>
+      <UC>s5.40ff</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - -->
+<!-- HEATING AND A/C section -->
+<!-- - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>HEATING AND A/C</name>
+   <activity>
+      <name>HVACDU</name>
+      <desc>Install A/C Duct from Main Plenumn ($200 min.)</desc>
+      <LU></LU>
+      <UC>e200a</UC>
+   </activity>
+   <activity>
+      <name>HVACWU</name>
+      <desc>Install A/C & Heat PTAC in Wall Unit</desc>
+      <LU>100</LU>
+      <UC>e1870a</UC>
+   </activity>
+   <activity>
+      <name>HVACMS</name>
+      <desc>Install 1 Ton Mini Split</desc>
+      <LU></LU>
+      <UC>e3825a</UC>
+   </activity>
+   <activity>
+      <name>HVACCE</name>
+      <desc>Install Central A/C/heat (13 seer) (1 1/2 Ton-$3975, 2Ton-$4150, 3Ton-$5850, 4Ton-$6875, 5Ton-$7150)</desc>
+      <LU></LU>
+      <UC></UC>
+   </activity>
+   <activity>
+      <name>SEER14</name>
+      <desc>Add for 14 seer</desc>
+      <LU></LU>
+      <UC>e700a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - -->
+<!-- ELECTRICAL section  -->
+<!-- - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>ELECTRICAL</name>
+   <activity>
+      <name>HOMERU</name>
+      <desc>Install Electric Home Run to 40'</desc>
+      <LU>-</LU>
+      <UC>e125a</UC>
+   </activity>
+   <activity>
+      <name>CABLTV</name>
+      <desc>Install or Relocate Phone or CATV Jacks</desc>
+      <LU>10</LU>
+      <UC>e55a</UC>
+   </activity>
+   <activity>
+      <name>OUTL11</name>
+      <desc>Instl. or Move 110 Plugs, Switches or Lights- no fixt.</desc>
+      <LU>10</LU>
+      <UC>e30a</UC>
+   </activity>
+   <activity>
+      <name>LIGHFI</name>
+      <desc>Add for Standard Light Fixtures</desc>
+      <LU>-</LU>
+      <UC>e25a</UC>
+   </activity>
+   <activity>
+      <name>LIGHSD</name>
+      <desc>Add for Upgrade to Decora switches & plugs</desc>
+      <LU>5</LU>
+      <UC>e5a</UC>
+   </activity>
+   <activity>
+      <name>OUTL22</name>
+      <desc>Install or Move 220 Outlet</desc>
+      <LU>20</LU>
+      <UC>e95a</UC>
+   </activity>
+   <activity>
+      <name>CEILFO</name>
+      <desc>Install or MOve Owners Ceiling Fan & Outlet</desc>
+      <LU>35</LU>
+      <UC>e85a</UC>
+   </activity>
+   <activity>
+      <name>LIGHRE</name>
+      <desc>Install Recessed Can or 4' Track Lights & Outlets</desc>
+      <LU>20</LU>
+      <UC>e85a</UC>
+   </activity>
+   <activity>
+      <name>OUTLGF</name>
+      <desc>Install GFI Outlets or Smoke Detectors & Outlet</desc>
+      <LU>15</LU>
+      <UC>e75a</UC>
+   </activity>
+   <activity>
+      <name>DOORAU</name>
+      <desc>Install electric Garage Door Opener (need outlet)</desc>
+      <LU>-</LU>
+      <UC>e390a</UC>
+   </activity>
+   <activity>
+      <name>GARAFE</name>
+      <desc>Install electric Garage Feed 40' +</desc>
+      <LU>-</LU>
+      <UC>l10ft</UC>
+   </activity>
+   <activity>
+      <name>LIGHMV</name>
+      <desc>Install Door Bell or Mercury Vapor Security Light</desc>
+      <LU>-</LU>
+      <UC>e85a</UC>
+   </activity>
+   <activity>
+      <name>HVACEL</name>
+      <desc>Install A/C Electric (Attic & Outside wiring)</desc>
+      <LU>-</LU>
+      <UC>e250a</UC>
+   </activity>
+   <activity>
+      <name>OUTLFL</name>
+      <desc>Install or Repair 110 floor plugs</desc>
+      <LU>-</LU>
+      <UC>e200a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - - - - - -->
+<!-- INSULATION & SHEETROCK section  -->
+<!-- - - - - - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>INSULATION & SHEETROCK</name>
+   <activity>
+      <name>INSUCW</name>
+      <desc>Install Insul. (Ext. Walls- R13, Ceiling- R30)</desc>
+      <LU>0.15</LU>
+      <UC>s0.85fw</UC>
+   </activity>
+   <activity>
+      <name>SHEECW</name>
+      <desc>Install Sheetrock (tape/float/texture)</desc>
+      <LU>0.5</LU>
+      <UC>s1.50fw</UC>
+   </activity>
+   <activity>
+      <name>SHEERO</name>
+      <desc>Remove/repair Existing Sheetrock per spot</desc>
+      <LU>75</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>FLOACW</name>
+      <desc>Float Walls or Ceilings Solid & Text.</desc>
+      <LU>1</LU>
+      <UC>s1fw</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - - - - - -->
+<!-- INTERIOR DOORS section  -->
+<!-- - - - - - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>INTERIOR DOORS</name>
+   <activity>
+      <name>DOORHC</name>
+      <desc>Install Hollow Core Door (Masonite- 6 panel)</desc>
+      <LU>60</LU>
+      <UC>e200a</UC>
+   </activity>
+   <activity>
+      <name>DOORRW</name>
+      <desc>Add for Real Wood Panel Door</desc>
+      <LU>35</LU>
+      <UC>e220a</UC>
+   </activity>
+   <activity>
+      <name>DOORFI</name>
+      <desc>Install 6' French Door or 2/8 Pocket Door - Wood</desc>
+      <LU>150</LU>
+      <UC>e600a</UC>
+   </activity>
+   <activity>
+      <name>DOORBF</name>
+      <desc>Instl. 6' Bifold</desc>
+      <LU>60</LU>
+      <UC>e350a</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - - - - - -->
+<!-- INTERIOR TRIM section  -->
+<!-- - - - - - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>INTERIOR TRIM</name>
+   <activity>
+      <name>TRIMBB</name>
+      <desc>Install Baseboard Trim</desc>
+      <LU>1</LU>
+      <UC>l2ft</UC>
+   </activity>
+   <activity>
+      <name>TRIMCM</name>
+      <desc>Install 4 1/4" Crown Moulding or Chair Rail</desc>
+      <LU>2</LU>
+      <UC>l5ft</UC>
+   </activity>
+   <activity>
+      <name>JAMCAS</name>
+      <desc>Instl Jamb & Casing on Win/Door Cased Openings</desc>
+      <LU>50</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>WINDSA</name>
+      <desc>Install Window Stool and Apron (3' increments)</desc>
+      <LU>10</LU>
+      <UC>e25a</UC>
+   </activity>
+   <activity>
+      <name>SHELBI</name>
+      <desc>Install Built In Shelves/Cabinets (Ent. Centers, etc.)</desc>
+      <LU>100</LU>
+      <UC>l300ft</UC>
+   </activity>
+   <activity>
+      <name>DOODRA</name>
+      <desc>Add for Doors or Drawers</desc>
+      <LU>50</LU>
+      <UC>e100a</UC>
+   </activity>
+   <activity>
+      <name>DOORPL</name>
+      <desc>Install Plumbing Access Door</desc>
+      <LU>15</LU>
+      <UC>e30a</UC>
+   </activity>
+   <activity>
+      <name>STAIPD</name>
+      <desc>Install Pull Down Stairs (350lb.)</desc>
+      <LU>75</LU>
+      <UC>e375a</UC>
+   </activity>
+   <activity>
+      <name>STAIHR</name>
+      <desc>Install Ballustrade Stair Handrails (Oak)</desc>
+      <LU>50</LU>
+      <UC>l100ft</UC>
+   </activity>
+   <activity>
+      <name>STAIOT</name>
+      <desc>Install Oak Treads & Risers on Stairs</desc>
+      <LU></LU>
+      <UC>e160a</UC>
+   </activity>
+   <activity>
+      <name>STAISK</name>
+      <desc>Install Stair Skirts or Wall Hand Rails</desc>
+      <LU>6</LU>
+      <UC>l10ft</UC>
+   </activity>
+   <activity>
+      <name>PANEL</name>
+      <desc>Install 1/4" Paneling (smooth or beaded)</desc>
+      <LU>1</LU>
+      <UC>s3fw</UC>
+   </activity>
+   <activity>
+      <name>CLOSSR</name>
+      <desc>Install Closet Shelf & Rod</desc>
+      <LU>6</LU>
+      <UC>l10ft</UC>
+   </activity>
+   <activity>
+      <name>TRIMSG</name>
+      <desc>Upgrade Trim to Stain Grade (3 x's price)</desc>
+      <LU>x1.5</LU>
+      <UC>x3</UC>
+   </activity>
+</category>
+
+<!-- - - - - - - - - - - - - - - - - -->
+<!-- FLOORING section  -->
+<!-- - - - - - - - - - - - - - - - - -->
+<category>
+   <info></info>
+   <base></base>
+   <name>FLOORING</name>
+   <activity>
+      <name>TILEFH</name>
+      <desc>Install Ceramic Tile Flooring ($3 s.f. mat. Allowance)</desc>
+      <LU>5</LU>
+      <UC>s7ff</UC>
+   </activity>
+   <activity>
+      <name>ENGWOF</name>
+      <desc>Install Engineered Wood Flooring</desc>
+      <LU></LU>
+      <UC>s6ff</UC>
+   </activity>
+</category>
+
+
+</dsbRoot>

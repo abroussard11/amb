@@ -2,8 +2,7 @@
 ## Initialize all variables to the empty string
 ###############################################
 
-$(info Reading amb/xanrMake/cxx/initVars.makefile)
-$(info )
+#$(info Reading amb/xanrMake/cxx/initVars.makefile)
 
 
 DIR :=

@@ -2,7 +2,6 @@
 ## Project Variables for Linux
 ###########################################
 
-$(info Reading amb/xanrMake/cxx/Linux/projVars.makefile)
 
 # Shell commands
 MKDIR := mkdir -p
@@ -22,6 +21,10 @@ OPTIMIZE_FLAGS :=-O0
 DEBUG_FLAGS :=-g
 WARN_FLAGS :=-Wall
 MAKE_DEPS_FLAGS :=-MMD
+PCH_FLAGS :=#
+ifeq "$(RUN_SANITIZERS)" "true"
+   SAN_FLAGS ?=-fsanitize=address
+endif
 
 SYS_DLL_LIB := dl
 
@@ -30,37 +33,17 @@ AR := ar -rc
 GCC := g++-4.9
 CLANG := clang++
 CXX ?= $(CLANG)
-CXXFLAGS := $(STD_CXX_FLAGS) -fPIC $(OPTIMIZE_FLAGS) $(DEBUG_FLAGS) $(WARN_FLAGS) $(INC_DIRS)
-PCH_FLAGS :=#
+CXXFLAGS := $(STD_CXX_FLAGS) \
+            -fPIC \
+            $(OPTIMIZE_FLAGS) \
+            $(DEBUG_FLAGS) \
+            $(WARN_FLAGS) \
+            $(SAN_FLAGS) \
+            $(INC_DIRS)
+
 COMPILE.cpp := $(CXX) $(PCH_FLAGS) $(CXXFLAGS)
 
-## Colors!!
-## set the COLORFUL_MAKE variable in your environment
-ifneq "$(COLORFUL_MAKE)" "true"
-       black := \033[0;30m
-         red := \033[0;31m
-       green := \033[0;32m
-      orange := \033[0;33m
-        blue := \033[0;34m
-      purple := \033[0;35m
-        cyan := \033[0;36m
-  light_gray := \033[0;37m
-   dark_gray := \033[1;30m
-   light_red := \033[1;31m
- light_green := \033[1;32m
-      yellow := \033[1;33m
-  light_blue := \033[1;34m
-light_purple := \033[1;35m
-  light_cyan := \033[1;36m
-       white := \033[1;37m
-light_blue_bg := \033[1;44m
-default_color:= \033[0m
-endif
-
-all::
-	@$(ECHO) "\n$(light_blue_bg)*** Building all source ***$(default_color)\n"
-
-#clean:: wc_clean
+## Targets
 
 wc:: | $(BUILD_DIR)
 	@touch $(WC_FILE)_h
@@ -92,5 +75,3 @@ $(BIN_DIR):
 $(LIB_DIR):
 	$(MKDIR) $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(COMPILE.cpp) -MMD -c $< -o $@

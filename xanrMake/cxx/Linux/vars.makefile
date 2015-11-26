@@ -34,9 +34,15 @@ $(DIR)_BUNDLE_LIBS := -Wl,--whole-archive -L$(LIB_DIR) $(addprefix -l, $(BUNDLE_
 $(DIR)_LIB_DEPS += $(patsubst %, $(LIB_DIR)/lib%.a, $(BUNDLE_LIBS))
 endif
 
-$(DIR)_LINK_LIBS :=$($(DIR)_LINK_DIRS) $($(DIR)_LINK_STATIC_LIBS) $($(DIR)_LINK_DYNAMIC_LIBS) $($(DIR)_BUNDLE_LIBS)
+$(DIR)_LINK_LIBS :=\
+   $($(DIR)_LINK_DIRS) \
+   $($(DIR)_LINK_STATIC_LIBS) \
+   $($(DIR)_LINK_DYNAMIC_LIBS) \
+   $($(DIR)_BUNDLE_LIBS)
 
-$(DIR)_ALL_LIBS :=$($(DIR)_LINK_LIBS) $($(DIR)_SYS_LIBS)
+$(DIR)_ALL_LIBS :=\
+   $($(DIR)_LINK_LIBS) \
+   $($(DIR)_SYS_LIBS)
 
 ## Word count variables
 $(DIR)_HEADERS = $(wildcard $(SRC_DIR)/$(DIR)/*.h)
@@ -45,8 +51,5 @@ WC_SRCS += $(sort $($(DIR)_SRCS) $($(DIR)_HEADERS))
 ## Files to clean (recursively-defined because some of these variables do not exist yet)
 $(DIR)_clean_tgts = \
    $($(DIR)_OBJS) \
-   $($(DIR)_LIB) \
-   $($(DIR)_LIB_SO) \
-   $($(DIR)_EXE) \
-   $($(DIR)_ARCHIVE) \
+   $($(DIR)_TGT) \
    $($(DIR)_DEPS)

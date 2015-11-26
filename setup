@@ -5,9 +5,10 @@
 ###
 
 setenv COLORFUL_MAKE true
+setenv RUN_SANITIZERS false
 
 ## Build target
-setenv COMP_TYPE _`uname --kernel-name`_`uname --machine`
+setenv COMP_TYPE `uname --kernel-name`_`uname --machine`
 setenv MAKE_TYPE `uname --kernel-name`
 setenv MAKE_JOBS `nproc`
 

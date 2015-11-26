@@ -1,5 +1,4 @@
 $(info Reading amb/xanrMake/cxx/projVars.makefile)
-$(info MAKEFLAGS = $(MAKEFLAGS))
 
 ###########################################
 ## Project Variables

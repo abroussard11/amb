@@ -1,0 +1,12 @@
+<root>
+   <child1>
+      <data>1</data>
+   </child1>
+   <child2>
+      <data>2</data>
+   </child2>
+   <child3>
+      <data>3</data>
+   </child3>
+   <amperCheck>Aaron & Adam</amperCheck>
+</root>

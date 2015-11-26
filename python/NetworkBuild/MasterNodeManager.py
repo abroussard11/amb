@@ -4,20 +4,10 @@
 A simple echo server
 """
 
-from contextlib import contextmanager
+from util import socketcontext
 from datetime import datetime
-import socket
 import sys
 from subprocess import *
-
-
-@contextmanager
-def socketcontext(*args, **kw):
-    s = socket.socket(*args, **kw)
-    try:
-        yield s
-    finally:
-        s.close()
 
 ###############
 ## Main Routine

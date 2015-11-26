@@ -1,21 +1,8 @@
 #!/usr/bin/env python
 
 import sys
-
-build_cmd = str(sys.argv)
-
-sys.stdout.write('py Build Shell: ' + build_cmd + '\n')
-
-from contextlib import contextmanager
+from util import socketcontext
 import socket
-
-@contextmanager
-def socketcontext(*args, **kw):
-    s = socket.socket(*args, **kw)
-    try:
-        yield s
-    finally:
-        s.close()
 
 def echo_client(i):
     host = 'choco'

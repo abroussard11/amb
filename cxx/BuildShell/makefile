@@ -3,7 +3,6 @@
 ####################################################################
 
 $(info Reading amb/cxx/BuildShell/makefile)
-$(info )
 
 include cxx/initVars.makefile
 
