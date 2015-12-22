@@ -1,0 +1,4 @@
+TODO:
+   - add a Dot graph generation tool that shows library/executable dependencies
+     in a c++ code base
+

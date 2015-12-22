@@ -15,8 +15,8 @@ export MAKEFLAGS := \
    --no-print-directory \
    --warn-undefined-variables \
    --output-sync \
-   --include-dir=./xanrMake
+   --include-dir=xanrMake
 
-all clean:
+%all %clean:
 	@$(MAKE) -f Makefile $@
 

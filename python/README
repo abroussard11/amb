@@ -1,0 +1,14 @@
+####
+## Python source code
+###
+
+Note:
+   I've installed Nuitka via pip:
+      sudo python3 -m pip install nuitka
+
+   The first test went like this:
+      cd amb-MR/amb
+      mkdir Linux_x86_64/python
+      nuitka --recurse-all --output-dir=Linux_x86_64/python python/GeneratorSamples/inline1.py
+      ./Linux_x86_64/python/inline1.exe
+

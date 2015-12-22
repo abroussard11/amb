@@ -6,6 +6,7 @@
 
 setenv COLORFUL_MAKE true
 setenv RUN_SANITIZERS false
+setenv PYTHONDONTWRITEBYTECODE 0
 
 ## Build target
 setenv COMP_TYPE `uname --kernel-name`_`uname --machine`

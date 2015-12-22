@@ -6,7 +6,8 @@ ifndef PROJECT_PATH
    $(error "You need to source setup before building")
 endif
 
-SHELL ?= /bin/sh
+BUILD_SHELL ?= /bin/sh
+SHELL := $(BUILD_SHELL)
 COLORFUL_MAKE ?= false
 MAKE := make
 MFILE := makefile
