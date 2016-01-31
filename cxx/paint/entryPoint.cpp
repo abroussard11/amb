@@ -3,7 +3,7 @@
  */
 
 #include <include/OsCompatibility.h>
-#include <paint/PaintApp.h>
+#include <paint/generic/PaintApp.h>
 
 dllExport amb::App* create_app()
 {
