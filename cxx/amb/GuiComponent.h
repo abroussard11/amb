@@ -25,6 +25,9 @@ class GuiComponent : public sf::Drawable, public sf::Transformable
 {
 public:
    using Ptr = std::shared_ptr<GuiComponent>;
+   using Target = sf::RenderTarget;
+   using States = sf::RenderStates;
+
    typedef void (GuiComponent::*EventHandlerFn)(sf::Event& event);
 
    GuiComponent();
@@ -64,7 +67,7 @@ protected:
    virtual void onKeyPressed(sf::Event& event) {}
    virtual void onKeyReleased(sf::Event& event) {}
    virtual void onMouseWheelMoved(sf::Event& event) {}
-   // virtual void onMouseWheelScrolled(sf::Event& event) {} // in SFML 2.3
+   virtual void onMouseWheelScrolled(sf::Event& event) {} // in SFML 2.3
    virtual void onMouseButtonPressed(sf::Event& event) {}
    virtual void onMouseButtonReleased(sf::Event& event) {}
    virtual void onMouseMoved(sf::Event& event) {}

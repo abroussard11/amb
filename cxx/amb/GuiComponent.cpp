@@ -21,6 +21,11 @@ GuiComponent::GuiComponent() :
    _eventHandlers.push_back(&GuiComponent::onKeyPressed); //6
    _eventHandlers.push_back(&GuiComponent::onKeyReleased); //7
    _eventHandlers.push_back(&GuiComponent::onMouseWheelMoved); //8
+#if    SFML_VERSION_MAJOR==2 \
+    && SFML_VERSION_MINOR==3 \
+    && SFML_VERSION_PATCH==1
+    _eventHandlers.push_back(&GuiComponent::onMouseWheelScrolled);
+#endif
    _eventHandlers.push_back(&GuiComponent::onMouseButtonPressed); //9
    _eventHandlers.push_back(&GuiComponent::onMouseButtonReleased); //10
    _eventHandlers.push_back(&GuiComponent::onMouseMoved); //11
@@ -35,7 +40,13 @@ GuiComponent::GuiComponent() :
    _eventHandlers.push_back(&GuiComponent::onTouchMoved); //20
    _eventHandlers.push_back(&GuiComponent::onTouchEnded);  //21
    _eventHandlers.push_back(&GuiComponent::onSensorChanged); //22
+#if    SFML_VERSION_MAJOR==2 \
+    && SFML_VERSION_MINOR==3 \
+    && SFML_VERSION_PATCH==1
+   static_assert(23 == sf::Event::Count,
+#else
    static_assert(22 == sf::Event::Count,
+#endif
      "Event callback methods should match sf::Event types in name and number.");
 }
 
