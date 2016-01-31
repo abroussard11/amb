@@ -19,7 +19,7 @@ public:
 private:
    sf::RectangleShape _tile;
 
-   virtual void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const;
+   void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 
 } // End namespace paint

@@ -4,14 +4,14 @@
 
 #include <paint/generic/PaintApp.h>
 
-#include <paint/generic/SmallBrush.h>
-
 namespace paint {
 
 void PaintApp::runApplication(Util::CommandLine::Data cmdLine)
 {
    // Initialize state
-   // _colorCode = 16711935; // all green, all alpha // TODO not until SFML 2.3
+   // _colorCode = 16711935;
+   // all green, all alpha // TODO not until SFML 2.3
+
    _appDriver.setApp(this);
    _appDriver.setAppName("PaintApp");
    _appDriver.setWindowSize(sf::VideoMode(800, 600));
@@ -35,7 +35,7 @@ void PaintApp::onMouseButtonPressed(sf::Event& event)
    else
    {
       _isMouseDepressed = true;
-      addComponent<SmallBrush>(event.mouseButton.x, event.mouseButton.y);
+      _start = BrushStroke::Point(event.mouseButton.x, event.mouseButton.y);
    }
 }
 
@@ -48,7 +48,9 @@ void PaintApp::onMouseMoved(sf::Event& event)
 {
    if (_isMouseDepressed)
    {
-      addComponent<SmallBrush>(event.mouseMove.x, event.mouseMove.y);
+      _end = BrushStroke::Point(event.mouseMove.x, event.mouseMove.y);
+      addComponent<BrushStroke>(_start, _end);
+      _start = _end;
    }
 }
 

@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <amb/GuiApp.h>
 #include <amb/GuiAppDriver.h>
+#include <paint/generic/BrushStroke.h>
 
 namespace paint {
 
@@ -25,6 +26,8 @@ public:
 
 private:
    amb::GuiAppDriver _appDriver;
+   BrushStroke::Point _start;
+   BrushStroke::Point _end;
    bool _isMouseDepressed;
    // sf::Uint32 _colorCode; // TODO SFML 2.3
 };

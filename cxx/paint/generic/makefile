@@ -7,6 +7,7 @@ include cxx/initVars.makefile
 DIR := paint/generic
 
 FILES := \
+   BrushStroke \
    PaintApp \
    SmallBrush
 
