@@ -19,6 +19,7 @@ public:
    std::string option;
    std::vector<std::string> values;
 
+   explicit
    CommandLineOption(std::string op = "") :
       option(op),
       values()
