@@ -2,7 +2,6 @@
  * amb/Xml.cpp
  */
 
-// #include <unistd.h>
 #include <fstream>
 #include <amb/Xml.h>
 #include <Util/Log.h>
