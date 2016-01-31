@@ -9,3 +9,4 @@ setenv CXX $CLANG
 
 
 setenv LD_LIBRARY_PATH "$PROJECT_PATH/$COMP_TYPE/lib"
+setenv RUN_SANITIZERS false

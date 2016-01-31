@@ -4,9 +4,6 @@
 ## The top-level setup file
 ###
 
-setenv COLORFUL_MAKE true
-setenv RUN_SANITIZERS false
-setenv PYTHONDONTWRITEBYTECODE 0
 
 ## Build target
 setenv COMP_TYPE `uname --kernel-name`_`uname --machine`
@@ -15,6 +12,8 @@ setenv MAKE_JOBS `nproc`
 
 setenv PROJECT_PATH "$PWD"
 setenv LD_LIBRARY_PATH "$PROJECT_PATH/$COMP_TYPE/lib"
+
+setenv COLORFUL_MAKE true
 
 set amb_languages = ( cxx \
                       dot \
