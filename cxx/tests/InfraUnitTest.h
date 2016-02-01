@@ -9,20 +9,15 @@
 
 namespace tests {
 
-class InfraUnitTest : public TestRunner
-{
-public:
-   InfraUnitTest() = default;
-   virtual ~InfraUnitTest() = default;
+class InfraUnitTest : public TestRunner {
+ public:
+  InfraUnitTest() = default;
+  virtual ~InfraUnitTest() = default;
 
-   virtual const char* getTestName() const
-   {
-      return "InfraUnitTest";
-   }
-   void testRoutine() override;
-
+  virtual const char* getTestName() const { return "InfraUnitTest"; }
+  void testRoutine() override;
 };
 
-} // End namespace tests
+}  // End namespace tests
 
-#endif // TESTS_INFRAUNITTEST_H_
+#endif  // TESTS_INFRAUNITTEST_H_

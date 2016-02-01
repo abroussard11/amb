@@ -11,24 +11,24 @@
 
 namespace amb {
 
-class Text : public amb::GuiComponent
-{
-public:
-   Text() = default;
-   virtual ~Text() = default;
-   Text(const sf::String& string, const sf::Font& font);
+class Text : public amb::GuiComponent {
+ public:
+  Text() = default;
+  virtual ~Text() = default;
+  Text(const sf::String& string, const sf::Font& font);
 
-   void setPosition(sf::Vector2f pos);
-   void setPosition(float x, float y);
-   void setCharacterSize(unsigned int size);
-   void setColor(const sf::Color& color);
+  void setPosition(sf::Vector2f pos);
+  void setPosition(float x, float y);
+  void setCharacterSize(unsigned int size);
+  void setColor(const sf::Color& color);
 
-   sf::Text data;
+  sf::Text data;
 
-private:
-   virtual void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const override;
+ private:
+  virtual void drawSelf(sf::RenderTarget& target,
+                        sf::RenderStates states) const override;
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif // AMB_TEXT_H_
+#endif  // AMB_TEXT_H_

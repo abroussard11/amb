@@ -10,4 +10,4 @@ void Int_test::testRoutine() {
   // TODO
 }
 
-} // End namespace BitOps
+}  // End namespace BitOps

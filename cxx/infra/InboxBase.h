@@ -10,28 +10,24 @@
 
 namespace infra {
 
-class InboxBase
-{
-public:
-   std::vector<Message::shPtr> msgs;
-   using Ptr = std::shared_ptr<InboxBase>;
+class InboxBase {
+ public:
+  std::vector<Message::shPtr> msgs;
+  using Ptr = std::shared_ptr<InboxBase>;
 
-   InboxBase() = default;
-   virtual ~InboxBase() = default;
+  InboxBase() = default;
+  virtual ~InboxBase() = default;
 
-   auto add(Message::shPtr msg)
-   {
-      msgs.push_back(msg);
-   }
+  auto add(Message::shPtr msg) { msgs.push_back(msg); }
 
-   // auto getMessages()
-   // {
-   //    auto msgsCopy = msgs;
-   //    msgs.clear();
-   //    return msgsCopy;
-   // }
+  // auto getMessages()
+  // {
+  //    auto msgsCopy = msgs;
+  //    msgs.clear();
+  //    return msgsCopy;
+  // }
 };
 
-} // End namespace infra
+}  // End namespace infra
 
-#endif // INFRA_INBOXBASE_H_
+#endif  // INFRA_INBOXBASE_H_

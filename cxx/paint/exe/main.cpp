@@ -10,14 +10,13 @@
 // with this executable
 dllImport amb::App* create_app();
 
-int main(int argc, const char** argv)
-{
-   // Initialize command line data structure
-   auto cmdLine = Util::CommandLine::parse(argc, argv);
+int main(int argc, const char** argv) {
+  // Initialize command line data structure
+  auto cmdLine = Util::CommandLine::parse(argc, argv);
 
-   // load the dynamically-linked app
-   auto _app = create_app();
+  // load the dynamically-linked app
+  auto _app = create_app();
 
-   // Run the application
-   _app->runApplication(cmdLine);
+  // Run the application
+  _app->runApplication(cmdLine);
 };

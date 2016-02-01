@@ -9,19 +9,15 @@
 
 namespace tests {
 
-class PaintUnitTest : public TestRunner
-{
-public:
-   PaintUnitTest() = default;
-   virtual ~PaintUnitTest() = default;
+class PaintUnitTest : public TestRunner {
+ public:
+  PaintUnitTest() = default;
+  virtual ~PaintUnitTest() = default;
 
-   virtual const char* getTestName() const
-   {
-      return "PaintUnitTest";
-   }
-   void testRoutine() override;
+  virtual const char* getTestName() const { return "PaintUnitTest"; }
+  void testRoutine() override;
 };
 
-} // End namespace tests
+}  // End namespace tests
 
-#endif // TESTS_PAINTUNITTEST_H_
+#endif  // TESTS_PAINTUNITTEST_H_

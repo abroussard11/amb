@@ -10,17 +10,16 @@
 namespace dsb {
 namespace cli {
 
-class List : public CmdHandler
-{
-public:
-   List() = default;
-   virtual ~List() = default;
+class List : public CmdHandler {
+ public:
+  List() = default;
+  virtual ~List() = default;
 
-   static CmdHandler::Ptr make_handler();
-   virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
+  static CmdHandler::Ptr make_handler();
+  virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
 };
 
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb
 
-#endif // DSB_CLI_LIST_H_
+#endif  // DSB_CLI_LIST_H_

@@ -9,20 +9,16 @@
 
 namespace tests {
 
-class UtilUnitTest : public TestRunner
-{
-public:
-   UtilUnitTest() = default;
-   virtual ~UtilUnitTest() = default;
+class UtilUnitTest : public TestRunner {
+ public:
+  UtilUnitTest() = default;
+  virtual ~UtilUnitTest() = default;
 
-   virtual const char* getTestName() const
-   {
-      return "UtilUnitTest";
-   }
-   void testRoutine() override;
-   bool constructWithDllUtil();
+  virtual const char* getTestName() const { return "UtilUnitTest"; }
+  void testRoutine() override;
+  bool constructWithDllUtil();
 };
 
-} // End namespace tests
+}  // End namespace tests
 
-#endif // TESTS_UTILUNITTEST_H_
+#endif  // TESTS_UTILUNITTEST_H_

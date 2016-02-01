@@ -10,16 +10,15 @@
 namespace dsb {
 namespace cli {
 
-class Open : public CmdHandler
-{
-public:
-   Open() = default;
-   virtual ~Open() = default;
+class Open : public CmdHandler {
+ public:
+  Open() = default;
+  virtual ~Open() = default;
 
-   virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
+  virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
 };
 
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb
 
-#endif // DSB_CLI_OPEN_H_
+#endif  // DSB_CLI_OPEN_H_

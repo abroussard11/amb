@@ -13,15 +13,14 @@ namespace amb {
 /**
  * Pure Virtual interface for Applications
  */
-class App
-{
-public:
-   using Ptr = std::unique_ptr<App>;
-   virtual ~App() = default;
+class App {
+ public:
+  using Ptr = std::unique_ptr<App>;
+  virtual ~App() = default;
 
-   virtual void runApplication(Util::CommandLine::Data cmdLine) = 0;
+  virtual void runApplication(Util::CommandLine::Data cmdLine) = 0;
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif // AMB_APP_H_
+#endif  // AMB_APP_H_

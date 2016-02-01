@@ -9,15 +9,14 @@
 
 namespace dsb {
 
-class SaveButtonMsg
-{
-public:
-   SaveButtonMsg() = default;
-   virtual ~SaveButtonMsg() = default;
+class SaveButtonMsg {
+ public:
+  SaveButtonMsg() = default;
+  virtual ~SaveButtonMsg() = default;
 
-   std::string x;
+  std::string x;
 };
 
-} // End namespace dsb
+}  // End namespace dsb
 
-#endif // DSB_INTERFACE_SAVEBUTTONMSG_H_
+#endif  // DSB_INTERFACE_SAVEBUTTONMSG_H_

@@ -7,9 +7,8 @@
 
 namespace amb {
 
-void CliAppDriver::runApplication()
-{
-   Util::Log::info("Running Cli Application");
+void CliAppDriver::runApplication() {
+  Util::Log::info("Running Cli Application");
 }
 
-} // End namespace amb
+}  // End namespace amb

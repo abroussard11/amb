@@ -7,15 +7,11 @@
 namespace dsb {
 namespace cli {
 
-CmdHandler::Ptr Help::make_handler()
-{
-   return std::make_unique<Help>();
+CmdHandler::Ptr Help::make_handler() { return std::make_unique<Help>(); }
+
+void Help::processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine) {
+  std::cout << "Help commanded" << std::endl;
 }
 
-void Help::processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine)
-{
-   std::cout << "Help commanded" << std::endl;
-}
-
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb

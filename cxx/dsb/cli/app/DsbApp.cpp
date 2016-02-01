@@ -15,34 +15,29 @@
 namespace dsb {
 namespace cli {
 
-DsbApp::DsbApp() :
-   _proj(), //
-   _cmdHandlers()
-{
-   addHandler<Help>("help");
-   addHandler<Help>("-help");
-   addHandler<Help>("--help");
-   addHandler<Help>("-h");
+DsbApp::DsbApp()
+    : _proj(),  //
+      _cmdHandlers() {
+  addHandler<Help>("help");
+  addHandler<Help>("-help");
+  addHandler<Help>("--help");
+  addHandler<Help>("-h");
 
-   addHandler<Add>("add");
-   addHandler<Init>("init");
-   addHandler<List>("list");
-   addHandler<Open>("open");
+  addHandler<Add>("add");
+  addHandler<Init>("init");
+  addHandler<List>("list");
+  addHandler<Open>("open");
 }
 
-void DsbApp::runApplication(Util::CommandLine::Data cmdLine)
-{
-   auto itr = _cmdHandlers.find(cmdLine.at(0).option);
-   if (itr != _cmdHandlers.end())
-   {
-      itr->second->processCmd(_proj, cmdLine);
-   }
-   else
-   {
-      // Unhandled cmd line option
-      std::cout << "cmd not found" << std::endl;
-   }
+void DsbApp::runApplication(Util::CommandLine::Data cmdLine) {
+  auto itr = _cmdHandlers.find(cmdLine.at(0).option);
+  if (itr != _cmdHandlers.end()) {
+    itr->second->processCmd(_proj, cmdLine);
+  } else {
+    // Unhandled cmd line option
+    std::cout << "cmd not found" << std::endl;
+  }
 }
 
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb

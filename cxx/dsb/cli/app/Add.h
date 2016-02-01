@@ -10,16 +10,15 @@
 namespace dsb {
 namespace cli {
 
-class Add : public CmdHandler
-{
-public:
-   Add() = default;
-   virtual ~Add() = default;
+class Add : public CmdHandler {
+ public:
+  Add() = default;
+  virtual ~Add() = default;
 
-   virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
+  virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
 };
 
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb
 
-#endif // DSB_CLI_ADD_H_
+#endif  // DSB_CLI_ADD_H_

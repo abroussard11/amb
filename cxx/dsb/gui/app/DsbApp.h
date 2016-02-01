@@ -12,23 +12,22 @@
 namespace dsb {
 namespace gui {
 
-class DsbApp : public amb::GuiApp
-{
-public:
-   DsbApp();
-   virtual ~DsbApp() = default;
+class DsbApp : public amb::GuiApp {
+ public:
+  DsbApp();
+  virtual ~DsbApp() = default;
 
-   virtual void runApplication(Util::CommandLine::Data cmdLine) override;
+  virtual void runApplication(Util::CommandLine::Data cmdLine) override;
 
-protected:
-   void onKeyPressed(sf::Event& event) override;
+ protected:
+  void onKeyPressed(sf::Event& event) override;
 
-private:
-   amb::GuiAppDriver _appDriver;
-   sf::VideoMode _videoMode;
+ private:
+  amb::GuiAppDriver _appDriver;
+  sf::VideoMode _videoMode;
 };
 
-} // End namespace gui
-} // End namespace dsb
+}  // End namespace gui
+}  // End namespace dsb
 
-#endif // DSB_GUI_APP_DSBAPP_H_
+#endif  // DSB_GUI_APP_DSBAPP_H_

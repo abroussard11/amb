@@ -10,17 +10,16 @@
 namespace dsb {
 namespace cli {
 
-class Help : public CmdHandler
-{
-public:
-   Help() = default;
-   virtual ~Help() = default;
+class Help : public CmdHandler {
+ public:
+  Help() = default;
+  virtual ~Help() = default;
 
-   static CmdHandler::Ptr make_handler();
-   virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
+  static CmdHandler::Ptr make_handler();
+  virtual void processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine);
 };
 
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb
 
-#endif // DSB_CLI_HELP_H_
+#endif  // DSB_CLI_HELP_H_

@@ -14,27 +14,27 @@ namespace dsb {
 namespace gui {
 namespace left {
 
-class PanelLeft : public amb::GuiComponent
-{
-public:
-   PanelLeft() = delete;
-   PanelLeft(sf::VideoMode mode);
-   virtual ~PanelLeft() = default;
+class PanelLeft : public amb::GuiComponent {
+ public:
+  PanelLeft() = delete;
+  PanelLeft(sf::VideoMode mode);
+  virtual ~PanelLeft() = default;
 
-   // void move(float x, float y);
+  // void move(float x, float y);
 
-protected:
-   void onMouseWheelMoved(sf::Event& event) override;
+ protected:
+  void onMouseWheelMoved(sf::Event& event) override;
 
-private:
-   sf::RectangleShape _rect;
+ private:
+  sf::RectangleShape _rect;
 
-   virtual void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const;
-   bool isClickOnSelf(sf::Event& event);
+  virtual void drawSelf(sf::RenderTarget& target,
+                        sf::RenderStates states) const;
+  bool isClickOnSelf(sf::Event& event);
 };
 
-} // End namespace left
-} // End namespace gui
-} // End namespace dsb
+}  // End namespace left
+}  // End namespace gui
+}  // End namespace dsb
 
-#endif // DSB_GUI_LEFT_PANELLEFT_H_
+#endif  // DSB_GUI_LEFT_PANELLEFT_H_

@@ -13,14 +13,12 @@ namespace amb {
 /**
  * Pure Virtual interface for GUI Applications
  */
-class GuiApp : public App, public amb::GuiComponent
-{
-public:
-   GuiApp() = default;
-   virtual ~GuiApp() = default;
-
+class GuiApp : public App, public amb::GuiComponent {
+ public:
+  GuiApp() = default;
+  virtual ~GuiApp() = default;
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif // AMB_GUIAPP_H_
+#endif  // AMB_GUIAPP_H_

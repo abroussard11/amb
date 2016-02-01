@@ -9,10 +9,9 @@
 
 namespace tests {
 
-void PaintUnitTest::testRoutine()
-{
-   requireEqual(construct<paint::PaintApp>(), true);
-   requireEqual(construct<paint::SmallBrush>(0.F, 0.F), true);
+void PaintUnitTest::testRoutine() {
+  requireEqual(construct<paint::PaintApp>(), true);
+  requireEqual(construct<paint::SmallBrush>(0.F, 0.F), true);
 }
 
-} // End namespace tests
+}  // End namespace tests

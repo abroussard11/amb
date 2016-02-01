@@ -14,30 +14,28 @@
 
 namespace dsb {
 
-class ProjectFile
-{
-public:
-   std::string name;
-   std::vector<ActivityMsg> activities;
+class ProjectFile {
+ public:
+  std::string name;
+  std::vector<ActivityMsg> activities;
 
-   ProjectFile() = default;
-   virtual ~ProjectFile() = default;
+  ProjectFile() = default;
+  virtual ~ProjectFile() = default;
 
-   bool operator ==(ProjectFile& other);
+  bool operator==(ProjectFile& other);
 
-   bool isUnique(const ActivityMsg& act);
-   void appendActivity(const ActivityMsg& act);
+  bool isUnique(const ActivityMsg& act);
+  void appendActivity(const ActivityMsg& act);
 
-   // write to file
-   void serialize(std::ofstream& os);
+  // write to file
+  void serialize(std::ofstream& os);
 
-   // read from file
-   void deserialize(std::ifstream& is);
-
+  // read from file
+  void deserialize(std::ifstream& is);
 };
 
 std::ostream& operator<<(std::ostream& os, const dsb::ProjectFile& pf);
 
-} // End namespace dsb
+}  // End namespace dsb
 
-#endif // DSB_GENERIC_PROJECTFILE_H_
+#endif  // DSB_GENERIC_PROJECTFILE_H_

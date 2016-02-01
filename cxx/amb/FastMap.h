@@ -11,50 +11,42 @@
 namespace amb {
 
 template <typename Key, typename Value>
-class FastMap
-{
-public:
-   void push_back(Key key, Value value)
-   {
-      _keys.push_back(key);
-      _values.push_back(value);
-   }
+class FastMap {
+ public:
+  void push_back(Key key, Value value) {
+    _keys.push_back(key);
+    _values.push_back(value);
+  }
 
-   Value find(Key searchKey)
-   {
-      Value retVal;
-      for (auto i = std::size_t(0); i < _keys.size(); ++i)
-      {
-         if (_keys.at(i) == searchKey)
-         {
-            retVal = _values.at(i);
-            break;
-         }
+  Value find(Key searchKey) {
+    Value retVal;
+    for (auto i = std::size_t(0); i < _keys.size(); ++i) {
+      if (_keys.at(i) == searchKey) {
+        retVal = _values.at(i);
+        break;
       }
+    }
 
-      return retVal;
-   }
+    return retVal;
+  }
 
-   void printString()
-   {
-      std::cout << "Keys:" << std::endl;
-      for (auto& key : _keys)
-      {
-         std::cout << "   " << key << std::endl;
-      }
+  void printString() {
+    std::cout << "Keys:" << std::endl;
+    for (auto& key : _keys) {
+      std::cout << "   " << key << std::endl;
+    }
 
-      std::cout << "Values:" << std::endl;
-      for (auto& value : _values)
-      {
-         std::cout << "   " << value << std::endl;
-      }
-   }
+    std::cout << "Values:" << std::endl;
+    for (auto& value : _values) {
+      std::cout << "   " << value << std::endl;
+    }
+  }
 
-private:
-   std::vector<Key> _keys;
-   std::vector<Value> _values;
+ private:
+  std::vector<Key> _keys;
+  std::vector<Value> _values;
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif //FASTMAP_H_
+#endif  // FASTMAP_H_

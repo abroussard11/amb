@@ -9,15 +9,14 @@
 
 namespace dsb {
 
-class ExportButtonMsg
-{
-public:
-   ExportButtonMsg() = default;
-   virtual ~ExportButtonMsg() = default;
+class ExportButtonMsg {
+ public:
+  ExportButtonMsg() = default;
+  virtual ~ExportButtonMsg() = default;
 
-   std::string x;
+  std::string x;
 };
 
-} // End namespace dsb
+}  // End namespace dsb
 
-#endif // DSB_INTERFACE_EXPORTBUTTONMSG_H_
+#endif  // DSB_INTERFACE_EXPORTBUTTONMSG_H_

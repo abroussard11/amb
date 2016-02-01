@@ -9,24 +9,20 @@
 
 namespace tests {
 
-class AmbUnitTest : public TestRunner
-{
-public:
-   AmbUnitTest() = default;
-   virtual ~AmbUnitTest() = default;
+class AmbUnitTest : public TestRunner {
+ public:
+  AmbUnitTest() = default;
+  virtual ~AmbUnitTest() = default;
 
-   virtual const char* getTestName() const
-   {
-      return "AmbUnitTest";
-   }
-   void testRoutine() override;
+  virtual const char* getTestName() const { return "AmbUnitTest"; }
+  void testRoutine() override;
 
-private:
-   void testFastMap();
-   bool testGuiComponent();
-   void testXml();
+ private:
+  void testFastMap();
+  bool testGuiComponent();
+  void testXml();
 };
 
-} // End namespace tests
+}  // End namespace tests
 
-#endif // TESTS_AMBUNITTEST_H_
+#endif  // TESTS_AMBUNITTEST_H_

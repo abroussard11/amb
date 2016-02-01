@@ -9,16 +9,15 @@
 
 namespace amb {
 
-class Color : public sf::Color
-{
-public:
-   static const sf::Color Gray;
-   static const sf::Color DsbGreen;
+class Color : public sf::Color {
+ public:
+  static const sf::Color Gray;
+  static const sf::Color DsbGreen;
 
-   Color() = default;
-   virtual ~Color() = default;
+  Color() = default;
+  virtual ~Color() = default;
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif // AMB_COLOR_H_
+#endif  // AMB_COLOR_H_

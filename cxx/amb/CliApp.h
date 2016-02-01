@@ -13,13 +13,12 @@ namespace amb {
 /**
  * Pure Virtual interface for CLI Applications
  */
-class CliApp : public App
-{
-public:
-   using Ptr = std::unique_ptr<CliApp>;
-   virtual ~CliApp() = default;
+class CliApp : public App {
+ public:
+  using Ptr = std::unique_ptr<CliApp>;
+  virtual ~CliApp() = default;
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif // AMB_CLIAPP_H_
+#endif  // AMB_CLIAPP_H_

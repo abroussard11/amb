@@ -9,15 +9,14 @@
 
 namespace dsb {
 
-class LoadButtonMsg
-{
-public:
-   LoadButtonMsg() = default;
-   virtual ~LoadButtonMsg() = default;
+class LoadButtonMsg {
+ public:
+  LoadButtonMsg() = default;
+  virtual ~LoadButtonMsg() = default;
 
-   std::string x;
+  std::string x;
 };
 
-} // End namespace dsb
+}  // End namespace dsb
 
-#endif // DSB_INTERFACE_LOADBUTTONMSG_H_
+#endif  // DSB_INTERFACE_LOADBUTTONMSG_H_

@@ -11,28 +11,22 @@
 
 namespace Util {
 
-class CommandLineOption
-{
-public:
-   typedef std::shared_ptr<CommandLineOption> Ptr;
+class CommandLineOption {
+ public:
+  typedef std::shared_ptr<CommandLineOption> Ptr;
 
-   std::string option;
-   std::vector<std::string> values;
+  std::string option;
+  std::vector<std::string> values;
 
-   explicit
-   CommandLineOption(std::string op = "") :
-      option(op),
-      values()
-   {
-      // Empty
-   }
+  explicit CommandLineOption(std::string op = "") : option(op), values() {
+    // Empty
+  }
 
-   bool operator ==(const CommandLineOption& other)
-   {
-      return option == other.option;
-   }
+  bool operator==(const CommandLineOption& other) {
+    return option == other.option;
+  }
 };
 
-} // End namespace Util
+}  // End namespace Util
 
-#endif // UTIL_COMMANDLINEOPTION_H_
+#endif  // UTIL_COMMANDLINEOPTION_H_

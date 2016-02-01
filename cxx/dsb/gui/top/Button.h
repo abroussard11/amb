@@ -14,64 +14,60 @@ namespace dsb {
 namespace gui {
 namespace top {
 
-class ButtonBase : public amb::GuiComponent
-{
-public:
-   using Ptr = std::unique_ptr<ButtonBase>;
+class ButtonBase : public amb::GuiComponent {
+ public:
+  using Ptr = std::unique_ptr<ButtonBase>;
 
-   ButtonBase();
-   virtual ~ButtonBase() = default;
+  ButtonBase();
+  virtual ~ButtonBase() = default;
 
-   void setString(std::string str);
-   void setSize(float width, float height);
-   void centerText();
+  void setString(std::string str);
+  void setSize(float width, float height);
+  void centerText();
 
-protected:
-   sf::RectangleShape _boundingBox;
+ protected:
+  sf::RectangleShape _boundingBox;
 
-   virtual void onMouseButtonPressed(sf::Event& event) override;
-   virtual void onMouseButtonReleased(sf::Event& event) override;
-   bool isClickOnButton(sf::Event& event);
+  virtual void onMouseButtonPressed(sf::Event& event) override;
+  virtual void onMouseButtonReleased(sf::Event& event) override;
+  bool isClickOnButton(sf::Event& event);
 
-private:
-   sf::RectangleShape _rect;
-   sf::Text _text;
+ private:
+  sf::RectangleShape _rect;
+  sf::Text _text;
 
-   virtual void updateSelf() override;
-   virtual void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const override;
+  virtual void updateSelf() override;
+  virtual void drawSelf(sf::RenderTarget& target,
+                        sf::RenderStates states) const override;
 };
 
 template <typename T>
-class Button : public ButtonBase
-{
-public:
-   Button() = default;
-   virtual ~Button() = default;
+class Button : public ButtonBase {
+ public:
+  Button() = default;
+  virtual ~Button() = default;
 
-   void setString(std::string str)
-   {
-      ButtonBase::setString(str);
-      _msg.content.x = str;
-   }
+  void setString(std::string str) {
+    ButtonBase::setString(str);
+    _msg.content.x = str;
+  }
 
-protected:
-   virtual void onMouseButtonReleased(sf::Event& event) override
-   {
-      auto color = sf::Color::Transparent;
-      if (isClickOnButton(event))
-      {
-         color = sf::Color::Red;
+ protected:
+  virtual void onMouseButtonReleased(sf::Event& event) override {
+    auto color = sf::Color::Transparent;
+    if (isClickOnButton(event)) {
+      color = sf::Color::Red;
       _msg.send();
-      }
-      _boundingBox.setOutlineColor(color);
-   }
+    }
+    _boundingBox.setOutlineColor(color);
+  }
 
-private:
-   infra::Msg<T> _msg;
+ private:
+  infra::Msg<T> _msg;
 };
 
-} // End namespace top
-} // End namespace gui
-} // End namespace dsb
+}  // End namespace top
+}  // End namespace gui
+}  // End namespace dsb
 
-#endif // DSB_GUI_TOP_BUTTON_H_
+#endif  // DSB_GUI_TOP_BUTTON_H_

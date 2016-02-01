@@ -11,43 +11,39 @@
 namespace dsb {
 namespace gui {
 
-DsbApp::DsbApp() :
-   GuiApp(), //
-   _appDriver(), //
-   _videoMode(sf::VideoMode::getDesktopMode())
-{
-   addComponent<left::PanelLeft>(_videoMode);
-   addComponent<center::PanelCenter>(_videoMode);
-   addComponent<right::PanelRight>(_videoMode);
+DsbApp::DsbApp()
+    : GuiApp(),      //
+      _appDriver(),  //
+      _videoMode(sf::VideoMode::getDesktopMode()) {
+  addComponent<left::PanelLeft>(_videoMode);
+  addComponent<center::PanelCenter>(_videoMode);
+  addComponent<right::PanelRight>(_videoMode);
 
-   auto top = _videoMode.height * 0.1F;
-   auto lLeft = 0;
-   auto cLeft = _videoMode.width * 0.25F;
-   auto rLeft = _videoMode.width * 0.666666F;
+  auto top = _videoMode.height * 0.1F;
+  auto lLeft = 0;
+  auto cLeft = _videoMode.width * 0.25F;
+  auto rLeft = _videoMode.width * 0.666666F;
 
-   _components.at(0)->move(lLeft, top);
-   _components.at(1)->move(cLeft, top);
-   _components.at(2)->move(rLeft, top);
+  _components.at(0)->move(lLeft, top);
+  _components.at(1)->move(cLeft, top);
+  _components.at(2)->move(rLeft, top);
 
-   // And add the top strip
-   addComponent<top::PanelTop>(_videoMode);
+  // And add the top strip
+  addComponent<top::PanelTop>(_videoMode);
 }
 
-void DsbApp::runApplication(Util::CommandLine::Data cmdLine)
-{
-   _appDriver.setApp(this);
-   _appDriver.setAppName("DSB");
-   _appDriver.setWindowSize(_videoMode);
-   _appDriver.runApplication();
+void DsbApp::runApplication(Util::CommandLine::Data cmdLine) {
+  _appDriver.setApp(this);
+  _appDriver.setAppName("DSB");
+  _appDriver.setWindowSize(_videoMode);
+  _appDriver.runApplication();
 }
 
-void DsbApp::onKeyPressed(sf::Event& event)
-{
-   if (event.key.code == sf::Keyboard::Escape)
-   {
-      _appDriver.closeWindow();
-   }
+void DsbApp::onKeyPressed(sf::Event& event) {
+  if (event.key.code == sf::Keyboard::Escape) {
+    _appDriver.closeWindow();
+  }
 }
 
-} // End namespace gui
-} // End namespace dsb
+}  // End namespace gui
+}  // End namespace dsb

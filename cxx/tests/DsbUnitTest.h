@@ -9,22 +9,18 @@
 
 namespace tests {
 
-class DsbUnitTest : public TestRunner
-{
-public:
-   DsbUnitTest() = default;
-   virtual ~DsbUnitTest() = default;
+class DsbUnitTest : public TestRunner {
+ public:
+  DsbUnitTest() = default;
+  virtual ~DsbUnitTest() = default;
 
-   virtual const char* getTestName() const
-   {
-      return "DsbUnitTest";
-   }
-   void testRoutine() override;
+  virtual const char* getTestName() const { return "DsbUnitTest"; }
+  void testRoutine() override;
 
-private:
-   void testProjectFile();
+ private:
+  void testProjectFile();
 };
 
-} // End namespace tests
+}  // End namespace tests
 
-#endif // TESTS_DSBUNITTEST_H_
+#endif  // TESTS_DSBUNITTEST_H_

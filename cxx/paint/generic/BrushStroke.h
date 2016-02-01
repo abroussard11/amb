@@ -10,23 +10,21 @@
 
 namespace paint {
 
-class BrushStroke : public amb::GuiComponent
-{
-public:
-   using Point = sf::Vector2f;
+class BrushStroke : public amb::GuiComponent {
+ public:
+  using Point = sf::Vector2f;
 
-   BrushStroke(Point start, Point end);
-   virtual ~BrushStroke() = default;
+  BrushStroke(Point start, Point end);
+  virtual ~BrushStroke() = default;
 
-private:
-   sf::Vertex _line[2];
+ private:
+  sf::Vertex _line[2];
 
-   void drawSelf(Target& target, States states) const override;
-   //void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const override;
-
+  void drawSelf(Target& target, States states) const override;
+  // void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const
+  // override;
 };
 
-} // End namespace paint
+}  // End namespace paint
 
-#endif // PAINT_BRUSHSTROKE_H_
-
+#endif  // PAINT_BRUSHSTROKE_H_

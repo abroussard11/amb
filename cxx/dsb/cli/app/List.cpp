@@ -7,15 +7,11 @@
 namespace dsb {
 namespace cli {
 
-CmdHandler::Ptr List::make_handler()
-{
-   return std::make_unique<List>();
+CmdHandler::Ptr List::make_handler() { return std::make_unique<List>(); }
+
+void List::processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine) {
+  std::cout << "commanded list" << std::endl;
 }
 
-void List::processCmd(ProjectFile& proj, Util::CommandLine::Data& cmdLine)
-{
-   std::cout << "commanded list" << std::endl;
-}
-
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb

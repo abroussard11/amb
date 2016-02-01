@@ -10,18 +10,18 @@
 
 namespace paint {
 
-class SmallBrush : public amb::GuiComponent
-{
-public:
-   SmallBrush(float x, float y);
-   virtual ~SmallBrush() = default;
+class SmallBrush : public amb::GuiComponent {
+ public:
+  SmallBrush(float x, float y);
+  virtual ~SmallBrush() = default;
 
-private:
-   sf::RectangleShape _tile;
+ private:
+  sf::RectangleShape _tile;
 
-   void drawSelf(sf::RenderTarget& target, sf::RenderStates states) const override;
+  void drawSelf(sf::RenderTarget& target,
+                sf::RenderStates states) const override;
 };
 
-} // End namespace paint
+}  // End namespace paint
 
-#endif // PAINT_GENERIC_SMALLBRUSH_H
+#endif  // PAINT_GENERIC_SMALLBRUSH_H

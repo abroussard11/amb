@@ -12,23 +12,19 @@
 amb::App::Ptr create_gui_app();
 amb::App::Ptr create_cli_app();
 
-int main(int argc, const char** argv)
-{
-   auto cmdLine = Util::CommandLine::parse(argc, argv);
+int main(int argc, const char** argv) {
+  auto cmdLine = Util::CommandLine::parse(argc, argv);
 
-   auto _app = amb::App::Ptr(nullptr);
+  auto _app = amb::App::Ptr(nullptr);
 
-   if (cmdLine.size() > 0)
-   {
-      // std::cout << "Creating CLI" << std::endl;
-      _app = create_cli_app();
-   }
-   else
-   {
-      std::cout << "Creating GUI" << std::endl;
-      _app = create_gui_app();
-   }
+  if (cmdLine.size() > 0) {
+    // std::cout << "Creating CLI" << std::endl;
+    _app = create_cli_app();
+  } else {
+    std::cout << "Creating GUI" << std::endl;
+    _app = create_gui_app();
+  }
 
-   // Run the application
-   _app->runApplication(cmdLine);
+  // Run the application
+  _app->runApplication(cmdLine);
 };

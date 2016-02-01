@@ -9,18 +9,17 @@
 
 namespace Util {
 
-class CommandLine
-{
-public:
-   using Data = std::vector<CommandLineOption>;
+class CommandLine {
+ public:
+  using Data = std::vector<CommandLineOption>;
 
-   virtual ~CommandLine() {}
+  virtual ~CommandLine() {}
 
-   static Data parse(int argc, const char** argv);
-   static bool isSingleCharacterFlag(const std::string& arg);
-   static bool isMultiCharacterFlag(const std::string& arg);
+  static Data parse(int argc, const char** argv);
+  static bool isSingleCharacterFlag(const std::string& arg);
+  static bool isMultiCharacterFlag(const std::string& arg);
 };
 
-} // End namespace Util
+}  // End namespace Util
 
-#endif // UTIL_COMMANDLINE_H_
+#endif  // UTIL_COMMANDLINE_H_

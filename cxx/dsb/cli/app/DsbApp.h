@@ -13,26 +13,24 @@
 namespace dsb {
 namespace cli {
 
-class DsbApp : public amb::CliApp
-{
-public:
-   DsbApp();
-   virtual ~DsbApp() = default;
+class DsbApp : public amb::CliApp {
+ public:
+  DsbApp();
+  virtual ~DsbApp() = default;
 
-   virtual void runApplication(Util::CommandLine::Data cmdLine);
+  virtual void runApplication(Util::CommandLine::Data cmdLine);
 
-private:
-   ProjectFile _proj;
-   std::map<std::string, CmdHandler::Ptr> _cmdHandlers;
+ private:
+  ProjectFile _proj;
+  std::map<std::string, CmdHandler::Ptr> _cmdHandlers;
 
-   template <typename T>
-   void addHandler(std::string cmd)
-   {
-      _cmdHandlers[cmd] = std::make_unique<T>();
-   }
+  template <typename T>
+  void addHandler(std::string cmd) {
+    _cmdHandlers[cmd] = std::make_unique<T>();
+  }
 };
 
-} // End namespace cli
-} // End namespace dsb
+}  // End namespace cli
+}  // End namespace dsb
 
-#endif // DSB_CLI_DSBAPP_H_
+#endif  // DSB_CLI_DSBAPP_H_

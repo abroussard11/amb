@@ -9,15 +9,14 @@
 
 namespace amb {
 
-class CliAppDriver : public AppDriver
-{
-public:
-   CliAppDriver() = default;
-   virtual ~CliAppDriver() = default;
+class CliAppDriver : public AppDriver {
+ public:
+  CliAppDriver() = default;
+  virtual ~CliAppDriver() = default;
 
-   virtual void runApplication();
+  virtual void runApplication();
 };
 
-} // End namespace amb
+}  // End namespace amb
 
-#endif // AMB_CLIAPPDRIVER_H_
+#endif  // AMB_CLIAPPDRIVER_H_

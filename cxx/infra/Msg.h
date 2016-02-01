@@ -12,31 +12,23 @@
 namespace infra {
 
 template <typename T>
-class Msg : public Message
-{
-public:
-   T content;
+class Msg : public Message {
+ public:
+  T content;
 
-   Msg() = default;
-   Msg(T copy) : content(copy) {}
-   virtual ~Msg() = default;
+  Msg() = default;
+  Msg(T copy) : content(copy) {}
+  virtual ~Msg() = default;
 
-   virtual Message::shPtr makeSharedMsg() override
-   {
-      return Message::shPtr{std::make_shared<Msg<T>>(content)};
-   }
+  virtual Message::shPtr makeSharedMsg() override {
+    return Message::shPtr{std::make_shared<Msg<T>>(content)};
+  }
 
-   void send()
-   {
-      MsgSys::getInstance()->add(makeSharedMsg());
-   }
+  void send() { MsgSys::getInstance()->add(makeSharedMsg()); }
 
-   std::size_t getHash()
-   {
-      return typeid(T).hash_code();
-   }
+  std::size_t getHash() { return typeid(T).hash_code(); }
 };
 
-} // End namespace infra
+}  // End namespace infra
 
-#endif // INFRA_MSG_H_
+#endif  // INFRA_MSG_H_
