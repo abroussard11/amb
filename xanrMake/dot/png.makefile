@@ -5,7 +5,12 @@
 $(DIR)_SRCS := $(patsubst %, $(SRC_DIR)/$(DIR)/%.dot, $(FILES))
 $(DIR)_PNGS := $(patsubst %, $(PNG_DIR)/$(DIR)/%.png, $(FILES))
 
-all:: $($(DIR)_PNGS)
+dot.all:: $($(DIR)_PNGS)
+dot.clean:: $(DIR)_clean
+
+$(DIR)_clean: DIR:=$(DIR)
+$(DIR)_clean:
+	$(RM) $($(DIR)_PNGS)
 
 $($(DIR)_PNGS): | $(PNG_DIR)/$(DIR)
 $(PNG_DIR)/$(DIR):

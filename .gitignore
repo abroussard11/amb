@@ -3,5 +3,9 @@ xanrMake/cxx/xanrMakeReference
 
 _Linux_x86_64
 Linux_x86_64
+Linux_i686
 
 *.swp
+.syntastic_clang_check_config
+.syntastic_cppcheck_config
+compile_commands.json

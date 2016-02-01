@@ -6,9 +6,10 @@ ifndef PROJECT_PATH
    $(error "You need to source setup before building")
 endif
 
-SHELL := /bin/sh
-ECHO := echo -e
-MAKE := make
+BUILD_SHELL ?= /bin/sh
+export SHELL := $(BUILD_SHELL)
+export MAKE := make
+export MFILE := makefile
 
 export MAKEFLAGS := \
    --no-builtin-rules \
@@ -17,6 +18,26 @@ export MAKEFLAGS := \
    --output-sync \
    --include-dir=xanrMake
 
-%all %clean:
-	@$(MAKE) -f Makefile $@
+LANG_DIRS := \
+   cxx \
+   dot \
+   python
+
+all clean:
+	@$(MAKE) $(addsuffix .$@, $(LANG_DIRS))
+
+compilation_database:
+	@bear $(MAKE) all
+
+#'make' is invoked twice;
+# First by the user 'make all', where xanrMake cannot
+# be automatically inserted into .INCLUDEDIRS
+# and
+# Second, by make executing the recipe for the 'all' target
+# where we inject (into 'MAKEFLAGS') all of the command line
+# flags that we don't want to type every time
+ifneq ("$(findstring xanrMake,$(.INCLUDE_DIRS))", "")
+   include xanrMake/projVars.makefile
+   include $(addsuffix /$(MFILE), $(LANG_DIRS))
+endif
 

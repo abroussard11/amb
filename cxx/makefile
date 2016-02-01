@@ -1,8 +1,7 @@
 $(info Reading amb/cxx/makefile)
 
-all::
+cxx.all::
 	@echo cxx all
-
 
 # Project locations definitions
 REPO := AMB_cxx
@@ -14,6 +13,12 @@ OBJ_DIR := $(BUILD_DIR)/objs
 WC_FILE := $(BUILD_DIR)/wc_file
 
 include cxx/projVars.makefile
+
+cxx.all:: .syntastic_cppcheck_config .syntastic_clang_check_config
+
+.syntastic_cppcheck_config .syntastic_clang_check_config: SRC_DIR:=$(SRC_DIR)
+.syntastic_cppcheck_config .syntastic_clang_check_config:
+	@$(ECHO) "-I $(PROJECT_PATH)/$(SRC_DIR)" > $@
 
 SUBDIRS := \
    amb \

@@ -6,11 +6,7 @@ $(info Reading amb/xanrMake/python/exe.makefile)
 $(DIR)_SRCS := $(patsubst %, $(SRC_DIR)/$(DIR)/%.py, $(FILES))
 $(DIR)_EXES := $(patsubst %, $(BIN_DIR)/%.exe, $(FILES))
 
-all:: $($(DIR)_EXES)
 python.all:: $($(DIR)_EXES)
-
-
-clean:: $(DIR).clean
 python.clean:: $(DIR).clean
 
 $(DIR).clean: DIR:=$(DIR)

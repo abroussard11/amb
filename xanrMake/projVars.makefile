@@ -1,9 +1,9 @@
 $(info Reading amb/xanrMake/projVars.makefile)
 
 # Shell commands
-MKDIR := mkdir -p
-RM := rm -f
-ECHO :=echo -e
+export MKDIR := mkdir -p
+export RM := rm -f
+export ECHO :=echo -e
 
 ## Colors!!
 ## set the COLORFUL_MAKE variable in your environment
@@ -48,4 +48,24 @@ else
    export light_blue_bg:=#
    export default_color:=#
 endif
+
+colortest.all::
+	@$(ECHO) "$(black)black"
+	@$(ECHO) "$(red)red"
+	@$(ECHO) "$(green)green"
+	@$(ECHO) "$(orange)orange"
+	@$(ECHO) "$(blue)blue"
+	@$(ECHO) "$(purple)purple"
+	@$(ECHO) "$(cyan)cyan"
+	@$(ECHO) "$(light_gray)light_gray"
+	@$(ECHO) "$(dark_gray)dark_gray"
+	@$(ECHO) "$(light_red)light_red"
+	@$(ECHO) "$(light_green)light_green"
+	@$(ECHO) "$(yellow)yellow"
+	@$(ECHO) "$(light_blue)light_blue"
+	@$(ECHO) "$(light_purple)light_purple"
+	@$(ECHO) "$(light_cyan)light_cyan"
+	@$(ECHO) "$(white)white"
+	@$(ECHO) "$(light_blue_bg)light_blue_bg"
+	@$(ECHO) "$(default_color)default_color"
 

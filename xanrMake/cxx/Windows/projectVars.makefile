@@ -22,14 +22,14 @@ SYS_DLL_LIB :=
 
 PROJ_SLN := $(VCX_DIR)/$(REPO).sln
 
-all:: $(PROJ_SLN)
+cxx.all:: $(PROJ_SLN)
 	msbuild /m $(PROJ_SLN)
 
 sln: $(PROJ_SLN)
 $(PROJ_SLN):
 	makeSln.py --repo=$(REPO) --tool_set=$(VS_TOOLSET)
 
-clean:
+cxx.clean:
 	$(RMDIR) $(VCX_DIR)
 	$(RMDIR) $(BUILD_DIR)
 

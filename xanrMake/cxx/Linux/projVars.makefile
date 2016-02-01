@@ -2,12 +2,8 @@
 ## Project Variables for Linux
 ###########################################
 
-
 # Shell commands
-MKDIR := mkdir -p
-RM := rm -f
 WC := wc -l --files0-from=
-ECHO :=echo -e
 
 ## Define Library paths
 INCLUDE_DIRS := \
@@ -16,7 +12,7 @@ INCLUDE_DIRS := \
 INC_DIRS :=$(patsubst %, -I%, $(INCLUDE_DIRS))
 
 ## Define compiler flags
-STD_CXX_FLAGS :=-std=c++14
+STD_CXX_FLAGS :=-std=c++14 -D_GLIBCXX_USE_CXX11_ABI=0
 OPTIMIZE_FLAGS :=-O0
 DEBUG_FLAGS :=-g
 WARN_FLAGS :=-Wall
@@ -31,7 +27,8 @@ SYS_DLL_LIB := dl
 
 ## Define other compiler variables
 AR := ar -rc
-GCC := g++-4.9
+#GCC := g++-4.9
+GCC ?= g++
 CLANG := clang++
 CXX ?= $(CLANG)
 CXXFLAGS := $(STD_CXX_FLAGS) \

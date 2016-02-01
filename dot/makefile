@@ -1,6 +1,6 @@
 $(info Reading amb/dot/makefile)
 
-all::
+dot.all::
 	@echo dot all
 
 include xanrMake/dot/projVars.makefile
@@ -13,8 +13,6 @@ PDF_DIR := $(BUILD_DIR)/pdf
 
 SUBDIRS := \
    NetworkBuild
-
-$(info SRC_DIR = $(SRC_DIR))
 
 include $(patsubst %, $(SRC_DIR)/%/$(MFILE), $(SUBDIRS))
 
