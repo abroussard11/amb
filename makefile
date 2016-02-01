@@ -26,6 +26,9 @@ LANG_DIRS := \
 all clean:
 	@$(MAKE) $(addsuffix .$@, $(LANG_DIRS))
 
+%/all %/clean:
+	@$(MAKE) $(subst /,., $@)
+
 compilation_database:
 	@bear $(MAKE) all
 

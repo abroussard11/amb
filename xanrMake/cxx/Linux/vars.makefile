@@ -26,12 +26,10 @@ ifneq "$(strip $(LINK_DYNAMIC_LIBS))" ""
    endif
 endif
 
-#TODO
-#$(DIR)_LINK_SFML_LIBS := $(addprefix -l, $(LINK_SFML_LIBS))
-#ifneq "$(strip $(LINK_SFML_LIBS))" ""
-#   $(DIR)_LINK_DIRS += -L$(SFML_LIB_DIR)
-#endif
-
+$(DIR)_LINK_SFML_LIBS := $(addprefix -l, $(LINK_SFML_LIBS))
+ifneq "$(strip $(LINK_SFML_LIBS))" ""
+   $(DIR)_LINK_DIRS += -L$(SFML_LIB_DIR)
+endif
 
 $(DIR)_SYS_LIBS := $(addprefix -l, $(SYS_LIBS))
 
@@ -49,6 +47,7 @@ $(DIR)_LINK_LIBS :=\
 
 $(DIR)_ALL_LIBS :=\
    $($(DIR)_LINK_LIBS) \
+   $($(DIR)_LINK_SFML_LIBS) \
    $($(DIR)_SYS_LIBS)
 
 ## Word count variables

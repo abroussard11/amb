@@ -24,13 +24,13 @@ LINK_DYNAMIC_LIBS := \
    amb-dsb-gui \
    amb-dsb-cli
 
-SYS_LIBS := \
+LINK_SFML_LIBS := \
    sfml-graphics \
    sfml-window \
    sfml-system
 
 ifeq "$(MAKE_TYPE)" "Windows"
-   SYS_LIBS += sfml-main
+   LINK_SFML_LIBS += sfml-main
 endif
 
 include cxx/exe.makefile

@@ -18,13 +18,13 @@ LINK_STATIC_LIBS := \
 LINK_DYNAMIC_LIBS := \
    amb-paint
 
-SYS_LIBS := \
+LINK_SFML_LIBS := \
    sfml-graphics \
    sfml-window \
    sfml-system
 
 ifeq "$(MAKE_TYPE)" "Windows"
-   SYS_LIBS += sfml-main-d
+   LINK_SFML_LIBS += sfml-main-d
 endif
 
 include cxx/exe.makefile

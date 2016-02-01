@@ -12,7 +12,7 @@ INCLUDE_DIRS := \
 INC_DIRS :=$(patsubst %, -I%, $(INCLUDE_DIRS))
 
 ## Define compiler flags
-STD_CXX_FLAGS :=-std=c++14 -D_GLIBCXX_USE_CXX11_ABI=0
+STD_CXX_FLAGS :=-std=c++14
 OPTIMIZE_FLAGS :=-O0
 DEBUG_FLAGS :=-g
 WARN_FLAGS :=-Wall
@@ -40,6 +40,11 @@ CXXFLAGS := $(STD_CXX_FLAGS) \
             $(INC_DIRS)
 
 COMPILE.cpp := $(CXX) $(PCH_FLAGS) $(CXXFLAGS)
+
+ifdef SFML_PATH
+   SFML_LIB_DIR := $(SFML_PATH)/lib
+   SFML_INC_DIR := $(SFML_PATH)/include
+endif
 
 ## Targets
 

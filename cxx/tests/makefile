@@ -39,7 +39,7 @@ LINK_STATIC_LIBS := \
    amb-paint-generic \
    amb-Util
 
-SYS_LIBS := \
+LINK_SFML_LIBS := \
    sfml-graphics \
    sfml-system \
    sfml-window

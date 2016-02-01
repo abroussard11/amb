@@ -28,7 +28,7 @@ LINK_STATIC_LIBS := \
    amb-infra \
    amb-Util
 
-SYS_LIBS := \
+LINK_SFML_LIBS := \
    sfml-graphics \
    sfml-window \
    sfml-system

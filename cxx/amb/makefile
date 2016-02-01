@@ -22,7 +22,7 @@ FILES := \
 LINK_STATIC_LIBS := \
    amb-amb-xml
 
-SYS_LIBS := \
+LINK_SFML_LIBS := \
    sfml-graphics \
    sfml-system \
    sfml-window
