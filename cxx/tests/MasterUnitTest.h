@@ -9,19 +9,15 @@
 
 namespace tests {
 
-class MasterUnitTest : public TestRunner
-{
-public:
-   MasterUnitTest() = default;
-   virtual ~MasterUnitTest() = default;
+class MasterUnitTest : public TestRunner {
+ public:
+  MasterUnitTest() = default;
+  virtual ~MasterUnitTest() = default;
 
-   virtual const char* getTestName() const
-   {
-      return "MasterUnitTest";
-   }
-   void testRoutine() override;
+  const char* getTestName() const override { return "MasterUnitTest"; }
+  void testRoutine() override;
 };
 
-} // End namespace tests
+}  // End namespace tests
 
-#endif // TESTS_MASTERUNITTEST_H_
+#endif  // TESTS_MASTERUNITTEST_H_

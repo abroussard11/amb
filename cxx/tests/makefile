@@ -7,6 +7,9 @@ include cxx/initVars.makefile
 DIR := tests
 EXE := ambUnitTest
 
+SUBDIRS := \
+   BitOps
+
 TESTS := \
    Amb \
    Dsb \
