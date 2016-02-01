@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+
+import sys
+cout = sys.stdout
+
+#######################
+## Function definitions
+#######################
+##
+def extractNamespaces(name):
+   return name.split('::')[0:-1]
+
+##
+def extractClassName(name):
+   return name.split('::')[-1]
+
+##
+def nsToPath(ns):
+   return '/'.join(ns) + '/'
+
+def nsOpenStrs(ns):
+   return ['namespace '+x+' {' for x in ns]
+
+def nsCloseStrs(ns):
+   return ['} // End namespace '+x for x in reversed(ns)]
+
+def getGuardMacro(ns, className):
+   return '_'.join(ns + [className, 'H']).upper()
+##
+def headerGuardOpen(ns, className):
+   macro = getGuardMacro(ns, className)
+   return '#ifndef ' + macro + '\n#define ' + macro
+
+##
+def headerGuardClose(ns, className):
+   macro = getGuardMacro(ns, className)
+   return '#endif // ' + macro
+
+#######################
+## Main routine
+#######################
+fullName = sys.argv[1]
+namespaces = extractNamespaces(fullName)
+className = extractClassName(fullName)
+testName = className + '_test'
+
+cout.write('class name is ' + className + '\n')
+cout.write('namespaces = ' + str(namespaces) + '\n')
+
+cppName = className + '_test.cpp'
+hName = className + '_test.h'
+cout.write('filename is ' + cppName + '\n')
+cout.write('filename is ' + hName + '\n')
+
+nsOpen = '\n'.join(nsOpenStrs(namespaces))
+nsClose = '\n'.join(nsCloseStrs(namespaces))
+
+cout.write('nsOpen = ' + str(nsOpen) + '\n')
+cout.write('nsClose = ' + str(nsClose) + '\n')
+
+hGuardOpen = headerGuardOpen(namespaces, className)
+hGuardClose = headerGuardClose(namespaces, className)
+
+cppPath = 'tests/' + nsToPath(namespaces) + cppName
+hPath = 'tests/' + nsToPath(namespaces) + hName
+
+## CPP file
+with open(cppName, 'w') as f_cpp:
+   f_cpp.write('/**\n')
+   f_cpp.write(' * ' + cppPath + '\n')
+   f_cpp.write(' */\n')
+   f_cpp.write('''
+#include <{0}>
+
+{1}
+
+void {2}::testRoutine() {{
+  // TODO
+}}
+
+{3}
+'''.format(hPath, nsOpen, testName, nsClose))
+
+## HEADER file
+with open(hName, 'w') as f_h:
+   f_h.write('/**\n')
+   f_h.write(' * tests/' + nsToPath(namespaces) + hName + '\n')
+   f_h.write(' */\n')
+   f_h.write('''
+{0}
+
+#include <tests/TestRunner.h>
+
+{1}
+
+class {2} : public TestRunner
+{{
+public:
+   {2}() = default;
+   virtual ~{2}() = default;
+
+   virtual const char* getTestName() const
+   {{
+      return "{2}";
+   }}
+   void testRoutine() override;
+
+}};
+
+{3}
+
+{4}
+'''.format(hGuardOpen, nsOpen, testName, nsClose, hGuardClose))
+
