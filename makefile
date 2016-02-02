@@ -32,6 +32,9 @@ all clean:
 compilation_database:
 	@bear $(MAKE) all
 
+scan:
+	scan-build --use-c++=/usr/bin/clang++ -V $(MAKE) cxx/all
+
 #'make' is invoked twice;
 # First by the user 'make all', where xanrMake cannot
 # be automatically inserted into .INCLUDEDIRS
