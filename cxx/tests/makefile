@@ -30,6 +30,7 @@ DSB_GUI_LIBS := \
    amb-dsb-gui-right
 
 LINK_STATIC_LIBS := \
+   amb-tests-BitOps \
    $(DSB_GUI_LIBS) \
    amb-dsb-cli-app \
    amb-dsb-generic \

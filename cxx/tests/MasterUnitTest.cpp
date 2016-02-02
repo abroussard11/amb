@@ -21,6 +21,8 @@ void MasterUnitTest::testRoutine() {
 
   addTest<AmbUnitTest>();
 
+  addTest<BitOps::Int_test>();
+
   // TODO TEST: TestRunner
 }
 
