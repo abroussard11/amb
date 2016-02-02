@@ -5,9 +5,16 @@
 # Shell commands
 WC := wc -l --files0-from=
 
+# Third-Party Library variables
+ifdef SFML_PATH
+   SFML_LIB_DIR := $(SFML_PATH)/lib
+   SFML_INC_DIR := $(SFML_PATH)/include
+endif
+
 ## Define Library paths
 INCLUDE_DIRS := \
-   $(SRC_DIR)
+   $(SRC_DIR) \
+   $(SFML_INC_DIR)
 
 INC_DIRS :=$(patsubst %, -I%, $(INCLUDE_DIRS))
 
