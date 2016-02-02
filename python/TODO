@@ -1,0 +1,14 @@
+TODO list:
+
+ 1. Test the .zyp file make commands
+    Put in logic to convert make_db [the directory] to make-db [the exe]
+
+ 2. Finish the make_db package: a package that parses and pretty prints
+    the output from 'make -np'
+
+ 3. Clean up the pyLauncher implementation
+
+ 4. Implement the Build Dependency Graph Tool
+    Rename it to something better: graph-tool, dep-anal, build-analyze
+    Implement header_locator
+
