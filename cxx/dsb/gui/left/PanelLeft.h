@@ -28,8 +28,9 @@ class PanelLeft : public amb::GuiComponent {
  private:
   sf::RectangleShape _rect;
 
-  virtual void drawSelf(sf::RenderTarget& target,
-                        sf::RenderStates states) const;
+  void drawSelf(sf::RenderTarget& target,
+                sf::RenderStates states) const override;
+
   bool isClickOnSelf(sf::Event& event);
 };
 

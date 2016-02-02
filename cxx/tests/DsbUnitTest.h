@@ -14,7 +14,9 @@ class DsbUnitTest : public TestRunner {
   DsbUnitTest() = default;
   virtual ~DsbUnitTest() = default;
 
-  virtual const char* getTestName() const { return "DsbUnitTest"; }
+  const char* getTestName() const override { //
+    return "DsbUnitTest";
+  }
   void testRoutine() override;
 
  private:

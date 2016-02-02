@@ -14,7 +14,9 @@ class InfraUnitTest : public TestRunner {
   InfraUnitTest() = default;
   virtual ~InfraUnitTest() = default;
 
-  virtual const char* getTestName() const { return "InfraUnitTest"; }
+  const char* getTestName() const override { //
+    return "InfraUnitTest";
+  }
   void testRoutine() override;
 };
 

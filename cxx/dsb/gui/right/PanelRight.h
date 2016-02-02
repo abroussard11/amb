@@ -46,9 +46,9 @@ class PanelRight : public amb::GuiComponent {
   infra::Inbox<LoadButtonMsg>::Ptr _loadInbox;
   infra::Inbox<ExportButtonMsg>::Ptr _exportInbox;
 
-  virtual void updateSelf() override;
-  virtual void drawSelf(sf::RenderTarget& target,
-                        sf::RenderStates states) const;
+  void updateSelf() override;
+  void drawSelf(sf::RenderTarget& target,
+                        sf::RenderStates states) const override;
   // bool isClickOnSelf(const sf::Event& event);
 };
 

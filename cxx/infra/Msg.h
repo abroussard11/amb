@@ -20,13 +20,17 @@ class Msg : public Message {
   Msg(T copy) : content(copy) {}
   virtual ~Msg() = default;
 
-  virtual Message::shPtr makeSharedMsg() override {
-    return Message::shPtr{std::make_shared<Msg<T>>(content)};
+  Message::shPtr makeSharedMsg() override {
+    return shPtr{std::make_shared<Msg<T>>(content)};
   }
 
-  void send() { MsgSys::getInstance()->add(makeSharedMsg()); }
+  void send() { //
+    MsgSys::getInstance()->add(makeSharedMsg());
+  }
 
-  std::size_t getHash() { return typeid(T).hash_code(); }
+  std::size_t getHash() override { //
+    return typeid(T).hash_code();
+  }
 };
 
 }  // End namespace infra

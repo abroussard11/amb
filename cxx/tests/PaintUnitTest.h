@@ -14,7 +14,9 @@ class PaintUnitTest : public TestRunner {
   PaintUnitTest() = default;
   virtual ~PaintUnitTest() = default;
 
-  virtual const char* getTestName() const { return "PaintUnitTest"; }
+  const char* getTestName() const override { //
+    return "PaintUnitTest";
+  }
   void testRoutine() override;
 };
 

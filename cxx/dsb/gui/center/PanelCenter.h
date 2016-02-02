@@ -39,9 +39,9 @@ class PanelCenter : public amb::GuiComponent {
   Category* _category;
   amb::Xml _xmlTopDb;
 
-  virtual void updateSelf() override;
-  virtual void drawSelf(sf::RenderTarget& target,
-                        sf::RenderStates states) const;
+  void updateSelf() override;
+  void drawSelf(sf::RenderTarget& target,
+                        sf::RenderStates states) const override;
   bool isClickOnSelf(sf::Event& event);
 };
 

@@ -14,7 +14,9 @@ class AmbUnitTest : public TestRunner {
   AmbUnitTest() = default;
   virtual ~AmbUnitTest() = default;
 
-  virtual const char* getTestName() const { return "AmbUnitTest"; }
+  const char* getTestName() const override { //
+    return "AmbUnitTest";
+  }
   void testRoutine() override;
 
  private:

@@ -14,7 +14,9 @@ class UtilUnitTest : public TestRunner {
   UtilUnitTest() = default;
   virtual ~UtilUnitTest() = default;
 
-  virtual const char* getTestName() const { return "UtilUnitTest"; }
+  const char* getTestName() const override { //
+    return "UtilUnitTest";
+  }
   void testRoutine() override;
   bool constructWithDllUtil();
 };
