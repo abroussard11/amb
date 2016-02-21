@@ -7,6 +7,14 @@
 #include <Util/Log.h>
 
 namespace amb {
+GuiAppDriver::GuiAppDriver()
+    : AppDriver(),              //
+      _app(nullptr),            //
+      _appName("SFML window"),  //
+      _windowSize(800, 600),    //
+      _window() {
+  // Empty
+}
 
 void GuiAppDriver::runApplication() {
   Util::Log::info("Running Gui Application: " + _appName);
@@ -42,12 +50,20 @@ void GuiAppDriver::runApplication() {
   }
 }
 
-void GuiAppDriver::setWindowSize(sf::VideoMode vMode) { _windowSize = vMode; }
+void GuiAppDriver::setWindowSize(sf::VideoMode vMode) {//
+  _windowSize = vMode;
+}
 
-void GuiAppDriver::setApp(amb::GuiApp* app) { _app = app; }
+void GuiAppDriver::setApp(amb::GuiApp* app) { //
+  _app = app;
+}
 
-void GuiAppDriver::setAppName(const std::string& name) { _appName = name; }
+void GuiAppDriver::setAppName(const std::string& name) { //
+  _appName = name;
+}
 
-void GuiAppDriver::closeWindow() { _window.close(); }
+void GuiAppDriver::closeWindow() { //
+  _window.close();
+}
 
 }  // End namespace amb

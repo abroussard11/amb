@@ -27,8 +27,8 @@ class Button : public amb::GuiComponent {
   void centerText();
 
  protected:
-  virtual void onMouseButtonPressed(sf::Event& event) override;
-  virtual void onMouseButtonReleased(sf::Event& event) override;
+  void onMouseButtonPressed(sf::Event& event) override;
+  void onMouseButtonReleased(sf::Event& event) override;
 
  private:
   sf::RectangleShape _rect;
@@ -36,9 +36,8 @@ class Button : public amb::GuiComponent {
   sf::Text _text;
   infra::Msg<ButtonMsg> _msg;
 
-  virtual void updateSelf() override;
-  virtual void drawSelf(sf::RenderTarget& target,
-                        sf::RenderStates states) const override;
+  void updateSelf() override;
+  void drawSelf(Target& target, States states) const override;
   bool isClickOnButton(sf::Event& event);
 };
 

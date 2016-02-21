@@ -5,10 +5,10 @@ $(info Reading amb/xanrMake/python/exe.makefile)
 
 $(DIR)_SRCS := $(patsubst %, $(SRC_DIR)/$(DIR)/%.py, $(FILES))
 $(DIR)_EXES := $(patsubst %, $(BIN_DIR)/%.exe, $(FILES))
-$(DIR)_PYZS := $(patsubst %, $(BIN_DIR)/pyz/%, $(ZYPS))
+$(DIR)_PYZS := $(patsubst %, $(BIN_DIR)/pyz/%, $(PYZS))
 
 python.all:: $($(DIR)_EXES)
-python.zyp:: $($(DIR)_ZYPS)#TODO test this out
+python.zyp:: $($(DIR)_PYZS)#TODO test this out
 python.clean:: $(DIR).clean
 
 $(DIR).clean: DIR:=$(DIR)

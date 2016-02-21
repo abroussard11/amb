@@ -5,10 +5,14 @@
 #ifndef TESTS_TESTRUNNER_H_
 #define TESTS_TESTRUNNER_H_
 
+#include <cxxabi.h>
 #include <iostream>
 #include <memory>
+#include <sstream>
 #include <typeinfo>
 #include <utility>
+#include <include/OsCompatibility.h>
+#include <tests/FailPrinter.h>
 #include <Util/CommandLineOption.h>
 #include <Util/Log.h>
 
@@ -24,13 +28,12 @@ class TestRunner {
   /**
    * Constructors
    */
-  TestRunner() : _subTests(), _successes(0), _fails(0) {}
+  TestRunner() : _verbose(true), _subTests(), _successes(0), _fails(0) {}
   virtual ~TestRunner() = default;
 
   /**
    * Required interface definitions
    */
-  virtual const char* getTestName() const = 0;
   virtual void testRoutine() = 0;
 
   /**
@@ -46,22 +49,9 @@ class TestRunner {
     bool testResult = (t == u);
     trackTest(testResult);
     if (!testResult) {
-      std::cout << "   Reason: [ " << std::boolalpha << t << " != " << u << " ]"
-                << std::endl;
+      FailPrinter<T, U> failPrinter(t, u);
+      std::cout << failPrinter << std::endl;
     }
-  }
-
-  template <typename T, typename... Args>
-  void constructorTest(Args&&... args) {
-    auto success = true;
-    try {
-      T _instance{std::forward<Args>(args)...};
-    } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
-      success = false;
-    }
-
-    trackTest(success);
   }
 
   template <typename T, typename... Args>
@@ -73,33 +63,80 @@ class TestRunner {
       std::cout << e.what() << std::endl;
       success = false;
     }
-
     return success;
   }
 
-  void runTests() {
-    using std::cout;
-    using std::endl;
+  template <typename T, typename... Args>
+  void constructorTest(Args&&... args) {
+    trackTest(construct<T>(std::forward<Args>(args)...));
+  }
 
-    // Call this test
-    cout << endl
-         << "*** ENTER: " << CYAN_BG << getTestName() << CONSOLE_DEFAULT
-         << " ***" << endl;
+  char* demangleName(const std::type_info& id) const {
+    int status;
+    return abi::__cxa_demangle(id.name(), 0, 0, &status);
+  }
 
+  std::string getTestName() const {
+    using uniq_string = std::unique_ptr<char, decltype(std::free)*>;
+    std::string testName;
+    uniq_string realname{demangleName(typeid(*this)), std::free};
+    testName = realname.get();
+    return testName;
+  }
+
+  std::string getEntryMsg() const {
+    std::stringstream ss;
+    ss << "***ENTER: " << CYAN_BG << getTestName() << CONSOLE_DEFAULT << " ***";
+    return ss.str();
+  }
+
+  const char* getExitMsg() const { //
+    return "*** EXIT ***";
+  }
+
+  virtual void setupSubTests() {}
+  void setVerbosity(bool verbose) {
+    _verbose = verbose;
+  }
+
+  void runMyTests() {
+    if (_verbose) {
+      std::cout << std::endl << getEntryMsg() << std::endl;
+    }
     testRoutine();
-
-    cout << "*** EXIT ***" << endl;
-
-    // Recursively call sub-tests
-    for (auto& subTest : _subTests) {
-      // TODO fork each subtest for isolation?
-      subTest->runTests();
+    if (_verbose) {
+      std::cout << getExitMsg() << std::endl;
     }
   }
 
-  void markSuccess() { ++_successes; }
+  void runAllTests() {
+    runMyTests();
+    setupSubTests();
+    for (auto& subTest : _subTests) {
+      subTest->setVerbosity(_verbose);
+      subTest->runAllTests();
+    }
+  }
 
-  void markFail() { ++_fails; }
+  void runTests(std::string testName) {
+    std::string fullTestName = getTestName();
+    if (fullTestName.find(testName) != std::string::npos) {
+      runMyTests();
+    }
+    setupSubTests();
+    for (auto& subTest : _subTests) {
+      subTest->setVerbosity(_verbose);
+      subTest->runTests(testName);
+    }
+  }
+
+  void markSuccess() { //
+    ++_successes;
+  }
+
+  void markFail() { //
+    ++_fails;
+  }
 
   int getSuccesses() const {
     int subSuccesses = 0;
@@ -118,22 +155,31 @@ class TestRunner {
   }
 
   void trackTest(bool testResult) {
-    using Util::Log;
-
     auto testNumber = _fails + _successes + 1;
-    if (testNumber < 10) std::cout << " ";
-    std::cout << testNumber << ": ";
+    if (_verbose) {
+      if (testNumber < 10) {
+        std::cout << " ";
+      }
+      std::cout << testNumber << ": ";
+    }
 
     if (testResult) {
       markSuccess();
-      std::cout << GREEN_FG << "PASS" << CONSOLE_DEFAULT << std::endl;
+      if (_verbose) {
+        std::cout << GREEN_FG << "PASS" << CONSOLE_DEFAULT << std::endl;
+      }
     } else {
       markFail();
-      std::cout << RED_FG << "FAIL" << CONSOLE_DEFAULT << std::endl;
+      if (_verbose) {
+        std::cout << RED_FG << "FAIL" << CONSOLE_DEFAULT;
+      }
     }
   }
 
- private:
+protected:
+  bool _verbose;
+
+private:
   std::vector<Ptr> _subTests;
   int _successes;
   int _fails;

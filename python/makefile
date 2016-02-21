@@ -1,5 +1,3 @@
-$(warning )
-
 include xanrMake/python/projVars.makefile
 
 SRC_DIR := python

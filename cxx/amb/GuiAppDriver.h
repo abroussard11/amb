@@ -14,14 +14,7 @@ namespace amb {
 
 class GuiAppDriver : public AppDriver {
  public:
-  GuiAppDriver()
-      : AppDriver(),            //
-        _app(nullptr),          //
-        _appName(),             //
-        _windowSize(800, 600),  //
-        _window(_windowSize, "SFML window") {
-    // Empty
-  }
+  GuiAppDriver();
   virtual ~GuiAppDriver() = default;
 
   virtual void runApplication();

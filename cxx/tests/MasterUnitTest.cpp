@@ -4,26 +4,28 @@
 
 #include <tests/MasterUnitTest.h>
 
-#include <tests/AmbUnitTest.h>
-#include <tests/DsbUnitTest.h>
-#include <tests/InfraUnitTest.h>
-#include <tests/PaintUnitTest.h>
-#include <tests/UtilUnitTest.h>
-#include <tests/BitOps/Int_test.h>
+#include <tests/amb/UnitTest.h>
+#include <tests/dsb/UnitTest.h>
+#include <tests/infra/UnitTest.h>
+#include <tests/paint/UnitTest.h>
+#include <tests/util/UnitTest.h>
+#include <tests/BitOps/BitOpsUnitTest.h>
+#include <tests/std/UnitTest.h>
 
 namespace tests {
 
+void MasterUnitTest::setupSubTests() {
+  addTest<amb::UnitTest>();
+  addTest<BitOps::BitOpsUnitTest>();
+  addTest<dsb::UnitTest>();
+  addTest<infra::UnitTest>();
+  addTest<paint::UnitTest>();
+  addTest<util::UnitTest>();
+  addTest<std::UnitTest>();
+}
+
 void MasterUnitTest::testRoutine() {
-  addTest<DsbUnitTest>();
-  addTest<InfraUnitTest>();
-  addTest<PaintUnitTest>();
-  addTest<UtilUnitTest>();
-
-  addTest<AmbUnitTest>();
-
-  addTest<BitOps::Int_test>();
-
-  // TODO TEST: TestRunner
+  // Empty
 }
 
 }  // End namespace tests

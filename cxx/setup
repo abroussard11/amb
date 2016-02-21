@@ -8,7 +8,7 @@ setenv CLANG "clang++"
 setenv CXX $CLANG
 
 ## External libraries
-setenv SFML_PATH /opt/SFML/SFML-2.3/SFML
+setenv SFML_PATH /opt/SFML/SFML-2.3.2/SFML
 
-setenv LD_LIBRARY_PATH "$PROJECT_PATH/$COMP_TYPE/lib;$SFML_PATH/lib"
+setenv LD_LIBRARY_PATH "$LD_LIBRARY_PATH;$SFML_PATH/lib"
 setenv RUN_SANITIZERS false

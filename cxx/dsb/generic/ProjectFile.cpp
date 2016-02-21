@@ -22,13 +22,9 @@ bool ProjectFile::operator==(ProjectFile& other) {
 }
 
 bool ProjectFile::isUnique(const ActivityMsg& act) {
-  std::cout << "contains: " << act.name << std::endl;
-
   auto b = activities.begin();
   auto e = activities.end();
   auto loc = std::find(b, e, act);
-
-  std::cout << "loc == end = " << std::boolalpha << (loc == e) << std::endl;
 
   return loc == e;
 }
@@ -56,7 +52,7 @@ void ProjectFile::deserialize(std::ifstream& ifs) {
     while (std::getline(ss, item, ';')) {
       vec.push_back(item);
     }
-    std::cout << "vec.size = " << vec.size() << std::endl;
+
     if (vec.size() == 6) {
       auto act = ActivityMsg();
       act.name = vec.at(0);

@@ -82,7 +82,9 @@ sf::Transform GuiComponent::getGlobalTransform() {
   return trans;
 }
 
-void GuiComponent::setIsVisible(bool doDraw) { _isVisible = doDraw; }
+void GuiComponent::setIsVisible(bool doDraw) {  //
+  _isVisible = doDraw;
+}
 
 void GuiComponent::draw(sf::RenderTarget& target,
                         sf::RenderStates states) const {

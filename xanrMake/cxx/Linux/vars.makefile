@@ -11,7 +11,6 @@ $(DIR)_LIB_OO_DEPS += $(patsubst %, $(LIB_DIR)/lib%.so, $(LINK_DYNAMIC_LIBS))
 
 $(DIR)_LINK_DIRS := $(addprefix -L, $(LINK_DIRS))
 
-
 $(DIR)_LINK_STATIC_LIBS := $(addprefix -l, $(LINK_STATIC_LIBS))
 ifneq "$(strip $(LINK_STATIC_LIBS))" ""
    ifeq "$(findstring (LIB_DIR), $($(DIR)_LINK_DIRS))" ""
@@ -39,7 +38,12 @@ $(DIR)_BUNDLE_LIBS := -Wl,--whole-archive -L$(LIB_DIR) $(addprefix -l, $(BUNDLE_
 $(DIR)_LIB_DEPS += $(patsubst %, $(LIB_DIR)/lib%.a, $(BUNDLE_LIBS))
 endif
 
+#$(DIR)_RPATH := $(addprefix -rpath=, $(LINK_DIRS))
+COMMA :=,
+$(DIR)_RPATH := $(patsubst -L%, -Wl$(COMMA)-rpath$(COMMA)%, $($(DIR)_LINK_DIRS))
+
 $(DIR)_LINK_LIBS :=\
+   $($(DIR)_RPATH) \
    $($(DIR)_LINK_DIRS) \
    $($(DIR)_LINK_STATIC_LIBS) \
    $($(DIR)_LINK_DYNAMIC_LIBS) \

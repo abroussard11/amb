@@ -1,8 +1,8 @@
 /**
- * tests/DsbUnitTest.cpp
+ * tests/dsb/UnitTest.cpp
  */
 
-#include <tests/DsbUnitTest.h>
+#include <tests/dsb/UnitTest.h>
 
 #include <cstdio>
 #include <fstream>
@@ -16,9 +16,9 @@
 #include <dsb/gui/right/PanelRight.h>
 #include <dsb/gui/right/ActivityList.h>
 
-namespace tests {
+namespace dsb {
 
-void DsbUnitTest::testRoutine() {
+void UnitTest::testRoutine() {
   constructorTest<dsb::gui::DsbApp>();
   constructorTest<dsb::cli::DsbApp>();
   constructorTest<dsb::ProjectFile>();
@@ -34,7 +34,7 @@ void DsbUnitTest::testRoutine() {
   testProjectFile();
 }
 
-void DsbUnitTest::testProjectFile() {
+void UnitTest::testProjectFile() {
   auto act1 = dsb::ActivityMsg();
   act1.name = "one";
   act1.desc = "two";
@@ -81,4 +81,4 @@ void DsbUnitTest::testProjectFile() {
   remove(filename.c_str());
 }
 
-}  // End namespace tests
+}  // End namespace dsb

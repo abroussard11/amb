@@ -14,10 +14,8 @@ class MasterUnitTest : public TestRunner {
   MasterUnitTest() = default;
   virtual ~MasterUnitTest() = default;
 
-  const char* getTestName() const override { //
-    return "MasterUnitTest";
-  }
   void testRoutine() override;
+  void setupSubTests() override;
 };
 
 }  // End namespace tests

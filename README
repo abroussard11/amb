@@ -5,3 +5,7 @@
 #######################
 ## Compile the World ##
 #######################
+
+- Build/Test commands
+make -j3 cxx/all && ambUnitTest -v
+make -j3 cxx/all && valgrind --leak-check=full --show-leak-kinds=all --log-file=log.log ambUnitTest -v

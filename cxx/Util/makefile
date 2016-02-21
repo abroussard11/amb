@@ -8,7 +8,8 @@ DIR := Util
 
 FILES := \
    CommandLine \
-   Log \
+   CommandLineOption \
+   Log
 
 SYS_LIBS := $(SYS_DLL_LIB)
 

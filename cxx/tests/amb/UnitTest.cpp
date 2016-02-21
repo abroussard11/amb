@@ -1,9 +1,10 @@
 /**
- * tests/AmbUnitTest.cpp
+ * tests/amb/UnitTest.cpp
  */
 
-#include <tests/AmbUnitTest.h>
+#include <tests/amb/UnitTest.h>
 
+#include <amb/Attribute.h>
 #include <amb/CliAppDriver.h>
 #include <amb/Color.h>
 #include <amb/FastMap.h>
@@ -16,9 +17,9 @@
 #include <typeinfo>
 #include <SFML/Graphics/Text.hpp>
 
-namespace tests {
+namespace amb {
 
-void AmbUnitTest::testRoutine() {
+void UnitTest::testRoutine() {
   constructorTest<amb::CliAppDriver>();       // 1
   constructorTest<amb::Color>();              // 2
   constructorTest<amb::FastMap<int, int>>();  // 3
@@ -31,20 +32,23 @@ void AmbUnitTest::testRoutine() {
   constructorTest<amb::xml::Node>();                // 8
   constructorTest<amb::xml::Node>("");              // 9
   constructorTest<amb::Xml>("cxx/tests/test.xml");  // 10
-  Util::Log::info(
-      "Attempting to load non-existent file. Expecting an Error message...");
+  if (_verbose) {
+    Util::Log::info(
+        "Attempting to load non-existent file. Expecting an Error message...");
+  }
   constructorTest<amb::Xml>("fileNotFound.xml");  // 11
   testFastMap();
   trackTest(testGuiComponent());  // 14
   testXml();
+  testAttribute();
 
-  constructorTest<sf::Text>("TestText", amb::Font::defaults[0]);
+  //constructorTest<sf::Text>("TestText", amb::Font::defaults[0]);
 }
 
 /**
  * The unit test for amb::FastMap
  */
-void AmbUnitTest::testFastMap() {
+void UnitTest::testFastMap() {
   Util::Log::info("Begin testFastMap subtest");
 
   using ValueType = std::shared_ptr<std::string>;
@@ -63,7 +67,7 @@ void AmbUnitTest::testFastMap() {
 /**
  * The unit test for amb::GuiComponent
  */
-bool AmbUnitTest::testGuiComponent() {
+bool UnitTest::testGuiComponent() {
   Util::Log::info("Begin testGuiComponent subtest");
   auto success = true;
   try {
@@ -84,7 +88,7 @@ bool AmbUnitTest::testGuiComponent() {
 /**
  * The unit test for amb::Xml
  */
-void AmbUnitTest::testXml() {
+void UnitTest::testXml() {
   Util::Log::info("Begin testXml subtest");
 
   amb::xml::Node node1("<root></root>");
@@ -191,4 +195,69 @@ void AmbUnitTest::testXml() {
   requireEqual(xml5Elements.at(2).text.toInt(), 3);  // 67
 }
 
-}  // End namespace tests
+struct DataSet1 {
+  int x;
+  int y;
+};
+
+struct DataSet2 {
+  float x;
+  float y;
+};
+
+void assignDataSet1(void* obj, const DataSet1& prop);
+void assignDataSet2(void* obj, const DataSet2& prop);
+
+class MyModel {
+ public:
+  amb::Attribute<DataSet1> data1;
+  amb::Attribute<DataSet2> data2;
+
+  MyModel()
+      : data1((void*)this, &assignDataSet1),  //
+        data2((void*)this, &assignDataSet2)   //
+  {
+    // Empty
+  }
+
+  void setProperty(const DataSet1& data) {
+    data1.set(data);
+  }
+
+  void setProperty(const DataSet2& data) {
+    data2.set(data);
+  }
+};
+
+void assignDataSet1(void* obj, const DataSet1& prop) {
+  std::cout << "Calling assignDataSet1\n";
+  static_cast<MyModel*>(obj)->setProperty(prop);
+}
+
+void assignDataSet2(void* obj, const DataSet2& prop) {
+  std::cout << "Calling assignDataSet2\n";
+  static_cast<MyModel*>(obj)->setProperty(prop);
+}
+
+//template <typename Property>
+//void assignPropType(void* obj, const Property& prop) {
+//   std::cout << "Calling assignPropType" << std::endl;
+//   static_cast<MyModel*>(obj)->setProperty(prop);
+//};
+
+void UnitTest::testAttribute() {
+  MyModel model;
+  DataSet1 _amb = {3, 5};
+  //DataSet2 _dataSet2= {1.0F, 25.0F};
+
+  model.data1 = _amb;
+  requireEqual(static_cast<DataSet1>(model.data1).x, 3);
+  requireEqual(static_cast<DataSet1>(model.data1).y, 5);
+
+  //DataSet1 _amb2;
+  //_amb2 = model.data1;
+  //requireEqual(_amb2.x, 3);
+  //requireEqual(_amb2.y, 5);
+}
+
+}  // End namespace amb

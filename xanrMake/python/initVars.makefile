@@ -5,3 +5,4 @@
 DIR :=#
 SUBDIRS :=#
 FILES :=#
+PYZS :=#

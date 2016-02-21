@@ -147,6 +147,8 @@ const Font Font::defaults[] = {
     // Font(FontNames::yudit)
 };
 
-Font::Font(const std::string& fontFile) : sf::Font() { loadFromFile(fontFile); }
+Font::Font(const std::string& fontFile) : sf::Font() {  //
+  loadFromFile(fontFile);
+}
 
 }  // End namespace amb

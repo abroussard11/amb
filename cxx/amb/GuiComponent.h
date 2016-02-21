@@ -85,11 +85,10 @@ class GuiComponent : public sf::Drawable, public sf::Transformable {
   bool _isVisible;
 
   virtual void updateSelf() {}
-  virtual void drawSelf(sf::RenderTarget& target,
-                        sf::RenderStates states) const {}
+  virtual void drawSelf(Target& target, States states) const {}
   virtual void moveSelf(const sf::Vector2f& offset) {}
-  virtual void draw(sf::RenderTarget& target,
-                    sf::RenderStates states) const final;
+
+  void draw(Target& target, States states) const final;
 };
 
 }  // End namespace amb

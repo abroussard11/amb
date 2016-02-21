@@ -22,6 +22,7 @@ cxx.all:: .syntastic_cppcheck_config .syntastic_clang_check_config
 
 SUBDIRS := \
    amb \
+   BitOps \
    BuildShell \
    dsb \
    include \
@@ -29,5 +30,6 @@ SUBDIRS := \
    paint \
    tests \
    Util \
+   x2048
 
 include $(patsubst %, $(SRC_DIR)/%/$(MFILE), $(SUBDIRS))

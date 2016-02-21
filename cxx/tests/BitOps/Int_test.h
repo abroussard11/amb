@@ -14,8 +14,6 @@ class Int_test : public tests::TestRunner {
   Int_test() = default;
   virtual ~Int_test() = default;
 
-  const char* getTestName() const override { return "Int_test"; }
-
   void testRoutine() override;
 
   void testBitwiseAND();
@@ -24,6 +22,7 @@ class Int_test : public tests::TestRunner {
   void testBitwiseXOR();
   void testLeftshift();
   void testRightShift();
+  void testInt();
 };
 
 }  // End namespace BitOps

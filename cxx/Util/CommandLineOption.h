@@ -1,11 +1,12 @@
-/******************************************
- * The CommandLineOption Struct Definition
- ******************************************/
+/**
+ * Util/CommandLineOption.h
+ */
 
 #ifndef UTIL_COMMANDLINEOPTION_H_
 #define UTIL_COMMANDLINEOPTION_H_
 
 #include <memory>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -18,7 +19,9 @@ class CommandLineOption {
   std::string option;
   std::vector<std::string> values;
 
-  explicit CommandLineOption(std::string op = "") : option(op), values() {
+  explicit CommandLineOption(std::string op = "")
+      : option(op),  //
+        values() {
     // Empty
   }
 
@@ -28,5 +31,7 @@ class CommandLineOption {
 };
 
 }  // End namespace Util
+
+std::ostream& operator<<(std::ostream& os, Util::CommandLineOption& clo);
 
 #endif  // UTIL_COMMANDLINEOPTION_H_

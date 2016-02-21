@@ -5,20 +5,42 @@
 #include <iostream>
 #include <memory>
 #include <tests/MasterUnitTest.h>
+#include <Util/CommandLine.h>
 #include <Util/Log.h>
 
-int main(int argc, char** argv) {
-  Util::Log::info("Loading the MasterUnitTest suite");
+struct UnitTest_CmdLine {
+   bool verbose;
+   std::string test;
 
-  //   int x[3] = {1,2,3};
-  //
-  //   for (int i = 0; i < 4; ++i)
-  //   {
-  //      std::cout << "x[" << i << "] = " << x[i] << std::endl;
-  //   }
+   UnitTest_CmdLine()
+       : verbose(false),  //
+         test() {
+     // Empty
+   }
+};
+
+int main(int argc, const char** argv) {
+  auto options = Util::CommandLine::parse(argc, argv);
+
+  UnitTest_CmdLine cmd_opts;
+  for (auto& e : options) {
+    if (e.option == "-v") {
+      cmd_opts.verbose = true;
+    }
+    else if (e.option == "--test") {
+      cmd_opts.test = e.values[0];
+    }
+  }
 
   tests::MasterUnitTest unitTest;
-  unitTest.runTests();
+  unitTest.setVerbosity(cmd_opts.verbose);
+  if (cmd_opts.test != "") {
+    std::cout << "JUST RUNNING TEST CASE: " << cmd_opts.test << std::endl;
+    unitTest.runTests(cmd_opts.test);
+  }
+  else {
+    unitTest.runAllTests();
+  }
 
   auto passes = unitTest.getSuccesses();
   auto fails = unitTest.getFails();

@@ -16,7 +16,6 @@ Repository::Repository()
     : HEAD(".dsb/HEAD"),  //
       _isValid(false),    //
       _headProjName(":") {
-  std::cout << "Constructing Repository Object" << std::endl;
   // Repo File structure:
   // KEYWORD = [list of names]
   //
@@ -30,9 +29,7 @@ Repository::Repository()
     return;
   }
 
-  std::cout << "Repo ifstream opened" << std::endl;
   std::getline(repoIfs, _headProjName);
-  std::cout << "HEAD points to: " << _headProjName << std::endl;
   _isValid = true;
 }
 

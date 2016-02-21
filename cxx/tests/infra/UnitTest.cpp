@@ -1,16 +1,16 @@
 /**
- * tests/InfraUnitTest.cpp
+ * tests/infra/UnitTest.cpp
  */
 
-#include <tests/InfraUnitTest.h>
+#include <tests/infra/UnitTest.h>
 
 #include <infra/Inbox.h>
 #include <infra/Msg.h>
 #include <infra/MsgSys.h>
 
-namespace tests {
+namespace infra {
 
-void InfraUnitTest::testRoutine() {
+void UnitTest::testRoutine() {
   // A test message data type
   struct Position {
     int x;
@@ -60,4 +60,4 @@ void InfraUnitTest::testRoutine() {
   // testMsgSys(): end
 }
 
-}  // End namespace tests
+}  // End namespace infra

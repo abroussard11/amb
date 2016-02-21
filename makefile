@@ -23,17 +23,21 @@ LANG_DIRS := \
    dot \
    python
 
+# for autocompletion
+all:
+clean:
+
 all clean:
 	@$(MAKE) $(addsuffix .$@, $(LANG_DIRS))
 
 %/all %/clean:
 	@$(MAKE) $(subst /,., $@)
 
-compilation_database:
-	@bear $(MAKE) all
-
 scan:
 	scan-build --use-c++=/usr/bin/clang++ -V $(MAKE) cxx/all
+
+compdb:
+	@bear $(MAKE) all
 
 #'make' is invoked twice;
 # First by the user 'make all', where xanrMake cannot

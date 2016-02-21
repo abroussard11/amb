@@ -7,6 +7,11 @@ include cxx/initVars.makefile
 DIR := tests/BitOps
 
 FILES := \
-   Int_test
+   BitOpsUnitTest \
+   Int_test \
+   Istream_test \
+   MultiByteValue \
+   NyBitByte_test \
+   Ostream_test
 
-include cxx/lib.makefile
+include cxx/sharedLib.makefile

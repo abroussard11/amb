@@ -1,19 +1,17 @@
 /**
- * tests/UtilUnitTest.cpp
+ * tests/util/UnitTest.cpp
  */
 
-#include <tests/UtilUnitTest.h>
+#include <tests/util/UnitTest.h>
 
 #include <Util/CommandLineOption.h>
 #include <Util/CommandLine.h>
 #include <Util/Dll.h>
 
-namespace tests {
+namespace util {
 
-void UtilUnitTest::testRoutine() {
-  trackTest(construct<AmbException>("test exception"));
-
-  // TEST: CommandLineOption
+void UnitTest::testRoutine() {
+  constructorTest<AmbException>("test exception");
   constructorTest<Util::CommandLineOption>();
 
   // Create fake command line arguments
@@ -45,7 +43,7 @@ void UtilUnitTest::testRoutine() {
   // TODO TEST: Log
 }
 
-bool UtilUnitTest::constructWithDllUtil() {
+bool UnitTest::constructWithDllUtil() {
   bool success = true;
   try {
     // TODO Dll test
@@ -58,4 +56,4 @@ bool UtilUnitTest::constructWithDllUtil() {
   return success;
 }
 
-}  // End namespace tests
+}  // End namespace util

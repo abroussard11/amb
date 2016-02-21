@@ -30,12 +30,12 @@ PanelRight::PanelRight(sf::VideoMode mode)
   // Messaging
   using namespace infra;
   _inbox = Inbox<ActivityMsg>::makeInbox();
-  registerInbox<ActivityMsg>(_inbox);
   _saveInbox = Inbox<SaveButtonMsg>::makeInbox();
-  registerInbox<SaveButtonMsg>(_saveInbox);
   _loadInbox = Inbox<LoadButtonMsg>::makeInbox();
-  registerInbox<LoadButtonMsg>(_loadInbox);
   _exportInbox = Inbox<ExportButtonMsg>::makeInbox();
+  registerInbox<ActivityMsg>(_inbox);
+  registerInbox<SaveButtonMsg>(_saveInbox);
+  registerInbox<LoadButtonMsg>(_loadInbox);
   registerInbox<ExportButtonMsg>(_exportInbox);
 
   auto width = mode.width / 3.F;
