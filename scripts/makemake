@@ -1,98 +1,105 @@
-#!/bin/tcsh -ef
+#!/bin/zsh -ef
 
-if ($#argv) then
-   if ($argv[1] == "--exe") then
-      set makeType = "exe"
-   else if ($argv[1] == "--lib") then
-      set makeType = "lib"
-   else if ($argv[1] == "--sharedLib") then
-      set makeType = "sharedLib"
-   else if ($argv[1] == "--subdir") then
-      set makeType = "subdirs"
+## Configuration
+mfile=makefile
+
+## Functions
+function echof () {
+  echo $* >> $mfile
+}
+
+function makeBackup () {
+  if [[ -e "$mfile" ]]; then
+    cp --force --backup=numbered $* $*
+    rm $*
+  fi
+}
+
+## Parse command line
+if (($#argv >= 1)); then
+   if [[ "$1" == "--exe" ]]; then
+      makeType="exe"
+   elif [[ "$1" == "--lib" ]]; then
+      makeType="lib"
+   elif [[ "$1" == "--sharedLib" ]]; then
+      makeType="sharedLib"
+   elif [[ "$1" == "--subdir" ]]; then
+      makeType="subdirs"
    else
-      echo "Invalid argument:"
-      echo "You should specify makefile type [--exe, --lib, --sharedLib]"
-      exit
-   endif
+      echo "Invalid argument:" >&2
+      echo "You should specify makefile type [--exe, --lib, --sharedLib]" >&2
+      exit 1
+   fi
 else
-   echo "You should specify makefile type [--exe, --lib, --sharedLib]"
-   exit
-endif
+   echo "You should specify makefile type [--exe, --lib, --sharedLib]" >&2
+   exit 1
+fi
 
-set amb_languages = (cxx dot python)
-set amb_lang = ""
-set dirs = ($PWD:as#/# #)
-set i = 0
-foreach x (`seq 1 $#dirs`)
-   foreach lang ($amb_languages)
-      if ($dirs[$x] == $lang) then
-         @ i = $x + 1
-         set amb_lang = $lang
+makeBackup $mfile
+
+amb_lang=""
+amb_languages=(cxx dot python)
+subdirs=(${(ws:/:)PWD})
+for subdir in $subdirs; do
+   for lang in $amb_languages; do
+      if [[ "$subdir" == "$lang" ]]; then
+         amb_lang="$lang"
          break
-      endif
-   end
-end
-   #if ($dirs[$x] == "src") then
-   #   @ i = $x + 1
-   #endif
-#end
+      fi
+   done
+done
 
-if ($i == 0) then
-   echo "Where are you??"
-   exit
-endif
+if [[ "$amb_lang" == "" ]]; then
+   echo "Where are you??" >&2
+   exit 1
+fi
 
-set directory = ""
-foreach x (`seq $i $#dirs`)
-   set directory = $directory/$dirs[$x]
-end
+lang_index=${subdirs[(i)$amb_lang]}
+directory=${(j:/:)subdirs[$lang_index+1,-1]}
 
-# trim the leading '/'
-set directory = $directory:s#/##
+items=(`ls --hide="*.cpp" --hide="*.h"`)
+fileList=`ls *.cpp`
+subdirList=()
+for i in $items; do
+   if [[ -d "$i" ]]; then
+      subdirList+="$i"
+   fi
+done
 
-set items = `ls`
-set fileList = ""
-set subdirList = ""
-foreach i ($items)
-   if ($i =~ {*.cpp}) then
-      set fileList = "$i:r\n$fileList"
-   else if (-d $i) then
-      set subdirList = "$i\n$subdirList"
-   endif
-end
+files=(`echo "${fileList}" | sort`)
+subdirs=(`echo $subdirList | sort`)
 
-set files = `echo $fileList | sort`
-set subdirs = `echo $subdirList | sort`
+echof "####################################################################"
+echof "## Makefile for $directory"
+echof "####################################################################"
+echof ""
+echof "include $amb_lang/initVars.makefile"
+echof ""
+echof "DIR := $directory"
 
-echo "####################################################################"
-echo "## Makefile for $directory"
-echo "####################################################################"
-echo ""
-echo "include $amb_lang/initVars.makefile"
-echo ""
-echo "DIR := $directory"
+if [[ "$makeType" == "exe" ]]; then
+   echof "EXE := $directory:t"
+fi
 
-if ($makeType == "exe") then
-   echo "EXE := $directory:t"
-endif
+if (( $#subdirs )); then
+   echof ""
+   echof -n "SUBDIRS :="
+   for d in $subdirs; do
+      echof -en " \\"
+      echof -en "\n   $d"
+   done
+   echof ""
+fi
 
-if ($#subdirs) then
-   echo ""
-   echo -n "SUBDIRS :="
-   foreach d ($subdirs)
-      echo -n " \\\n   $d"
-   end
-   echo ""
-endif
+if (( $#files )); then
+   echof ""
+   echof -n "FILES :="
+   for f in $files; do
+      echof -en " \\"
+      echof -en "\n   $f:r"
+   done
+   echof ""
+fi
 
-if ($#files) then
-   echo ""
-   echo -n "FILES :="
-   foreach f ($files)
-      echo -n " \\\n   $f"
-   end
-   echo ""
-endif
-
-echo ""
-echo "include $amb_lang/$makeType.makefile"
+echof ""
+echof "include $amb_lang/$makeType.makefile"

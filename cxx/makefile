@@ -23,7 +23,7 @@ cxx.all:: .syntastic_cppcheck_config .syntastic_clang_check_config
 SUBDIRS := \
    amb \
    BitOps \
-   BuildShell \
+   bldsh \
    dsb \
    include \
    infra \

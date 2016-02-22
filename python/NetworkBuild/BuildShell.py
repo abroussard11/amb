@@ -21,13 +21,15 @@ def get_cmd_from_args(args):
     #        Both should return the same thing
 
 def log_debug(output, errors, cout=sys.stdout, cerr=sys.stderr):
-    if not config.DEBUG: return
+    if not config.DEBUG:
+        return
 
     if output:
         cout.write('stdout:\n')
         cout.write(output)
     else:
         cout.write('No stdout recieved\n')
+
     if errors:
         cout.write('stderr:\n')
         cout.write(errors)
@@ -37,7 +39,7 @@ def log_debug(output, errors, cout=sys.stdout, cerr=sys.stderr):
 #######################
 ## Main Routine
 #######################
-def echo_client(msg, cout=sys.stdout, cerr=sys.stderr):
+def build_shell(msg, cout=sys.stdout, cerr=sys.stderr):
     host = config.HOST
     port = config.PORT
     size = config.SIZE
@@ -77,4 +79,4 @@ if __name__ == '__main__':
     cout.write('  len(sys.argv) = ' + str(len(sys.argv)) + '\n')
     for i, arg in enumerate(sys.argv):
         cout.write('    sys.argv[' + str(i) + '] = ' + arg + '\n')
-    sys.exit(echo_client(full_cmd))
+    sys.exit(build_shell(full_cmd))

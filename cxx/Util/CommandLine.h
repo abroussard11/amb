@@ -22,4 +22,6 @@ class CommandLine {
 
 }  // End namespace Util
 
+std::ostream& operator<<(std::ostream& os, const Util::CommandLine::Data& data);
+
 #endif  // UTIL_COMMANDLINE_H_

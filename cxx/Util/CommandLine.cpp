@@ -57,3 +57,11 @@ bool CommandLine::isMultiCharacterFlag(const std::string& arg) {
 }
 
 }  // End namespace Util
+
+std::ostream& operator<<(std::ostream& os, const Util::CommandLine::Data& data) {
+  os << "{";
+  for(auto d : data)
+    os << d;
+  os << "}";
+  return os;
+}

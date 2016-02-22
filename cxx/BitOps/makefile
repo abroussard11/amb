@@ -2,10 +2,5 @@
 ## Makefile for BitOps
 ####################################################################
 
-include cxx/initVars.makefile
+# Header only library. No build artifacts required
 
-DIR := BitOps
-
-FILES :=
-
-#include cxx/sharedLib.makefile

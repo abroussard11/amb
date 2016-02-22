@@ -1,20 +1,12 @@
 ####################################################################
-## Makefile for BuildShell
+## Makefile for bldsh/generic
 ####################################################################
 
 include cxx/initVars.makefile
 
-DIR := bldsh
-EXE := bldsh
-
-SUBDIRS := \
-   generic
+DIR := bldsh/generic
 
 FILES := \
-   main
+   BuildCmdMessage
 
-LINK_STATIC_LIBS := \
-   amb-bldsh-generic \
-   amb-Util
-
-include cxx/exe.makefile
+include cxx/lib.makefile
