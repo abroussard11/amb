@@ -7,6 +7,7 @@ include cxx/initVars.makefile
 DIR := bldsh/generic
 
 FILES := \
-   BuildCmdMessage
+   BuildCmdMessage \
+   CmdLineParser
 
 include cxx/lib.makefile

@@ -1,21 +1,26 @@
 /**
- * build_shell/BuildCmdMessage.h
+ * bldsh/generic/BuildCmdMessage.h
  */
 
 #ifndef BUILD_SHELL_BUILDCMDMESSAGE_H_
 #define BUILD_SHELL_BUILDCMDMESSAGE_H_
 
-namespace build_shell {
+#include <string>
+#include <vector>
 
-class BuildCmdMessage
-{
-public:
-   BuildCmdMessage();
-   virtual ~BuildCmdMessage() = default;
+namespace bldsh {
 
+class BuildCmdMessage {
+ public:
+  BuildCmdMessage();
+  virtual ~BuildCmdMessage() = default;
+
+ private:
+  std::vector<std::string> env;
+  std::string buildCommand;
 };
 
-} // End namespace build_shell
+} // End namespace bldsh
 
 #endif // BUILD_SHELL_BUILDCMDMESSAGE_H_
 

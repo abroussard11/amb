@@ -2,15 +2,18 @@
 
 ## System imports
 import asyncio
+from collections import deque
 from   datetime import datetime
 import os
 from   socket import *
+from   select import select
 from   subprocess import *
 import sys
+import time
 
 ## Local imports
-import config
-from   util import AsyncSocket, AsyncSocketcontext
+from . import config
+from .util import AsyncSocket, AsyncSocketcontext
 
 #######################
 ## Global varibles
@@ -18,13 +21,26 @@ from   util import AsyncSocket, AsyncSocketcontext
 tasks = deque()
 recv_wait = { } # Mapping sockets -> tasks (generators)
 send_wait = { }
+future_wait = { }
 
+future_notify, future_event = socketpair()
+
+def future_done(future):
+    tasks.append(future_wait.pop(future))
+    future_notify.send(b'x')
+
+def future_monitor():
+    while True:
+        yield 'recv', future_event
+        future_event.recv(100)
 
 #######################
 ## Function definitions
 #######################
 def request_handler(client):
-    data = yield from client.recv(size)
+    size = config.SIZE
+    sockdata = yield from client.recv(size)
+    data = sockdata.decode('ascii')
     if data:
         tup = data.split(', ', 1)
         cwd = os.path.abspath(tup[0])
@@ -34,22 +50,23 @@ def request_handler(client):
         sys.stdout.write('  data:' + data + '\n')
         sys.stdout.write('   cwd:' + cwd + '\n')
         sys.stdout.write('   cmd:' + cmd + '\n')
-        p1 = Popen(cmd.split(' '), stdout = PIPE, stderr = PIPE, cwd = cwd)
-        stdout, stderr = p1.communicate()
-        print('   Got: stdout =', stdout)
-        print('   Got: stderr =', stderr)
-        yield from client.send(stdout
-            + '\n::END_STDOUT::BEGIN_STDERR::\n'
-            + stderr)
+        time.sleep(2)
+        yield from client.send(sockdata)
+        #p1 = Popen(cmd.split(' '), stdout = PIPE, stderr = PIPE, cwd = cwd)
+        #stdout, stderr = p1.communicate()
+        #print('   Got: stdout =', stdout)
+        #print('   Got: stderr =', stderr)
+        #yield from client.send(stdout
+        #    + '\n::END_STDOUT::BEGIN_STDERR::\n'
+        #    + stderr)
 
 def MasterNodeManager():
     host = config.HOST
     port = config.PORT
-    size = config.SIZE
     backlog = config.BACKLOG
 
-    with AsyncSocketcontext(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    with AsyncSocketcontext(AF_INET, SOCK_STREAM) as sock:
+        sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
         address = ('', port)
         sock.bind(address)
         sock.listen(backlog)
@@ -67,11 +84,11 @@ def run():
         while not tasks:
             # No active tasks to run
             # wait for I/O
-            can_recv, can_send, [] = select(recv_wait, send_wait, [])
+            can_recv, can_send, can_other = select(recv_wait, send_wait, [])
             for s in can_recv:
                 tasks.append(recv_wait.pop(s))
-            for s in can_recv:
-                tasks.append(recv_wait.pop(s))
+            for s in can_send:
+                tasks.append(send_wait.pop(s))
         task = tasks.popleft()
         try:
             why, what = next(task) # Run to the yeild
@@ -80,6 +97,9 @@ def run():
                 recv_wait[what] = task
             elif why == 'send':
                 send_wait[what] = task
+            elif why == 'future':
+                future_wait[what] = task
+                what.add_done_callback(future_done)
             else:
                 raise RuntimeError('ARG!')
         except StopIteration:

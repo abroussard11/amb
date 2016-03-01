@@ -1,14 +1,14 @@
 /**
- * build_shell/BuildCmdMessage.cpp
+ * bldsh/generic/BuildCmdMessage.cpp
  */
 
-#include <build_shell/BuildCmdMessage.h>
+#include <bldsh/generic/BuildCmdMessage.h>
 
-namespace build_shell {
+namespace bldsh {
 
 BuildCmdMessage::BuildCmdMessage()
 {
    // Empty
 }
 
-} // End namespace build_shell
+} // End namespace bldsh
