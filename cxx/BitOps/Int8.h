@@ -25,9 +25,14 @@ class Int8 {
   };
 
   Int8() = default;
-  virtual ~Int8() = default;
-
   Int8(const Int8& rhs) = default;
+  Int8(const uchar& data)
+      : _data(data)  //
+  {
+    // Empty
+  }
+
+  ~Int8() = default;
 
   void setData(uchar data) {  //
     _data = data;
@@ -43,6 +48,14 @@ class Int8 {
 
   uchar getBits() const {
     return static_cast<uchar>(_data << (8 - NUM_BITS));
+  }
+
+  bool operator==(const Int8<N>& other) {
+    return _data == other._data;
+  }
+
+  bool operator!=(const Int8<N>& other) {
+    return !(operator==(other));
   }
 
   friend std::ostream& operator<<(std::ostream& os, Int8<NUM_BITS>& int_n) {

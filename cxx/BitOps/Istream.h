@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <vector>
 #include <include/OsCompatibility.h>
 #include <BitOps/Int8.h>
 
@@ -14,15 +15,21 @@ namespace BitOps {
 
 class Istream {
  public:
-  enum { SIZE = 128 };
-
   Istream()
-      : _buf(),      //
-        _length(0),  //
-        _bit(0),     //
+      : _buf(),  //
+        _bit(0),
         _byte(0) {
     // Empty
   }
+
+  Istream(const uchar* buf, const uint size)
+      : _buf(),  //
+        _bit(0),
+        _byte(0) {
+    _buf.reserve(size);
+    _buf.assign(buf, buf + size);
+  }
+
   virtual ~Istream() = default;
 
   template <class T>
@@ -35,7 +42,12 @@ class Istream {
 
   template <uint N>
   Istream& operator>>(Int8<N>& t) {
-    ushort widebyte = concat(_buf[_byte], _buf[_byte+1]);
+    uchar currByte = _buf.at(_byte);
+    uchar nextByte = 0;
+    if (_buf.size() > _byte + 1) {
+      nextByte = _buf.at(_byte + 1);
+    }
+    ushort widebyte = concat(currByte, nextByte);
     uchar byte = slice8(widebyte, _bit);
     t.setBits(byte);
     _bit += Int8<N>::NUM_BITS;
@@ -46,8 +58,8 @@ class Istream {
     return *this;
   }
 
-  uchar* buf() {  //
-    return _buf;
+  std::size_t size() { //
+    return _buf.size();
   }
 
   uint getBitPos() const {  //
@@ -59,8 +71,7 @@ class Istream {
   }
 
   uchar at(uint index) const {  //
-    assert(index < SIZE);
-    return _buf[index];
+    return _buf.at(index);
   }
 
   ushort concat(uchar left, uchar right) {  //
@@ -76,8 +87,7 @@ class Istream {
   }
 
  private:
-  uchar _buf[SIZE];
-  ushort _length;
+  std::vector<uchar> _buf;
   uint _bit;
   uint _byte;
 };

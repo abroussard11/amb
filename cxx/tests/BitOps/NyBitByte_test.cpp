@@ -8,12 +8,12 @@
 namespace BitOps {
 
 void NyBitByte_test::testRoutine() {
-  Istream bufTemplate;
-  bufTemplate.buf()[0] = 0b1000'0000;
-  Istream buf;
+  const uint arrsize = 1;
+  uchar arr[arrsize] = {0b1000'0000};
+  Istream bufTemplate(arr, arrsize);
 
   {
-    buf = bufTemplate;
+    Istream buf = bufTemplate;
     NyBitByte<1> myBits;
     buf >> myBits;
     requireEqual(myBits.toInt(), 1);
@@ -23,14 +23,13 @@ void NyBitByte_test::testRoutine() {
   }
 
   {
-    buf = bufTemplate;
+    Istream buf = bufTemplate;
     NyBitByte<2> myBits;
     NyBitByte<2> myBits2;
     buf >> myBits >> myBits2;
     requireEqual(myBits.toInt(), 2);
     requireEqual(myBits2.toShort(), 0);
   }
-
 }
 
 }  // End namespace BitOps

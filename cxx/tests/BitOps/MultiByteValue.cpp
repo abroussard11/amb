@@ -7,8 +7,16 @@
 namespace BitOps {
 
 MultiByteValue::MultiByteValue()
-    : _x(0), _byte1(), _byte2(), _byte3(), _byte4() {
+    : _x(0),  //
+      _byte1(),
+      _byte2(),
+      _byte3(),
+      _byte4() {
   // Empty
+}
+
+MultiByteValue::MultiByteValue(const uint& val) {
+  setValue(val);
 }
 
 void MultiByteValue::setValue(uint x) {
@@ -17,6 +25,10 @@ void MultiByteValue::setValue(uint x) {
   _byte2.setData(static_cast<uchar>(x >> (8 * 2)));
   _byte3.setData(static_cast<uchar>(x >> (8 * 1)));
   _byte4.setData(static_cast<uchar>(x >> (8 * 0)));
+}
+
+uint MultiByteValue::getValue() const {  //
+  return _x;
 }
 
 Ostream& operator<<(Ostream& buf, MultiByteValue& mbv) { //

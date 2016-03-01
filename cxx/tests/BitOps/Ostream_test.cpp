@@ -24,7 +24,6 @@ void Ostream_test::testRoutine() {
   }
   requireEqual(bufThrew, true);
 
-  bufferIsConstructedZero();
   write1Byte();
   write2Bytes();
   write3Bytes();
@@ -33,15 +32,6 @@ void Ostream_test::testRoutine() {
   write1_2BitByte();
   write2_2BitBytes();
   writeMultiByteValue();
-}
-
-void Ostream_test::bufferIsConstructedZero() {
-  Ostream buf;
-  uchar x = 0;
-  for (uint i = 0; i < Ostream::SIZE; ++i) {
-    x |= buf.at(i);
-  }
-  requireEqual(x, 0);
 }
 
 void Ostream_test::write1Byte() {

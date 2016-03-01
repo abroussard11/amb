@@ -7,6 +7,7 @@
 
 #include <cassert>
 #include <iostream>
+#include <vector>
 #include <include/OsCompatibility.h>
 #include <BitOps/Int8.h>
 
@@ -14,18 +15,14 @@ namespace BitOps {
 
 class Ostream {
  public:
- enum { SIZE=128 };
+  Ostream()
+      : _buf(),  //
+        _bit(0),
+        _byte(0) {
+    _buf.push_back(0);
+  }
 
- Ostream()
-     :  //
-       _buf(),
-       _length(0),
-       _bit(0),
-       _byte(0) {
-   // Empty
- }
-
-virtual ~Ostream() = default;
+  virtual ~Ostream() = default;
 
   template <class T>
   friend Ostream& operator<<(Ostream& buf, T& t) {
@@ -39,13 +36,13 @@ virtual ~Ostream() = default;
   Ostream& operator<<(Int8<N>& t) {
     ushort shiftedBits = t.getBits() << (8 - _bit);
     uchar hiByte = static_cast<uchar>(shiftedBits >> 8);
-    _buf[_byte] |= hiByte;
+    _buf.at(_byte) |= hiByte;
     _bit += Int8<N>::NUM_BITS;
     if (_bit >= 8) {
       _bit %= 8;
       _byte++;
       uchar loByte = static_cast<uchar>(shiftedBits);
-      _buf[_byte] = loByte;
+      _buf.push_back(loByte);
     }
     return *this;
   }
@@ -82,8 +79,12 @@ virtual ~Ostream() = default;
     return *this << byte;
   }
 
-  uchar* buf() { // 
-     return _buf;
+  const uchar* data() const {
+    return _buf.data();
+  }
+
+  std::size_t size() const { //
+    return _buf.size();
   }
 
   uint getBitPos() const {  //
@@ -95,13 +96,11 @@ virtual ~Ostream() = default;
   }
 
   uchar at(uint index) const {
-    assert(index < SIZE);
-    return _buf[index];
+    return _buf.at(index);
   }
 
  private:
-  uchar _buf[SIZE];
-  ushort _length;
+  std::vector<uchar> _buf;
   uint _bit;
   uint _byte;
 };

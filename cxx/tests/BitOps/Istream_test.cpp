@@ -9,15 +9,8 @@
 
 namespace BitOps {
 
-void setIstreamBuffer(Istream& is, uint index, uchar x) {
-  is.buf()[index] = x;
-}
-
 void Istream_test::testRoutine() {
 #define logTestCase(caseName) std::cout << "Case: " #caseName << std::endl
-
-  logTestCase(bufferIsConstructedZero);
-  bufferIsConstructedZero();
 
   logTestCase(read1Byte);
   read1Byte();
@@ -44,18 +37,10 @@ void Istream_test::testRoutine() {
   readMultiByteValue();
 }
 
-void Istream_test::bufferIsConstructedZero() {
-  Istream buf;
-  uchar x = 0;
-  for (uint i = 0; i < Istream::SIZE; ++i) {
-    x |= buf.at(i);
-  }
-  requireEqual(x, 0);
-}
-
 void Istream_test::read1Byte() {
-  Istream buf;
-  setIstreamBuffer(buf, 0, 3);
+  const uint arrsize = 1;
+  uchar arr[arrsize] = {3};
+  Istream buf(arr, arrsize);
 
   Int8<8> x;
   buf >> x;
@@ -65,10 +50,9 @@ void Istream_test::read1Byte() {
 }
 
 void Istream_test::read2Bytes() {
-  Istream buf;
-  setIstreamBuffer(buf, 0, 3);
-  setIstreamBuffer(buf, 1, 5);
-  //setup done.
+  const uint arrsize = 2;
+  uchar arr[arrsize] = {3, 5};
+  Istream buf(arr, arrsize);
 
   Int8<8> x, y;
   buf >> x >> y;
@@ -79,13 +63,10 @@ void Istream_test::read2Bytes() {
 }
 
 void Istream_test::read3Bytes() {
-  Istream buf;
   const uchar num3 = 0b1110'1011;
-
-  setIstreamBuffer(buf, 0, 3);
-  setIstreamBuffer(buf, 1, 5);
-  setIstreamBuffer(buf, 2, num3);
-  //setup done.
+  const uint arrsize = 3;
+  uchar arr[arrsize] = {3, 5, num3};
+  Istream buf(arr, arrsize);
 
   Int8<8> x, y, z;
   buf >> x >> y >> z;
@@ -97,8 +78,9 @@ void Istream_test::read3Bytes() {
 }
 
 void Istream_test::read1_7BitByte() {
-  Istream buf;
-  setIstreamBuffer(buf, 0, 0b0000'0110); // 3 << 1
+  const uint arrsize = 1;
+  uchar arr[arrsize] = {0b0000'0110}; // 3 << 1
+  Istream buf(arr, arrsize);
 
   Int8<7> x;
   buf >> x;
@@ -106,9 +88,9 @@ void Istream_test::read1_7BitByte() {
 }
 
 void Istream_test::read2_7BitBytes() {
-  Istream buf;
-  setIstreamBuffer(buf, 0, 0b0000'0110); // 3
-  setIstreamBuffer(buf, 1, 0b0001'0100); // 5
+  const uint arrsize = 2;
+  uchar arr[arrsize] = {0b0000'0110, 0b0001'0100};
+  Istream buf(arr, arrsize);
 
   Int8<7> x, y;
   buf >> x >> y;
@@ -119,8 +101,9 @@ void Istream_test::read2_7BitBytes() {
 }
 
 void Istream_test::read1_2BitByte() {
-  Istream buf;
-  setIstreamBuffer(buf, 0, 0b1110'0000); // 3
+  const uint arrsize = 1;
+  uchar arr[arrsize] = {0b1110'0000};
+  Istream buf(arr, arrsize);
 
   Int8<2> x;
   buf >> x;
@@ -130,8 +113,9 @@ void Istream_test::read1_2BitByte() {
 }
 
 void Istream_test::read2_2BitBytes() {
-  Istream buf;
-  setIstreamBuffer(buf, 0, 0b1110'0000); // 3,2
+  const uint arrsize = 1;
+  uchar arr[arrsize] = {0b1110'0000}; // 3,2
+  Istream buf(arr, arrsize);
 
   Int8<2> x, y;
   buf >> x >> y;
@@ -142,31 +126,23 @@ void Istream_test::read2_2BitBytes() {
 }
 
 void Istream_test::readMultiByteValue() {
-#define BINLIT_STR(zerosAndOnes) 0b##zerosAndOnes
-#define BINLIT(zerosAndOnes) BINLIT_STR(zerosAndOnes)
-#define CONCAT_STR(a,b,c,d) a##b##c##d
-#define CONCAT(a, b, c, d) CONCAT_STR(a,b,c,d)
+  uchar b1 = 0b0010'0001;
+  uchar b2 = 0b0001'1101;
+  uchar b3 = 0b0001'1010;
+  uchar b4 = 0b1110'0011;
 
-#define MBV_BYTE1 0010'0001
-#define MBV_BYTE2 0001'1101
-#define MBV_BYTE3 0001'1010
-#define MBV_BYTE4 1110'0011
+  const uint arrsize = 4;
+  uchar arr[arrsize] = {b1, b2, b3, b4};
+  Istream buf(arr, arrsize);
 
-
-  Istream buf;
   MultiByteValue mbv;
-  setIstreamBuffer(buf, 0, BINLIT(MBV_BYTE1));
-  setIstreamBuffer(buf, 1, BINLIT(MBV_BYTE2));
-  setIstreamBuffer(buf, 2, BINLIT(MBV_BYTE3));
-  setIstreamBuffer(buf, 3, BINLIT(MBV_BYTE4));
-
   auto bufThrew = false;
   try {
     buf >> mbv;
-    requireEqual(mbv.getByte1(), BINLIT(MBV_BYTE1));
-    requireEqual(mbv.getByte2(), BINLIT(MBV_BYTE2));
-    requireEqual(mbv.getByte3(), BINLIT(MBV_BYTE3));
-    requireEqual(mbv.getByte4(), BINLIT(MBV_BYTE4));
+    requireEqual(mbv.getByte1(), b1);
+    requireEqual(mbv.getByte2(), b2);
+    requireEqual(mbv.getByte3(), b3);
+    requireEqual(mbv.getByte4(), b4);
     requireEqual(buf.getBitPos(), 0);
     requireEqual(buf.getBytePos(), 4);
 

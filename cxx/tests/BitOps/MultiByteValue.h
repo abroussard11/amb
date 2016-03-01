@@ -5,6 +5,7 @@
 #ifndef MULTIBYTEVALUE_H_
 #define MULTIBYTEVALUE_H_
 
+#include <include/OsCompatibility.h>
 #include <BitOps/Int8.h>
 #include <BitOps/Istream.h>
 #include <BitOps/Ostream.h>
@@ -14,12 +15,12 @@ namespace BitOps {
 class MultiByteValue {
  public:
   MultiByteValue();
+  explicit MultiByteValue(const uint& val);
   virtual ~MultiByteValue() = default;
 
   void setValue(uint x);
-  uint getValue() const { //
-    return _x;
-  }
+  uint getValue() const;
+
   uchar getByte1() const { return _byte1.getData(); }
   uchar getByte2() const { return _byte2.getData(); }
   uchar getByte3() const { return _byte3.getData(); }
