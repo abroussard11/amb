@@ -12,6 +12,8 @@ FILES := \
    Istream_test \
    MultiByteValue \
    NyBitByte_test \
-   Ostream_test
+   Optional_test \
+   Ostream_test \
+   String7_test
 
 include cxx/sharedLib.makefile
