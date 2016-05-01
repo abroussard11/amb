@@ -3,7 +3,7 @@
  */
 
 #include <algorithm>
-#include <bldsh/generic/CmdLineParser.h>
+#include <netbld/bldsh/generic/CmdLineParser.h>
 #include <Util/CommandLine.h>
 #include <Util/Environment.h>
 

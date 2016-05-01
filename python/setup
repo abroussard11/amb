@@ -4,7 +4,7 @@
 setenv PYTHONDONTWRITEBYTECODE 0
 
 ## Check for python development headers
-if (-f /usr/include/python3.4m/Python.h) then
+if (-f /usr/include/python3.*/Python.h) then
    echo "python-devel is installed. No action required."
 else
    echo "You need to install the python development headers."

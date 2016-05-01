@@ -14,7 +14,7 @@ FILES := \
    main
 
 LINK_STATIC_LIBS := \
-   amb-bldsh-generic \
+   amb-netbld-bldsh-generic \
    amb-Util
 
 include cxx/exe.makefile
