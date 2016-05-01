@@ -1,5 +1,5 @@
 /**
- * MultiByteValue.h
+ * tests/BitOps/MultiByteValue.h
  */
 
 #ifndef MULTIBYTEVALUE_H_
@@ -15,22 +15,22 @@ namespace BitOps {
 class MultiByteValue {
  public:
   MultiByteValue();
-  explicit MultiByteValue(const uint& val);
+  explicit MultiByteValue(const std::uint32_t& val);
   virtual ~MultiByteValue() = default;
 
-  void setValue(uint x);
-  uint getValue() const;
+  void setValue(std::uint32_t x);
+  std::uint32_t getValue() const;
 
-  uchar getByte1() const { return _byte1.getData(); }
-  uchar getByte2() const { return _byte2.getData(); }
-  uchar getByte3() const { return _byte3.getData(); }
-  uchar getByte4() const { return _byte4.getData(); }
+  std::uint8_t getByte1() const { return _byte1.getData(); }
+  std::uint8_t getByte2() const { return _byte2.getData(); }
+  std::uint8_t getByte3() const { return _byte3.getData(); }
+  std::uint8_t getByte4() const { return _byte4.getData(); }
 
   friend Ostream& operator<<(Ostream& buf, MultiByteValue& mbv);
   friend Istream& operator>>(Istream& buf, MultiByteValue& mbv);
 
  private:
-  uint _x;
+  std::uint32_t _x;
   Int8<8> _byte1;
   Int8<8> _byte2;
   Int8<8> _byte3;

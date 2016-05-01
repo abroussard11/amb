@@ -1,8 +1,8 @@
 /**
- * bldsh/generic/BuildCmdMessage.cpp
+ * netbld/bldsh/generic/BuildCmdMessage.cpp
  */
 
-#include <bldsh/generic/BuildCmdMessage.h>
+#include <netbld/bldsh/generic/BuildCmdMessage.h>
 
 namespace bldsh {
 

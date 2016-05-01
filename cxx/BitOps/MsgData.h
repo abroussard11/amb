@@ -9,11 +9,11 @@
 
 namespace BitOps {
 
-template <uint N>
+template <std::uint32_t N>
 class MsgData {
  public:
   enum { SIZE = N };
-  uchar data[SIZE];
+  std::uint8_t data[SIZE];
 };
 
 }  // End namespace BitOps

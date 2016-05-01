@@ -7,7 +7,7 @@
 #include <Util/CommandLine.h>
 #include <Util/Environment.h>
 
-namespace bldsh {
+namespace netbld {
 
 bldsh_vars parseCmdLine(int argc, const char** argv) {
   bldsh_vars vars;
@@ -27,4 +27,4 @@ bldsh_vars parseCmdLine(int argc, const char** argv) {
   return vars;
 }
 
-} // End namespace bldsh
+} // End namespace netbld

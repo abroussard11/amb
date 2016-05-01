@@ -10,7 +10,6 @@
 namespace BitOps {
 
 void Istream_test::testRoutine() {
-#define logTestCase(caseName) std::cout << "Case: " #caseName << std::endl
 
   logTestCase(read1Byte);
   read1Byte();
@@ -35,11 +34,26 @@ void Istream_test::testRoutine() {
 
   logTestCase(readMultiByteValue);
   readMultiByteValue();
+
+  logTestCase(read_uint8_t);
+  read_uint8_t();
+
+  logTestCase(read_uint16_t);
+  read_uint16_t();
+
+  logTestCase(read_uint32_t);
+  read_uint32_t();
+
+  logTestCase(read_uint32_t);
+  read_uint32_t();
+
+  logTestCase(read_uint64_t);
+  read_uint64_t();
 }
 
 void Istream_test::read1Byte() {
-  const uint arrsize = 1;
-  uchar arr[arrsize] = {3};
+  const std::uint32_t arrsize = 1;
+  std::uint8_t arr[arrsize] = {3};
   Istream buf(arr, arrsize);
 
   Int8<8> x;
@@ -50,8 +64,8 @@ void Istream_test::read1Byte() {
 }
 
 void Istream_test::read2Bytes() {
-  const uint arrsize = 2;
-  uchar arr[arrsize] = {3, 5};
+  const std::uint32_t arrsize = 2;
+  std::uint8_t arr[arrsize] = {3, 5};
   Istream buf(arr, arrsize);
 
   Int8<8> x, y;
@@ -63,9 +77,9 @@ void Istream_test::read2Bytes() {
 }
 
 void Istream_test::read3Bytes() {
-  const uchar num3 = 0b1110'1011;
-  const uint arrsize = 3;
-  uchar arr[arrsize] = {3, 5, num3};
+  const std::uint8_t num3 = 0b1110'1011;
+  const std::uint32_t arrsize = 3;
+  std::uint8_t arr[arrsize] = {3, 5, num3};
   Istream buf(arr, arrsize);
 
   Int8<8> x, y, z;
@@ -78,8 +92,8 @@ void Istream_test::read3Bytes() {
 }
 
 void Istream_test::read1_7BitByte() {
-  const uint arrsize = 1;
-  uchar arr[arrsize] = {0b0000'0110}; // 3 << 1
+  const std::uint32_t arrsize = 1;
+  std::uint8_t arr[arrsize] = {0b0000'0110}; // 3 << 1
   Istream buf(arr, arrsize);
 
   Int8<7> x;
@@ -88,8 +102,8 @@ void Istream_test::read1_7BitByte() {
 }
 
 void Istream_test::read2_7BitBytes() {
-  const uint arrsize = 2;
-  uchar arr[arrsize] = {0b0000'0110, 0b0001'0100};
+  const std::uint32_t arrsize = 2;
+  std::uint8_t arr[arrsize] = {0b0000'0110, 0b0001'0100};
   Istream buf(arr, arrsize);
 
   Int8<7> x, y;
@@ -101,8 +115,8 @@ void Istream_test::read2_7BitBytes() {
 }
 
 void Istream_test::read1_2BitByte() {
-  const uint arrsize = 1;
-  uchar arr[arrsize] = {0b1110'0000};
+  const std::uint32_t arrsize = 1;
+  std::uint8_t arr[arrsize] = {0b1110'0000};
   Istream buf(arr, arrsize);
 
   Int8<2> x;
@@ -113,8 +127,8 @@ void Istream_test::read1_2BitByte() {
 }
 
 void Istream_test::read2_2BitBytes() {
-  const uint arrsize = 1;
-  uchar arr[arrsize] = {0b1110'0000}; // 3,2
+  const std::uint32_t arrsize = 1;
+  std::uint8_t arr[arrsize] = {0b1110'0000}; // 3,2
   Istream buf(arr, arrsize);
 
   Int8<2> x, y;
@@ -126,13 +140,13 @@ void Istream_test::read2_2BitBytes() {
 }
 
 void Istream_test::readMultiByteValue() {
-  uchar b1 = 0b0010'0001;
-  uchar b2 = 0b0001'1101;
-  uchar b3 = 0b0001'1010;
-  uchar b4 = 0b1110'0011;
+  std::uint8_t b1 = 0b0010'0001;
+  std::uint8_t b2 = 0b0001'1101;
+  std::uint8_t b3 = 0b0001'1010;
+  std::uint8_t b4 = 0b1110'0011;
 
-  const uint arrsize = 4;
-  uchar arr[arrsize] = {b1, b2, b3, b4};
+  const std::uint32_t arrsize = 4;
+  std::uint8_t arr[arrsize] = {b1, b2, b3, b4};
   Istream buf(arr, arrsize);
 
   MultiByteValue mbv;
@@ -153,4 +167,48 @@ void Istream_test::readMultiByteValue() {
   requireEqual(bufThrew, false);
 }
 
-}  // End namespace BitOps
+void Istream_test::read_uint8_t() {
+  const std::uint32_t arrsize = 1;
+  std::uint8_t arr[arrsize] = {5};
+  Istream buf(arr, arrsize);
+
+  std::uint8_t x;
+  buf >> x;
+
+  requireEqual(x, 5);
+}
+
+void Istream_test::read_uint16_t() {
+  const std::uint32_t arrsize = 2;
+  std::uint8_t arr[arrsize] = {5, 0};
+  Istream buf(arr, arrsize);
+
+  std::uint16_t x;
+  buf >> x;
+
+  requireEqual(x, 5);
+}
+
+void Istream_test::read_uint32_t() {
+  const std::uint32_t arrsize = 4;
+  std::uint8_t arr[arrsize] = {5, 0, 0, 0};
+  Istream buf(arr, arrsize);
+
+  std::uint32_t x;
+  buf >> x;
+
+  requireEqual(x, 5);
+}
+
+void Istream_test::read_uint64_t() {
+  const std::uint32_t arrsize = sizeof(std::uint64_t);
+  std::uint8_t arr[arrsize] = {17, 16, 15, 14, 13, 12, 11, 10};
+  Istream buf(arr, arrsize);
+
+  std::uint64_t x;
+  buf >> x;
+
+  requireEqual(x, 723685415333072913ull);
+}
+
+  }  // End namespace BitOps

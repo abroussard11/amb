@@ -34,6 +34,16 @@ class String7 {
 
   virtual ~String7() = default;
 
+  String7& operator=(const String7& other) {
+    _str = other._str;
+    _bin = other._bin;
+    return *this;
+  }
+
+  bool operator==(const String7& other) { //
+    return _str == other._str;
+  }
+
   void convertStr() {
     _bin.reserve(_str.size());
     for (const auto& c : _str) {
@@ -64,6 +74,10 @@ class String7 {
     }
     str.convertStr();
     return buf;
+  }
+
+  friend std::ostream& operator<<(std::ostream& os, String7& str) {
+    return os << str._str;
   }
 
  private:

@@ -10,28 +10,44 @@
 namespace BitOps {
 
 void Ostream_test::testRoutine() {
-#define logTestCase(caseName) std::cout << "Case: " #caseName << std::endl
-
-  // test the throw
-  bool bufThrew = false;
-  try {
-    class MyNewType {};
-    MyNewType x;
-    Ostream buf;
-    buf << x;
-  } catch (...) {
-    bufThrew = true;
-  }
-  requireEqual(bufThrew, true);
-
+  logTestCase(write1Byte);
   write1Byte();
+
+  logTestCase(write2Bytes);
   write2Bytes();
+
+  logTestCase(write3Bytes);
   write3Bytes();
+
+  logTestCase(write1_7BitByte);
   write1_7BitByte();
+
+  logTestCase(write2_7BitBytes);
   write2_7BitBytes();
+
+  logTestCase(write1_2BitByte);
   write1_2BitByte();
+
+  logTestCase(write2_2BitBytes);
   write2_2BitBytes();
+
+  logTestCase(writeMultiByteValue);
   writeMultiByteValue();
+
+  logTestCase(write_uint8_t);
+  write_uint8_t();
+
+  logTestCase(write_uint16_t);
+  write_uint16_t();
+
+  logTestCase(write_uint32_t);
+  write_uint32_t();
+
+  logTestCase(write_uint32_t);
+  write_uint32_t();
+
+  logTestCase(write_uint64_t);
+  write_uint64_t();
 }
 
 void Ostream_test::write1Byte() {
@@ -60,9 +76,9 @@ void Ostream_test::write2Bytes() {
 }
 
 void Ostream_test::write3Bytes() {
-  uchar num1 = 3;
-  uchar num2 = 5;
-  uchar num3 = 0b1110'1011;
+  std::uint8_t num1 = 3;
+  std::uint8_t num2 = 5;
+  std::uint8_t num3 = 0b1110'1011;
 
   Ostream buf;
   Int8<8> x;
@@ -101,7 +117,6 @@ void Ostream_test::write2_7BitBytes() {
   x.setData(5);
   buf << x;
 
-  // five = 0000'0101
   requireEqual(buf.at(0), 0b0000'0110);
   requireEqual(buf.at(1), 0b0001'0100);
   requireEqual(buf.getBitPos(), 6);
@@ -109,7 +124,7 @@ void Ostream_test::write2_7BitBytes() {
 }
 
 void Ostream_test::write1_2BitByte() {
-  uchar num1 = 0b0000'0011;
+  std::uint8_t num1 = 0b0000'0011;
 
   Ostream buf;
   Int8<2> x;
@@ -121,8 +136,8 @@ void Ostream_test::write1_2BitByte() {
 }
 
 void Ostream_test::write2_2BitBytes() {
-  uchar num1 = 0b0000'0011;
-  uchar num2 = 0b0000'0001;
+  std::uint8_t num1 = 0b0000'0011;
+  std::uint8_t num2 = 0b0000'0001;
 
   Ostream buf;
   Int8<2> x;
@@ -147,26 +162,51 @@ void Ostream_test::writeMultiByteValue() {
 #define MBV_BYTE3 0001'1010
 #define MBV_BYTE4 1110'0011
 
-
   Ostream buf;
   MultiByteValue mbv;
   mbv.setValue(BINLIT(CONCAT(MBV_BYTE1, MBV_BYTE2, MBV_BYTE3, MBV_BYTE4)));
 
-  auto bufThrew = false;
-  try {
-    buf << mbv;
-    requireEqual(buf.at(0), BINLIT(MBV_BYTE1));
-    requireEqual(buf.at(1), BINLIT(MBV_BYTE2));
-    requireEqual(buf.at(2), BINLIT(MBV_BYTE3));
-    requireEqual(buf.at(3), BINLIT(MBV_BYTE4));
-    requireEqual(buf.getBitPos(), 0);
-    requireEqual(buf.getBytePos(), 4);
-
-  } catch (const char* e) {
-    std::cout << "Error message:" << e << std::endl;
-    bufThrew = true;
-  }
-  requireEqual(bufThrew, false);
+  buf << mbv;
+  requireEqual(buf.at(0), BINLIT(MBV_BYTE1));
+  requireEqual(buf.at(1), BINLIT(MBV_BYTE2));
+  requireEqual(buf.at(2), BINLIT(MBV_BYTE3));
+  requireEqual(buf.at(3), BINLIT(MBV_BYTE4));
+  requireEqual(buf.getBitPos(), 0);
+  requireEqual(buf.getBytePos(), 4);
 }
 
+void Ostream_test::write_uint8_t() {
+  write_stdint<std::uint8_t>(3);
+  write_stdint<std::uint8_t>(128);
+}
+
+void Ostream_test::write_uint16_t() {
+  write_stdint<std::uint16_t>(3);
+  write_stdint<std::uint16_t>(128);
+}
+
+void Ostream_test::write_uint32_t() {
+  write_stdint<std::uint32_t>(3);
+  write_stdint<std::uint32_t>(128);
+}
+
+void Ostream_test::write_uint64_t() {
+  write_stdint<std::uint64_t>(3);
+  write_stdint<std::uint64_t>(128);
+}
+
+template <class T>
+void Ostream_test::write_stdint(T val) {
+  std::size_t size = sizeof(T);
+  T x = val;
+  Ostream buf;
+  buf << x;
+
+  requireEqual(buf.at(0), val);
+  for (int i = 1; i < size; ++i) {
+    requireEqual(buf.at(i), 0);
+  }
+  requireEqual(buf.getBitPos(), 0);
+  requireEqual(buf.getBytePos(), size);
+}
 }  // End namespace BitOps

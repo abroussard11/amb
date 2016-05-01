@@ -15,19 +15,19 @@ MultiByteValue::MultiByteValue()
   // Empty
 }
 
-MultiByteValue::MultiByteValue(const uint& val) {
+MultiByteValue::MultiByteValue(const std::uint32_t& val) {
   setValue(val);
 }
 
-void MultiByteValue::setValue(uint x) {
+void MultiByteValue::setValue(std::uint32_t x) {
   _x = x;
-  _byte1.setData(static_cast<uchar>(x >> (8 * 3)));
-  _byte2.setData(static_cast<uchar>(x >> (8 * 2)));
-  _byte3.setData(static_cast<uchar>(x >> (8 * 1)));
-  _byte4.setData(static_cast<uchar>(x >> (8 * 0)));
+  _byte1.setData(static_cast<std::uint8_t>(x >> (8 * 3)));
+  _byte2.setData(static_cast<std::uint8_t>(x >> (8 * 2)));
+  _byte3.setData(static_cast<std::uint8_t>(x >> (8 * 1)));
+  _byte4.setData(static_cast<std::uint8_t>(x >> (8 * 0)));
 }
 
-uint MultiByteValue::getValue() const {  //
+std::uint32_t MultiByteValue::getValue() const {  //
   return _x;
 }
 

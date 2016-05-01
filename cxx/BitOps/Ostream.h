@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <include/OsCompatibility.h>
+#include <BitOps/bitops.h>
 #include <BitOps/Int8.h>
 
 namespace BitOps {
@@ -24,53 +25,35 @@ class Ostream {
 
   virtual ~Ostream() = default;
 
-  template <class T>
+  template <class T, if_not_integral_t<T> = 0>
   friend Ostream& operator<<(Ostream& buf, T& t) {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-    throw "\nYou need to creat your own overload for :"
-          "\nOStream& operator<<(Ostream& buf, T& t)";
+    static_assert(std::is_integral<T>::value, "make your own overload");
     return buf;
   }
 
-  template <uint N>
+  template <std::uint32_t N>
   Ostream& operator<<(Int8<N>& t) {
-    ushort shiftedBits = t.getBits() << (8 - _bit);
-    uchar hiByte = static_cast<uchar>(shiftedBits >> 8);
+    std::uint16_t shiftedBits = t.getBits() << (8 - _bit);
+    std::uint8_t hiByte = static_cast<std::uint8_t>(shiftedBits >> 8);
     _buf.at(_byte) |= hiByte;
     _bit += Int8<N>::NUM_BITS;
     if (_bit >= 8) {
       _bit %= 8;
       _byte++;
-      uchar loByte = static_cast<uchar>(shiftedBits);
+      std::uint8_t loByte = static_cast<std::uint8_t>(shiftedBits);
       _buf.push_back(loByte);
     }
     return *this;
   }
 
-  Ostream& operator<<(uint x) {
-    Int8<8> byte1;
-    Int8<8> byte2;
-    Int8<8> byte3;
-    Int8<8> byte4;
-    byte1.setData(static_cast<uchar>(x >> (8 * 3)));
-    byte2.setData(static_cast<uchar>(x >> (8 * 2)));
-    byte3.setData(static_cast<uchar>(x >> (8 * 1)));
-    byte4.setData(static_cast<uchar>(x >> (8 * 0)));
-    return *this << byte1 << byte2 << byte3 << byte4;
-  }
-
-  Ostream& operator<<(ushort x) {
-    Int8<8> byte1;
-    Int8<8> byte2;
-    byte1.setData(static_cast<uchar>(x >> (8 * 1)));
-    byte2.setData(static_cast<uchar>(x >> (8 * 0)));
-    return *this << byte1 << byte2;
-  }
-
-  Ostream& operator<<(uchar x) {
-    Int8<8> byte;
-    byte.setData(x);
-    return *this << byte;
+  template <class stdint, if_integral_t<stdint> = 0>
+  Ostream& operator<<(stdint& x) {
+    std::size_t int_size = sizeof(stdint);
+    for(int i = 0; i < int_size; ++i) {
+      Int8<8> byte(static_cast<std::uint8_t>(x >> (8 * i)));
+      operator<<(byte);
+    }
+    return *this;
   }
 
   Ostream& operator<<(bool x) {
@@ -79,7 +62,7 @@ class Ostream {
     return *this << byte;
   }
 
-  const uchar* data() const {
+  const std::uint8_t* data() const {
     return _buf.data();
   }
 
@@ -87,22 +70,22 @@ class Ostream {
     return _buf.size();
   }
 
-  uint getBitPos() const {  //
+  std::uint32_t getBitPos() const {  //
     return _bit;
   }
 
-  uint getBytePos() const {  //
+  std::uint32_t getBytePos() const {  //
     return _byte;
   }
 
-  uchar at(uint index) const {
+  std::uint8_t at(std::uint32_t index) const {
     return _buf.at(index);
   }
 
  private:
-  std::vector<uchar> _buf;
-  uint _bit;
-  uint _byte;
+  std::vector<std::uint8_t> _buf;
+  std::uint32_t _bit;
+  std::uint32_t _byte;
 };
 
 }  // End namespace BitOps

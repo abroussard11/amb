@@ -19,15 +19,31 @@ class Optional {
     // Empty
   }
 
-  virtual ~Optional() = default;
+  explicit Optional(const T& t)
+      : _isValid(true),  //
+        _value(t) {
+    // Empty
+  }
+
+  ~Optional() = default;
+
+  Optional& operator=(const T& t) {
+    set(t);
+    return *this;
+  }
 
   void set(const T& t) {
      _value = t;
      _isValid = true;
   }
 
-  bool isValid() const { return _isValid; }
-  T get() const { return _value; }
+  bool isValid() const { //
+    return _isValid;
+  }
+
+  T get() const { //
+    return _value;
+  }
 
   friend Ostream& operator<<(Ostream& buf, Optional<T>& opt) {
     buf << opt._isValid;

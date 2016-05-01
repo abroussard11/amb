@@ -17,18 +17,6 @@ class Istream_test : public tests::TestRunner {
   void testRoutine() override;
 
  private:
-  void bufferIsConstructedZero();
-  void write1Byte();
-  void write2Bytes();
-  void write3Bytes();
-
-  void write1_7BitByte();
-  void write2_7BitBytes();
-
-  void write1_2BitByte();
-  void write2_2BitBytes();
-  void writeMultiByteValue();
-
   void read1Byte();
   void read2Bytes();
   void read3Bytes();
@@ -39,6 +27,11 @@ class Istream_test : public tests::TestRunner {
   void read1_2BitByte();
   void read2_2BitBytes();
   void readMultiByteValue();
+
+  void read_uint8_t();
+  void read_uint16_t();
+  void read_uint32_t();
+  void read_uint64_t();
 };
 
 }  // End namespace BitOps

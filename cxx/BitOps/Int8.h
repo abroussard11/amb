@@ -10,7 +10,7 @@
 
 namespace BitOps {
 
-template <uint N>
+template <std::uint32_t N>
 class Int8 {
   static_assert(N <= 8, "N must be in range [0,8]");
 
@@ -26,15 +26,14 @@ class Int8 {
 
   Int8() = default;
   Int8(const Int8& rhs) = default;
-  Int8(const uchar& data)
+  explicit Int8(const std::uint8_t& data)
       : _data(data)  //
   {
     // Empty
   }
-
   ~Int8() = default;
 
-  void setData(uchar data) {  //
+  void setData(std::uint8_t data) {  //
     _data = data;
   }
 
@@ -42,12 +41,12 @@ class Int8 {
     return _data;
   }
 
-  void setBits(uchar byte) {
-    setData(static_cast<uchar>(byte >> (8 - NUM_BITS)));
+  void setBits(std::uint8_t byte) {
+    setData(static_cast<std::uint8_t>(byte >> (8 - NUM_BITS)));
   }
 
-  uchar getBits() const {
-    return static_cast<uchar>(_data << (8 - NUM_BITS));
+  std::uint8_t getBits() const {
+    return static_cast<std::uint8_t>(_data << (8 - NUM_BITS));
   }
 
   bool operator==(const Int8<N>& other) {
@@ -63,7 +62,7 @@ class Int8 {
   }
 
  private:
-  uchar _data;
+  std::uint8_t _data;
 };
 
 }  // End namespace BitOps

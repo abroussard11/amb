@@ -28,6 +28,14 @@ class Ostream_test : public tests::TestRunner {
   void write1_2BitByte();
   void write2_2BitBytes();
   void writeMultiByteValue();
+
+  void write_uint8_t();
+  void write_uint16_t();
+  void write_uint32_t();
+  void write_uint64_t();
+
+  template <class T>
+  void write_stdint(T val);
 };
 
 }  // End namespace BitOps

@@ -14,6 +14,7 @@ FILES := \
    NyBitByte_test \
    Optional_test \
    Ostream_test \
+   Repeatable_test \
    String7_test
 
 include cxx/sharedLib.makefile

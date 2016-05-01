@@ -16,7 +16,14 @@
 #include <Util/CommandLineOption.h>
 #include <Util/Log.h>
 
+#define logTestCase(caseName)                     \
+  if (_verbose) {                                 \
+    std::cout << "Case: " #caseName << std::endl; \
+  }
+
 namespace tests {
+
+using amb::FailPrinter;
 
 /*
  * Abstract class for unit tests to inherit from

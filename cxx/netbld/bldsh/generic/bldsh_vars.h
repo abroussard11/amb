@@ -2,11 +2,13 @@
  * bldsh/bldsh_vars.h
  */
 
-#ifndef BLDSH_BLDSH_VARS_H_
-#define BLDSH_BLDSH_VARS_H_
+#ifndef NETBLD_BLDSH_BLDSH_VARS_H_
+#define NETBLD_BLDSH_BLDSH_VARS_H_
 
 #include <string>
 #include <vector>
+
+namespace netbld {
 
 struct bldsh_vars {
   std::vector<std::string> env;
@@ -22,5 +24,7 @@ struct bldsh_vars {
     return ret;
   }
 };
+
+} // End namespace netbld
 
 #endif // BLDSH_BLDSH_VARS_H_

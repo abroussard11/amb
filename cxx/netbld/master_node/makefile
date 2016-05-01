@@ -1,13 +1,14 @@
 ####################################################################
-## Makefile for bldsh/generic
+## Makefile for netbld/master_node
 ####################################################################
 
 include cxx/initVars.makefile
 
-DIR := bldsh/generic
+DIR := netbld/master_node
+EXE := master_node
 
 FILES := \
-   BuildCmdMessage \
-   CmdLineParser
+   main \
+   Master
 
-include cxx/lib.makefile
+include cxx/exe.makefile

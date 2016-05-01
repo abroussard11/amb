@@ -8,8 +8,8 @@
 namespace BitOps {
 
 void NyBitByte_test::testRoutine() {
-  const uint arrsize = 1;
-  uchar arr[arrsize] = {0b1000'0000};
+  const std::uint32_t arrsize = 1;
+  std::uint8_t arr[arrsize] = {0b1000'0000};
   Istream bufTemplate(arr, arrsize);
 
   {

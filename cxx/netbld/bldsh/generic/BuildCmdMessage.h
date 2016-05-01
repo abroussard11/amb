@@ -2,8 +2,8 @@
  * bldsh/generic/BuildCmdMessage.h
  */
 
-#ifndef BUILD_SHELL_BUILDCMDMESSAGE_H_
-#define BUILD_SHELL_BUILDCMDMESSAGE_H_
+#ifndef NETBLD_BUILD_SHELL_BUILDCMDMESSAGE_H_
+#define NETBLD_BUILD_SHELL_BUILDCMDMESSAGE_H_
 
 #include <string>
 #include <vector>
@@ -22,5 +22,5 @@ class BuildCmdMessage {
 
 } // End namespace bldsh
 
-#endif // BUILD_SHELL_BUILDCMDMESSAGE_H_
+#endif // NETBLD_BUILD_SHELL_BUILDCMDMESSAGE_H_
 

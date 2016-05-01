@@ -8,6 +8,8 @@
 #include <iostream>
 #include <include/OsCompatibility.h>
 
+namespace amb {
+
 template <class T, class U>
 class FailPrinter {
  public:
@@ -63,21 +65,23 @@ class FailPrinter<char, int> {
 };
 
 template <>
-class FailPrinter<uchar, int> {
+class FailPrinter<std::uint8_t, int> {
  public:
-  FailPrinter(uchar t, int u) : _t(t), _u(u) {
+  FailPrinter(std::uint8_t t, int u) : _t(t), _u(u) {
     // Empty
   }
   virtual ~FailPrinter() = default;
   friend std::ostream& operator<<(std::ostream& os,
-                                  FailPrinter<uchar, int>& printer) {
+                                  FailPrinter<std::uint8_t, int>& printer) {
     return os << "  Reason [" << (int)printer._t << " != " << printer._u
               << " ]";
   }
 
  private:
-  uchar _t;
+  std::uint8_t _t;
   int _u;
 };
+
+} // End namespace amb
 #endif  // TESTS_FAILPRINTER_H_
 

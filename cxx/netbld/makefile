@@ -1,20 +1,12 @@
 ####################################################################
-## Makefile for BuildShell
+## Makefile for netbld
 ####################################################################
 
 include cxx/initVars.makefile
 
-DIR := bldsh
-EXE := bldsh
+DIR := netbld
 
 SUBDIRS := \
-   generic
+   bldsh
 
-FILES := \
-   main
-
-LINK_STATIC_LIBS := \
-   amb-bldsh-generic \
-   amb-Util
-
-include cxx/exe.makefile
+include cxx/subdirs.makefile
