@@ -16,6 +16,7 @@ ifeq "$(COLORFUL_MAKE)" "true"
    export         blue := \033[0;34m
    export       purple := \033[0;35m
    export         cyan := \033[0;36m
+	export   light_back := \033[1;30m
    export   light_gray := \033[0;37m
    export    dark_gray := \033[1;30m
    export    light_red := \033[1;31m
@@ -26,6 +27,18 @@ ifeq "$(COLORFUL_MAKE)" "true"
    export   light_cyan := \033[1;36m
    export        white := \033[1;37m
    export light_blue_bg:= \033[1;44m
+
+   export bg0:= \033[40m
+   export bg1:= \033[41m
+   export bg2:= \033[42m
+   export bg3:= \033[43m
+   export bg4:= \033[44m
+   export bg5:= \033[45m
+   export bg6:= \033[46m
+   export bg7:= \033[47m
+   export bg8:= \033[48m
+   export bg9:= \033[49m
+
    export default_color:= \033[0m
 else
    $(info COLORFUL_MAKE is off)
@@ -66,6 +79,20 @@ colortest.all::
 	@$(ECHO) "$(light_purple)light_purple"
 	@$(ECHO) "$(light_cyan)light_cyan"
 	@$(ECHO) "$(white)white"
+	@$(ECHO) "$(black)black"
 	@$(ECHO) "$(light_blue_bg)light_blue_bg"
+
+
+	@$(ECHO) "$(bg0)bg0"
+	@$(ECHO) "$(bg1)bg1"
+	@$(ECHO) "$(bg2)bg2"
+	@$(ECHO) "$(bg3)bg3"
+	@$(ECHO) "$(bg4)bg4"
+	@$(ECHO) "$(bg5)bg5"
+	@$(ECHO) "$(bg6)bg6"
+	@$(ECHO) "$(bg7)bg7"
+	@$(ECHO) "$(bg8)bg8"
+	@$(ECHO) "$(bg9)bg9"
+
 	@$(ECHO) "$(default_color)default_color"
 

@@ -1,17 +1,22 @@
-#!/bin/csh -ef
+
 
 ####
 ## The top-level setup file
 ###
 
+#if (! -d .setup) then
+#  scripts/mk_setup
+
+setenv PROJECT_PATH "$PWD"
 
 ## Build target
 setenv COMP_TYPE `uname --kernel-name`_`uname --machine`
 setenv MAKE_TYPE `uname --kernel-name`
 setenv MAKE_JOBS `nproc`
 
-setenv PROJECT_PATH "$PWD"
 setenv LD_LIBRARY_PATH "$PROJECT_PATH/$COMP_TYPE/lib"
+
+setenv MAKEFLAGS "--no-builtin-variables --no-print-directory --warn-undefined-variables --output-sync --include-dir=$PROJECT_PATH/xanrMake"
 
 setenv COLORFUL_MAKE true
 
