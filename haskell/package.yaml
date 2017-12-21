@@ -1,0 +1,42 @@
+name: clonetorio
+version: '0.1.0.0'
+category: Mathematics
+author: Aaron Broussard
+maintainer: example@example.com
+copyright: 2017 Aaron Broussard
+github: abroussard11/amb
+extra-source-files:
+- README.md
+library:
+  source-dirs: src
+  exposed-modules:
+  - Lib
+  dependencies:
+  - base >=4.7 && <5
+executables:
+  clonetorio:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - clonetorio
+    - OpenGL
+    - GLUT
+tests:
+  clonetorio-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - clonetorio
+    - test-framework
+    - test-framework-quickcheck2
+    - QuickCheck
