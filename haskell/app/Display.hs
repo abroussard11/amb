@@ -7,6 +7,8 @@ import           Control.Monad
 import           Cube
 import           Data.IORef
 import           Graphics.UI.GLUT
+import Map
+import           Player
 import           Points
 
 display :: IORef GLfloat -> IORef (GLfloat, GLfloat) -> DisplayCallback
@@ -14,20 +16,9 @@ display angle pos = do
   clear [ColorBuffer, DepthBuffer]
   clear [ColorBuffer]
   loadIdentity
-  (x', y') <- get pos
-  translate $ Vector3 x' y' 0
-  preservingMatrix $ do
-    a <- get angle
-    rotate a $ Vector3 0 0 1
-    rotate a $ Vector3 0 0.1 1
-    scale 0.7 0.7 (0.7 :: GLfloat)
-    forM_ (points 7) $ \(x, y, z) ->
-      preservingMatrix $ do
-        color $ Color3 ((x + 1) / 2) ((y + 1) / 2) ((z + 1) / 2)
-        translate $ Vector3 x y z
-        cube 0.1
-        color $ Color3 (0 :: GLfloat) 0 0 -- set outline color to black
-        cubeFrame 0.1 -- draw the outline
+  preservingMatrix displayMap
+  preservingMatrix displayPlayer
+  --preservingMatrix $ displayCubes angle pos -- this is leftover from the openGL tutorial
   swapBuffers
 
 idle :: IORef GLfloat -> IORef GLfloat -> IdleCallback
