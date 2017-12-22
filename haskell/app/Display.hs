@@ -16,7 +16,7 @@ display angle pos = do
   clear [ColorBuffer, DepthBuffer]
   clear [ColorBuffer]
   loadIdentity
-  preservingMatrix displayMap
+  preservingMatrix $ displayMap pos
   preservingMatrix displayPlayer
   --preservingMatrix $ displayCubes angle pos -- this is leftover from the openGL tutorial
   swapBuffers
