@@ -10,7 +10,7 @@ import           Display
 import           Graphics.UI.GLUT
 
 strideLength :: GLfloat
-strideLength = 0.0025
+strideLength = 0.0125
 
 reshape :: ReshapeCallback
 reshape size = do

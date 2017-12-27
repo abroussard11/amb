@@ -8,8 +8,10 @@ import           Lib
 main :: IO ()
 main = do
   (_progName, _args) <- getArgsAndInitialize
+  --mapM_ print _tiles
   initialDisplayMode $= [WithDepthBuffer, DoubleBuffered]
   _window <- createWindow "Hello World"
+  windowSize $= Size (1080::GLsizei) (800::GLsizei)
   reshapeCallback $= Just reshape
   depthFunc $= Just Less
   angle <- newIORef 0

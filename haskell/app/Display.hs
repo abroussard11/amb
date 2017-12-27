@@ -7,9 +7,10 @@ import           Control.Monad
 import           Cube
 import           Data.IORef
 import           Graphics.UI.GLUT
-import Map
+import           Map
 import           Player
 import           Points
+import           Overlay
 
 display :: IORef GLfloat -> IORef (GLfloat, GLfloat) -> DisplayCallback
 display angle pos = do
@@ -17,8 +18,8 @@ display angle pos = do
   clear [ColorBuffer]
   loadIdentity
   preservingMatrix $ displayMap pos
-  preservingMatrix displayPlayer
-  --preservingMatrix $ displayCubes angle pos -- this is leftover from the openGL tutorial
+  preservingMatrix $ displayPlayer
+  preservingMatrix $ displayOverlay
   swapBuffers
 
 idle :: IORef GLfloat -> IORef GLfloat -> IdleCallback
