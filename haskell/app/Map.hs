@@ -20,30 +20,30 @@ displayMap pos = do
 
 genTerrain :: GLfloat -> GLfloat -> Tile
 genTerrain x y =
-  if x > 50 && x < 55 && y > 50 && y < 55
-    then IronOre ((x - 50.0) / 50.0) ((y - 50.0) / 50.0)
-    else Grass ((x - 50.0) / 50.0) ((y - 50.0) / 50.0)
+  let x' :: GLfloat
+      y' :: GLfloat
+      x' = ((x - 50.0) / 50.0)
+      y' = ((y - 50.0) / 50.0)
+  in if x > 50 && x < 55 && y > 50 && y < 55
+       then Tile xPos yPos (Color3 (0 :: GLfloat) 0 1)
+       else Tile xPos yPos (Color3 (0 :: GLfloat) 1 0)
 
-data Tile
-  = Grass GLfloat
-          GLfloat
-  | IronOre GLfloat
-            GLfloat
-  deriving (Show)
+data Tile = Tile
+  { xPos   :: GLfloat
+  , yPos   :: GLfloat
+  , color3 :: Color3 GLfloat
+  } deriving (Show)
 
 drawTile :: Tile -> IO ()
-drawTile (IronOre x y) =
+drawTile tile =
   preservingMatrix $ do
-    color $ Color3 (0 :: GLfloat) 0 1
+    color $ color3 tile
     renderPrimitive Polygon $ drawRectangle x y 0.1
     color $ Color3 (0 :: GLfloat) 0 0
     renderPrimitive LineLoop $ drawRectangle x y 0.09
-drawTile (Grass x y) =
-  preservingMatrix $ do
-    color $ Color3 (0 :: GLfloat) 1 0
-    renderPrimitive Polygon $ drawRectangle x y 0.1
-    color $ Color3 (0 :: GLfloat) 0 0
-    renderPrimitive LineLoop $ drawRectangle x y 0.09
+  where
+    x = xPos tile
+    y = yPos tile
 
 drawRectangle :: GLfloat -> GLfloat -> GLfloat -> IO ()
 drawRectangle x y z = do
