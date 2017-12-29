@@ -16,8 +16,9 @@ main = do
   depthFunc $= Just Less
   angle <- newIORef 0
   delta <- newIORef 0.1
+  invCount <- newIORef 0.0
   pos <- newIORef (0, 0)
   keyboardMouseCallback $= Just (keyboardMouse delta pos)
   idleCallback $= Just (idle angle delta)
-  displayCallback $= display angle pos
+  displayCallback $= display angle pos invCount
   mainLoop

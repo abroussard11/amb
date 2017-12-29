@@ -20,7 +20,7 @@ keyboardMouse ::
      IORef GLfloat -> IORef (GLfloat, GLfloat) -> KeyboardMouseCallback
 keyboardMouse a p key Down _ _ =
   case key of
-    (Char ' ')            -> a $~! negate
+    (Char ' ')            -> printActiveTile p
     (Char '+')            -> a $~! (* 2)
     (Char '-')            -> a $~! (/ 2)
     (SpecialKey KeyLeft)  -> p $~! \(x, y) -> (x - strideLength, y)

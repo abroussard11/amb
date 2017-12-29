@@ -3,6 +3,7 @@ module Overlay
   ) where
 
 import       Graphics.UI.GLUT
+import           Data.IORef
 
 depth = -0.2 :: GLfloat
 
@@ -13,13 +14,14 @@ minimapHeight = 0.2 :: GLfloat
 
 gray = 0.5 :: GLfloat
 
-displayOverlay :: IO ()
-displayOverlay = do
-    preservingMatrix $ displayHotbar
+displayOverlay :: IORef GLfloat -> IO ()
+displayOverlay invCount = do
+    inv <- get invCount
+    preservingMatrix $ displayHotbar inv
     preservingMatrix $ displayMinimap
 
-displayHotbar:: IO ()
-displayHotbar = do
+displayHotbar :: GLfloat -> IO ()
+displayHotbar inv = do
     scale (1::GLfloat) 1 1
     color $ Color3 gray gray gray
     -- translate to the bottom of the screen
@@ -30,6 +32,10 @@ displayHotbar = do
         vertex $ Vertex3 (-hotbarWidth) hotbarHeight 0
         vertex $ Vertex3 hotbarWidth hotbarHeight 0
         vertex $ Vertex3 hotbarWidth (-hotbarHeight) 0
+    -- draw the hacky inventory count
+    color $ Color3 0 0 (0::GLfloat)
+    currentRasterPosition $= Vertex4 0 0 depth 1
+    renderString Fixed8By13 $ show inv
 
 displayMinimap :: IO ()
 displayMinimap = do
@@ -41,7 +47,6 @@ displayMinimap = do
         vertex $ Vertex3 minimapWidth minimapHeight 0
         vertex $ Vertex3 minimapWidth (-minimapHeight) 0
     color $ Color3 0 0 (0::GLfloat)
-    --currentRasterPosition $= Vertex4 (minimapWidth-0.1) (minimapHeight-0.1) depth 1
     currentRasterPosition $= Vertex4 0 0 depth 1
     renderString Fixed8By13 $ "Mini Map"
 

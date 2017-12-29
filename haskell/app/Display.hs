@@ -1,6 +1,7 @@
 module Display
   ( display
   , idle
+  , printActiveTile
   ) where
 
 import           Control.Monad
@@ -12,14 +13,14 @@ import           Player
 import           Points
 import           Overlay
 
-display :: IORef GLfloat -> IORef (GLfloat, GLfloat) -> DisplayCallback
-display angle pos = do
+display :: IORef GLfloat -> IORef (GLfloat, GLfloat) -> IORef GLfloat -> DisplayCallback
+display angle pos invCount = do
   clear [ColorBuffer, DepthBuffer]
   clear [ColorBuffer]
   loadIdentity
-  preservingMatrix $ displayMap pos
+  preservingMatrix $ displayMap pos invCount
   preservingMatrix $ displayPlayer
-  preservingMatrix $ displayOverlay
+  preservingMatrix $ displayOverlay invCount
   swapBuffers
 
 idle :: IORef GLfloat -> IORef GLfloat -> IdleCallback
